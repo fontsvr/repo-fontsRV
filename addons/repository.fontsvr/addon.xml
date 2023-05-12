@@ -2,9 +2,9 @@
 <addon id="repository.fontsvr" name="[B]Repo[/B] [COLOR azure][B]FONTSVR[/B] [COLOR limegreen][B]MATRIX[/B][/COLOR]|[COLOR violet][B]NEXUS[/B][/COLOR]" version="1.0" provider-name="Rik Team">
     <extension point="xbmc.addon.repository" name="FONTSVR Repository">
         <dir>
-			<info compressed="false">https://raw.githubusercontent.com/fontsvr/fontsvr.github.io/main/zips/addons.xml</info>
-            <checksum>https://raw.githubusercontent.com/fontsvr/fontsvr.github.io/main/zips/addons.xml.md5</checksum>
-            <datadir zip="true">https://raw.githubusercontent.com/fontsvr/fontsvr.github.io/main/zips/</datadir>
+			<info compressed="false">https://raw.githubusercontent.com/fontsvr/repo-fontsVR/main/addons/zips/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/fontsvr/repo-fontsVR/main/addons/zips/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/fontsvr/repo-fontsVR/main/addons/zips/</datadir>
 		</dir>
     </extension>
     <extension point="xbmc.addon.metadata">
