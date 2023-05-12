@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.program.RikTeam" name="[COLOR azure][B]RikTeam[/B][/COLOR] [COLOR lime][B]MATRIX[COLOR white]|[COLOR violet]NEXUS[/B][/COLOR]" version="3.2" provider-name="Rik Team">
+	<requires>
+		<import addon="xbmc.python" version="3.0.0"/>
+		<import addon="script.module.requests"/>
+		<import addon="script.module.six"/>
+		<import addon="script.kodi.android.update" optional="true" version="1.1.7"/>
+	</requires>
+	
+	<extension point="xbmc.python.pluginsource" debugging="true" library="default.py">
+		<provides>executable</provides>
+	</extension>
+  
+	<extension point="xbmc.service" library="startup.py" start="startup"/>
+  
+	<extension point="xbmc.addon.metadata">
+		<summary lang="es">[COLOR azure]RikTeam[/COLOR] [COLOR lime]MATRIX[COLOR white]|[COLOR violet]NEXUS[/B][/COLOR] tu Wizard para [KODI 19.x y 20.x]</summary>
+		<description>
+[B]• Developers:[/B] [COLOR gold]Rik Team[/COLOR]
+[B]• Testers:[/B]        [COLOR dodgerblue] Rik Team[/COLOR]
+[B]• Telegram:[/B]    [COLOR lime]t.me/rikteam[/COLOR]</description>
+		<platform>all</platform>
+		<reuselanguageinvoker>false</reuselanguageinvoker>
+		<source>https://github.com/rfontsv/rfontsv.github.io</source>
+		<news>
+• plugin.program [COLOR azure][B]RikTeam[/B][/COLOR] [COLOR lime][B]MATRIX[/COLOR][COLOR white]|[/COLOR][COLOR violet]NEXUS[/B][/COLOR]
+
+• 26/09/2021
+- Pruebas con Build Rik MATRIX | NEXUS
+• 26/09/2021
+- Traducción en Limpieza.
+
+• 26/08/2021
+- Finalizadas las pruebas con Build Prime GTKing MATRIX.
+
+• 10/07/2021
+- Instalador renombrado a la versión 1.0
+- Añadidas notificaciones para actualizar el parche de la Build.
+
+• 05/03/2021
+- Instalador actualizado a la versión 3.0.4
+- Inciada la compatibilidad con Kodi 19.0 Matrix y 20.0 Nexus
+		</news>
+		<assets>
+			<icon>icon.png</icon>
+			<fanart>fanart.jpg</fanart>
+		</assets>
+	</extension>
+</addon>
