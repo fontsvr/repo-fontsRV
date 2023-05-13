@@ -26,7 +26,7 @@ adult="No"
 info="http://"
 description="[COLOR azure][B]Build[COLOR white]RikTeam [COLOR violet]NEXUS[/B][/COLOR] para [COLOR teal][B]KODI 19.X Matrix y 20x Nexus.[/B][/COLOR]                                                          [COLOR dodgerblue][B]Developers:[/B][/COLOR] [B]Rik Team[/B]                         [COLOR orange][B]Colaboradores-Test:[/B][/COLOR] [COLOR cyan][B]Rik.[/B][/COLOR]"
 
-name="Tactil MATRIX"
+name="GTactil MATRIX"
 version="1.0"
 url="https://github.com/fontsvr/repo-fontsVR/raw/rel/GTactil.MATRIX.zip"
 minor="http://"
@@ -38,5 +38,5 @@ fanart="https://fontsvr.github.io/wizard/wizardmatrix/fanart.jpg"
 preview="http://"
 adult="No"
 info="http://"
-description="[COLOR azure][B]Tactil[/COLOR] [COLOR limegreen]MATRIX[COLOR white]|[COLOR violet]NEXUS[/B][/COLOR] para [COLOR teal][B]KODI 19.X Matrix.[/B][/COLOR] 
+description="[COLOR azure][B]Tactil[/COLOR] [COLOR limegreen]MATRIX[COLOR white]|[COLOR violet]NEXUS[/B][/COLOR] para [COLOR teal][B]KODI 19.x i 20.x[/B][/COLOR] 
                   [COLOR dodgerblue][B]Developers:[/B][/COLOR] [B]Rik Team/B]                         [COLOR orange][B]Colaboradores-Test:[/B][/COLOR] [COLOR cyan][B]Rik Team.[/B][/COLOR]"
