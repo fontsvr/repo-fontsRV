@@ -106,11 +106,11 @@ AUTOINSTALL = 'No'
 # Addon ID for the repository
 REPOID = 'repository.fontsvr'
 # Url to Addons.xml file in your repo folder(this is so we can get the latest version)
-REPOADDONXML = 'https://raw.githubusercontent.com/fontsvr/repo-fontsVR/main/zips/addons.xml'
+REPOADDONXML = 'https://raw.githubusercontent.com/fontsvr/repo-fontsVR/main/addons/zips/zips/addons.xml'
 # Url to folder zip is located in
-REPOZIPURL = 'hhttps://raw.githubusercontent.com/fontsvr/repo-fontsVR/main/addons/zips/'
+REPOZIPURL = 'https://raw.githubusercontent.com/fontsvr/repo-fontsVR/main/addons/zips/repository.fontsvr'
 #########################################################
-               
+
 #########################################################
 #        Notification Window                            #
 #########################################################

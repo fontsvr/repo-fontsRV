@@ -14,10 +14,10 @@
 	<extension point="xbmc.service" library="startup.py" start="startup"/>
   
 	<extension point="xbmc.addon.metadata">
-		<summary lang="es">[COLOR azure]RikTeam[/COLOR] [COLOR lime]MATRIX[COLOR white]|[COLOR violet]NEXUS[/B][/COLOR] tu Wizard para [KODI 19.x y 20.x]</summary>
+		<summary lang="es">[COLOR azure]RikTeam[/COLOR] [COLOR lime]MATRIX[COLOR white]|[COLOR violet]NEXUS[/B][/COLOR] tu Wizard para KODI 19.x y 20.x</summary>
 		<description>
 [B]• Developers:[/B] [COLOR gold]Rik Team[/COLOR]
-[B]• Testers:[/B]        [COLOR dodgerblue] Rik Team[/COLOR]
+[B]• Testers:[/B]       [COLOR dodgerblue] Rik Team[/COLOR]
 [B]• Telegram:[/B]    [COLOR lime]t.me/rikteam[/COLOR]</description>
 		<platform>all</platform>
 		<reuselanguageinvoker>false</reuselanguageinvoker>
