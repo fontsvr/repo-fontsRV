@@ -1,7 +1,7 @@
-name="[B][COLOR white]•• [COLOR red]Parche: [COLOR crimson]FontsVR Prime MATRIX [COLOR tan]22/03/2023[/COLOR][/B]"
-url="https://github.com/gtkingbuild/Repo-GTKing/releases/download/1.0-matrix.parche.Prime/Parche.GTKing.Prime.MATRIX.zip"
-icon="https://fontsvr.github.io/wizard/imagenes/bgtki.png"
-fanart="https://fontsvr.github.io/wizard/imagenes/fanart.png"
+name="[B][COLOR white]•• [COLOR red]Parche: [COLOR crimson]FontsVR Prime MATRIX|NEXUS[COLOR tan]22/03/2023[/COLOR][/B]"
+url="https://github.com/fontsvr/repo-fontsVR/releases/download/1.0-matrix.parche.Prime/Parche.GTKing.Prime.MATRIX.zip"
+icon="https://fontsvr.github.io/wizard/imagenes/bgprime.png"
+fanart="https://fontsvr.github.io/wizard/imagenes/fanart2.png"
 adult="no"
 description="Parche GTKing Prime MATRIX"
 

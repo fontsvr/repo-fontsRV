@@ -1,6 +1,6 @@
 name="[B][COLOR white]•• [COLOR red]Parche: [COLOR crimson]Tactil MATRIX|NEXUS[COLOR tan]22/03/2023[/COLOR][/B]"
-url="https://github.com/gtkingbuild/Repo-GTKing/releases/download/1.0-matrix.parche.GTactil/Parche.GTactil.MATRIX.zip"
-icon="https://fontsvr.github.io/wizard/imagenes/bgtki.png"
+url="https://github.com/fontsvr/repo-fontsVR/releases/download/1.0-matrix.parche.GTactil/Parche.GTactil.MATRIX.zip"
+icon="https://fontsvr.github.io/wizard/imagenes/bgtactil.png"
 fanart="https://fontsvr.github.io/wizard/imagenes/fanart.png"
 adult="no"
 description="Parche Tactil MATRIX|NEXUS"
