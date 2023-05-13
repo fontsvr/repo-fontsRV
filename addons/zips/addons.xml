@@ -365,7 +365,7 @@
     </extension>
 </addon>
 
-<addon id="plugin.program.RikTeam" name="[COLOR azure][B]RikTeam[/B][/COLOR] [COLOR lime][B]MATRIX[COLOR white]|[COLOR violet]NEXUS[/B][/COLOR]" version="3.2" provider-name="Rik Team">
+<addon id="plugin.program.GTKing-Matrix" name="[COLOR azure][B]GTKing[/B][/COLOR] [COLOR lime][B]MATRIX[COLOR white]|[[COLOR azure]NEXUS[/B][/COLOR]" version="3.2" provider-name="GTKing TEAM">
 	<requires>
 		<import addon="xbmc.python" version="3.0.0"/>
 		<import addon="script.module.requests"/>
@@ -380,19 +380,19 @@
 	<extension point="xbmc.service" library="startup.py" start="startup"/>
 
 	<extension point="xbmc.addon.metadata">
-		<summary lang="es">[COLOR azure]RikTeam[/COLOR] [COLOR lime]MATRIX[COLOR white]|[COLOR violet]NEXUS[/B][/COLOR] tu Wizard para [KODI 19.x y 20.x]</summary>
+		<summary lang="es">[COLOR azure]GTKing[/COLOR] [COLOR lime]MATRIX[/COLOR][COLOR white]|[/COLOR][COLOR azure]NEXUS[/COLOR][/B][/COLOR] tu Wizard para [COLOR teal]KODI 19.x y 20.x[/COLOR]!!</summary>
 		<description>
-[B]• Developers:[/B] [COLOR gold]Rik Team[/COLOR]
-[B]• Testers:[/B]        [COLOR dodgerblue] Rik Team[/COLOR]
-[B]• Telegram:[/B]    [COLOR lime]t.me/rikteam[/COLOR]</description>
+[B]• Developers:[/B] [COLOR gold]DavidZgZ y JoseaTEBA[/COLOR]
+[B]• Testers:[/B]        [COLOR dodgerblue]ehSugea, Vicente,
+                        Tete6776, Mapache,
+                        Keto y Th3action. Rik Team[/COLOR]
+[B]• Telegram:[/B]    [COLOR lime]t.me/beelinkking[/COLOR]</description>
 		<platform>all</platform>
 		<reuselanguageinvoker>false</reuselanguageinvoker>
-		<source>https://github.com/rfontsv/rfontsv.github.io</source>
+		<source>https://www.github.com/gtkingbuild/Repo-GTKing/plugin.program.GTKing-Matrix/</source>
 		<news>
-• plugin.program [COLOR azure][B]RikTeam[/B][/COLOR] [COLOR lime][B]MATRIX[/COLOR][COLOR white]|[/COLOR][COLOR violet]NEXUS[/B][/COLOR]
+• plugin.program [COLOR azure][B]GTKing[/B][/COLOR] [COLOR lime][B]MATRIX[/B][/COLOR]
 
-• 26/09/2021
-- Pruebas con Build Rik MATRIX | NEXUS
 • 26/09/2021
 - Traducción en Limpieza.
 
@@ -405,7 +405,56 @@
 
 • 05/03/2021
 - Instalador actualizado a la versión 3.0.4
-- Inciada la compatibilidad con Kodi 19.0 Matrix y 20.0 Nexus
+- Inciada la compatibilidad con Kodi 19.0 Matrix
+		</news>
+		<assets>
+			<icon>icon.png</icon>
+			<fanart>fanart.jpg</fanart>
+		</assets>
+	</extension>
+</addon>
+
+<addon id="plugin.program.RikTeam" name="[COLOR azure][B]RikTeam[/B][/COLOR] [COLOR lime][B]MATRIX[COLOR white]|[COLOR violet]NEXUS[/B][/COLOR]" version="3.3" provider-name="Rik Team">
+	<requires>
+		<import addon="xbmc.python" version="3.0.0"/>
+		<import addon="script.module.requests"/>
+		<import addon="script.module.six"/>
+		<import addon="script.kodi.android.update" optional="true" version="1.1.7"/>
+	</requires>
+
+	<extension point="xbmc.python.pluginsource" debugging="true" library="default.py">
+		<provides>executable</provides>
+	</extension>
+
+	<extension point="xbmc.service" library="startup.py" start="startup"/>
+
+	<extension point="xbmc.addon.metadata">
+		<summary lang="es">[COLOR azure]RikTeam[/COLOR] [COLOR lime]MATRIX[COLOR white]|[COLOR violet]NEXUS[/B][/COLOR] tu Wizard para KODI 19.x y 20.x</summary>
+		<description>
+[B]• Developers:[/B] [COLOR gold]Rik Team[/COLOR]
+[B]• Testers:[/B]      [COLOR dodgerblue] Rik Team[/COLOR]
+[B]• Telegram:[/B]    [COLOR azure]t.me/rikteam[/COLOR]</description>
+		<platform>all</platform>
+		<reuselanguageinvoker>false</reuselanguageinvoker>
+		<source>https://github.com/fontsvr/fontsvr.github.io</source>
+		<news>
+• plugin.program [COLOR azure][B]RikTeam[/B][/COLOR] [COLOR lime][B]MATRIX[/COLOR][COLOR white]|[/COLOR][COLOR violet]NEXUS[/B][/COLOR]
+
+• 26/09/2021
+- Pruebas con Build RikTeam MATRIX | NEXUS
+• 26/09/2021
+- Traducción en Limpieza.
+
+• 26/08/2021
+- Finalizadas las pruebas con Build Prime RikTeam MATRIX | NEXUS.
+
+• 10/07/2021
+- Instalador renombrado a la versión 1.0
+- Añadidas notificaciones para actualizar el parche de la Build.
+
+• 05/03/2021
+- Instalador actualizado a la versión 3.0.4
+- Inciada la compatibilidad con Kodi 19.X Matrix y 20.X Nexus
 		</news>
 		<assets>
 			<icon>icon.png</icon>
@@ -1046,7 +1095,7 @@ provider-name="jurialmunkey">
 </addon>
 
 <addon id="repository.fontsvr" name="[B]Repo[/B] [COLOR azure][B]FONTSVR[/B] [COLOR limegreen][B]MATRIX[/B][/COLOR]|[COLOR violet][B]NEXUS[/B][/COLOR]" version="1.0" provider-name="Rik Team">
-    <extension point="xbmc.addon.repository" name="FONTSVR Repository">
+    <extension point="xbmc.addon.repository" name="fontsvr repository">
         <dir>
 			<info compressed="false">https://raw.githubusercontent.com/fontsvr/repo-fontsVR/main/addons/zips/addons.xml</info>
             <checksum>https://raw.githubusercontent.com/fontsvr/repo-fontsVR/main/addons/zips/addons.xml.md5</checksum>
