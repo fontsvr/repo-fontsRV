@@ -1,6 +1,0 @@
-En builds.txt el name ha de ser exacte que el del zip(el zip porta el punt) de la build: 
-(exemple)
-----------------------------------------------name="Build Rik"
-url="https://github.com/rfontsv/Repo-GTKing/raw/rel/Build.Rik.zip"
-///
-
