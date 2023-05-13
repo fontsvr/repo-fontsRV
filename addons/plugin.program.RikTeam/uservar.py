@@ -13,7 +13,7 @@ ART = os.path.join(PATH, 'resources', 'media')
 #########################################################
 #        User Edit Variables                            #
 #########################################################
-ADDONTITLE = '[COLOR azure][B]RikTeam[/B][/COLOR] [B][COLOR violet]NEXUS[/B][/COLOR]'
+ADDONTITLE = '[COLOR azure][B]RikTeam[/B][/COLOR] [COLOR lime][B]MATRIX|[/COLOR][COLOR white]|[COLOR violet]NEXUS[/B][/COLOR]'
 BUILDERNAME = 'RikTeam'
 EXCLUDES = [ADDON_ID, 'repository.fontsVR']
 # Text File with build info in it.
@@ -60,11 +60,12 @@ HIDESPACERS = 'No'
 SPACER = '<->'
 
 # You can edit these however you want, just make sure that you have a %s in each of the
-# THEME's so it grabs the text from the menu item
-COLOR1 = 'limegreen'
+# THEME's so it grabs the text from the menu item //limegreen, mediumblue
+COLOR1 = 'violet'
 COLOR2 = 'white'
 COLOR3 = 'dodgerblue'
 COLOR4 = 'turquoise'
+COLOR5 = 'lavander'
 # Primary menu items   / {0} is the menu item and is required
 THEME1 = u'[COLOR {color1}][COLOR {color1}][B]-[/B][/COLOR][COLOR {color2}][B][/B][COLOR {color1}][/COLOR] [COLOR {color2}]{{}}[/COLOR]'.format(color1=COLOR1, color2=COLOR2, color3=COLOR3, color4=COLOR4)
 # Build Names          / {0} is the menu item and is required
@@ -107,7 +108,7 @@ REPOID = 'repository.fontsvr'
 # Url to Addons.xml file in your repo folder(this is so we can get the latest version)
 REPOADDONXML = 'https://raw.githubusercontent.com/fontsvr/repo-fontsVR/main/addons/zips/zips/addons.xml'
 # Url to folder zip is located in
-REPOZIPURL = 'https://raw.githubusercontent.com/fontsvr/repo-fontsVR/main/addons/zips/repository.fontsvr'
+REPOZIPURL = 'https://github.com/fontsvr/repo-fontsVR/tree/main/addons/zips/repository.fontsvr'
 #########################################################
 
 #########################################################
