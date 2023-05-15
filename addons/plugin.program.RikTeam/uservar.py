@@ -14,7 +14,7 @@ ART = os.path.join(PATH, 'resources', 'media')
 #        User Edit Variables                            #
 #########################################################
 ADDONTITLE = '[COLOR azure][B]RikTeam[/B][/COLOR] [COLOR lime][B]MATRIX|[/COLOR][COLOR white]|[COLOR violet]NEXUS[/B][/COLOR]'
-BUILDERNAME = 'RikTeam'
+BUILDERNAME = 'RikTeam Nexus'
 EXCLUDES = [ADDON_ID, 'repository.fontsVR']
 # Text File with build info in it.
 BUILDFILE = 'https://raw.githubusercontent.com/fontsvr/repo-fontsVR/main/wizardfiles/builds.txt'
@@ -24,8 +24,8 @@ UPDATECHECK = 0
 # Text File with apk info in it.  Leave as 'http://' to ignore
 APKFILE = 'https://raw.githubusercontent.com/fontsvr/repo-fontsVR/main/wizardfiles/apks.txt'
 # Text File with Youtube Videos urls.  Leave as 'http://' to ignore
-YOUTUBETITLE = 'DETALLE de Rik Team'
-YOUTUBEFILE = 'https://raw.githubusercontent.com/fontsvr/repo-fontsVR/main/wizardfiles/youtube.txt'
+#YOUTUBETITLE = 'DETALLE de Rik Team'
+#YOUTUBEFILE = 'https://raw.githubusercontent.com/fontsvr/repo-fontsVR/main/wizardfiles/youtube.txt'
 # Text File for addon installer.  Leave as 'http://' to ignore
 ADDONFILE = 'http://'
 # Text File for advanced settings.  Leave as 'http://' to ignore
@@ -106,7 +106,7 @@ AUTOINSTALL = 'No'
 # Addon ID for the repository
 REPOID = 'repository.fontsvr'
 # Url to Addons.xml file in your repo folder(this is so we can get the latest version)
-REPOADDONXML = 'https://raw.githubusercontent.com/fontsvr/repo-fontsVR/main/addons/zips/zips/addons.xml'
+REPOADDONXML = 'https://raw.githubusercontent.com/fontsvr/repo-fontsVR/main/addons/zips/addons.xml'
 # Url to folder zip is located in
 REPOZIPURL = 'https://github.com/fontsvr/repo-fontsVR/tree/main/addons/zips/repository.fontsvr'
 #########################################################
@@ -119,14 +119,14 @@ ENABLE = 'Yes'
 # Url to notification file
 NOTIFICATION = 'https://raw.githubusercontent.com/fontsvr/repo-fontsVR/main/wizardfiles/RV/Notify.txt'
 # Use either 'Text' or 'Image'
-HEADERTYPE = 'Image'
-# Font size of header //Font14
-FONTHEADER = ''
+HEADERTYPE = 'Text'
+# Font size of header #'Font14' 
+FONTHEADER = 'Font14'  
 HEADERMESSAGE = '[COLOR azure][B]RikTeam[/B][/COLOR] [COLOR lime][B]MATRIX[COLOR white]|[COLOR violet]NEXUS[/B][/COLOR]'
 # url to image if using Image 424x180
 HEADERIMAGE = 'https://res.cloudinary.com/dsmvomgrd/image/upload/v1683640913/build/banner.png'
-# Font for Notification Window // Font13
-FONTSETTINGS = ''
+# Font for Notification Window #'Font13' 
+FONTSETTINGS = 'Font13'
 # Background for Notification Window
 BACKGROUND = 'https://res.cloudinary.com/dsmvomgrd/image/upload/v1683640927/build/fandrart.png'
 #########################################################
