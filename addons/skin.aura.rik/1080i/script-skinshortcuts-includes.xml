@@ -171,8 +171,8 @@
 			<thumb />
 			<property name="labelID">pvr</property>
 			<property name="defaultID" />
-			<!--<property name="background">https://beelinkgtking2.github.io/backgrounds/Matrix/1.jpg</property>
-			<property name="backgroundName">https://beelinkgtking2.github.io/backgrounds/Matrix/1.jpg</property>-->
+			<!--<property name="background">https://raw.githubusercontent.com/fontsvr/fontsvr.github.io/main/backgrounds/alexia_putellas.jpg</property>
+			<property name="backgroundName">https://raw.githubusercontent.com/fontsvr/fontsvr.github.io/main/backgrounds/alexia_putellas.jpg</property>-->
 			<property name="WidgetAspect">Landscape</property>
 			<property name="Landscape">Cartel</property>
 			<property name="Cartel">Cartel</property>
@@ -241,8 +241,8 @@
 			<thumb />
 			<property name="labelID">ajustes</property>
 			<property name="defaultID">settings</property>
-			<property name="background">https://gtkingbuild.github.io/backgrounds/Ajustes/1.jpg</property>
-			<property name="backgroundName">https://gtkingbuild.github.io/backgrounds/Ajustes/1.jpg</property>
+			<!--<property name="background">https://gtkingbuild.github.io/backgrounds/Ajustes/1.jpg</property>
+			<property name="backgroundName">https://gtkingbuild.github.io/backgrounds/Ajustes/1.jpg</property>-->
 			<onclick>ActivateWindow(Settings)</onclick>
 			<property name="path">ActivateWindow(Settings)</property>
 			<property name="list">Settings</property>
@@ -264,8 +264,8 @@
 			<property name="widgetType" />
 			<property name="widgetTarget" />
 			<property name="widgetPath" />
-			<property name="background">https://gtkingbuild.github.io/backgrounds/Apagado/1.jpg</property>
-			<property name="backgroundName">https://gtkingbuild.github.io/backgrounds/Apagado/1.jpg</property>
+			<!--<property name="background">https://gtkingbuild.github.io/backgrounds/Apagado/1.jpg</property>
+			<property name="backgroundName">https://gtkingbuild.github.io/backgrounds/Apagado/1.jpg</property>-->
 			<onclick>ActivateWindow(shutdownmenu)</onclick>
 			<property name="path">ActivateWindow(shutdownmenu)</property>
 			<property name="list">shutdownmenu</property>
@@ -1156,13 +1156,13 @@
 			<property name="mainmenuid">9</property>
 			<label>Builds</label>
 			<label2>Programa</label2>
-			<icon>special://skin/extras/icons/addtile.png</icon>
-			<thumb>special://skin/extras/icons/GTkingMa.png</thumb>
+			<icon>special://skin/extras/icons/addtile.png</icon><!--GTKing-->
+			<thumb>special://skin/extras/icons/GTkingMa.png</thumb><!--GTKing-->
 			<property name="labelID">builds</property>
 			<property name="defaultID" />
-			<onclick>ActivateWindow(Programs,"plugin://plugin.program.GTKing-Matrix/?mode=builds",return)</onclick>
-			<property name="path">ActivateWindow(Programs,"plugin://plugin.program.GTKing-Matrix/?mode=builds",return)</property>
-			<property name="list">plugin://plugin.program.GTKing-Matrix/?mode=builds</property>
+			<onclick>ActivateWindow(Programs,"plugin://plugin.program.RikTeam/?mode=builds",return)</onclick>
+			<property name="path">ActivateWindow(Programs,"plugin://plugin.program.RikTeam/?mode=builds",return)</property>
+			<property name="list">plugin://plugin.program.RikTeam/?mode=builds</property>
 			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(300).ListItem.Property(submenuVisibility),ajustes)</visible>
 			<property name="group">ajustes</property>
 			<property name="isSubmenu">True</property>
@@ -1172,13 +1172,13 @@
 			<property name="mainmenuid">9</property>
 			<label>Mantenimiento</label>
 			<label2>Ítem Personalizado</label2>
-			<icon>special://skin/extras/icons/addtile.png</icon>
-			<thumb>special://skin/extras/icons/GTKingBeelink.png</thumb>
+			<icon>special://skin/extras/icons/addtile.png</icon><!--GTKing-->
+			<thumb>special://skin/extras/icons/GTKingBeelink.png</thumb><!--GTKing-->
 			<property name="labelID">mantenimiento</property>
 			<property name="defaultID" />
-			<onclick>ActivateWindow(Programs,"plugin://plugin.program.GTKing-Matrix/?mode=maint",return)</onclick>
-			<property name="path">ActivateWindow(Programs,"plugin://plugin.program.GTKing-Matrix/?mode=maint",return)</property>
-			<property name="list">plugin://plugin.program.GTKing-Matrix/?mode=maint</property>
+			<onclick>ActivateWindow(Programs,"plugin://plugin.program.RikTeam/?mode=maint",return)</onclick>
+			<property name="path">ActivateWindow(Programs,"plugin://plugin.program.RikTeam/?mode=maint",return)</property>
+			<property name="list">plugin://plugin.program.RikTeam/?mode=maint</property>
 			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(300).ListItem.Property(submenuVisibility),ajustes)</visible>
 			<property name="group">ajustes</property>
 			<property name="isSubmenu">True</property>
@@ -1192,9 +1192,9 @@
 			<thumb>special://skin/extras/icons/hourglass2.png</thumb>
 			<property name="labelID">buffer</property>
 			<property name="defaultID" />
-			<onclick>ActivateWindow(Programs,"plugin://plugin.program.GTKing-Matrix/?mode=advanced_settings&amp;url=https%3A%2F%2Fraw.githubusercontent.com%2Fgtkingbuild%2Fgtkingbuild.github.io%2Fmaster%2Fwizard%2Fxml%2FAdvance-Matrix.json",return)</onclick>
-			<property name="path">ActivateWindow(Programs,"plugin://plugin.program.GTKing-Matrix/?mode=advanced_settings&amp;url=https%3A%2F%2Fraw.githubusercontent.com%2Fgtkingbuild%2Fgtkingbuild.github.io%2Fmaster%2Fwizard%2Fxml%2FAdvance-Matrix.json",return)</property>
-			<property name="list">plugin://plugin.program.GTKing-Matrix/?mode=advanced_settings&amp;url=https%3A%2F%2Fraw.githubusercontent.com%2Fgtkingbuild%2Fgtkingbuild.github.io%2Fmaster%2Fwizard%2Fxml%2FAdvance-Matrix.json</property>
+			<onclick>ActivateWindow(Programs,"plugin://plugin.program.RikTeam/?mode=advanced_settings&amp;url=https%3A%2F%2Fraw.githubusercontent.com%2Ffontsvr%2Ffontsvr.github.io%2Fmaster%2Fwizard%2Fxml%2FAdvance-Matrix.json",return)</onclick>
+			<property name="path">ActivateWindow(Programs,"plugin://plugin.program.RikTeam/?mode=advanced_settings&amp;url=https%3A%2F%2Fraw.githubusercontent.com%2Ffontsvr%2Ffontsvr.github.io%2Fmaster%2Fwizard%2Fxml%2FAdvance-Matrix.json",return)</property>
+			<property name="list">plugin://plugin.program.RikTeam/?mode=advanced_settings&amp;url=https%3A%2F%2Fraw.githubusercontent.com%2Ffontsvr%2Ffontsvr.github.io%2Fmaster%2Fwizard%2Fxml%2FAdvance-Matrix.json</property>
 			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(300).ListItem.Property(submenuVisibility),ajustes)</visible>
 			<property name="group">ajustes</property>
 			<property name="isSubmenu">True</property>
@@ -1224,9 +1224,9 @@
 			<thumb>special://skin/extras/icons/log.png</thumb>
 			<property name="labelID">archivos-log</property>
 			<property name="defaultID" />
-			<onclick>ActivateWindow(Programs,"plugin://plugin.program.GTKing-Matrix/?mode=maint&amp;name=logging",return)</onclick>
-			<property name="path">ActivateWindow(Programs,"plugin://plugin.program.GTKing-Matrix/?mode=maint&amp;name=logging",return)</property>
-			<property name="list">plugin://plugin.program.GTKing-Matrix/?mode=maint&amp;name=logging</property>
+			<onclick>ActivateWindow(Programs,"plugin://plugin.program.RikTeam/?mode=maint&amp;name=logging",return)</onclick>
+			<property name="path">ActivateWindow(Programs,"plugin://plugin.program.RikTeam/?mode=maint&amp;name=logging",return)</property>
+			<property name="list">plugin://plugin.program.RikTeam/?mode=maint&amp;name=logging</property>
 			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(300).ListItem.Property(submenuVisibility),ajustes)</visible>
 			<property name="group">ajustes</property>
 			<property name="isSubmenu">True</property>
@@ -1289,9 +1289,9 @@
 			<property name="labelID">colorred-forzarcierredekodi-color</property>
 			<property name="defaultID" />
 			<onclick condition="Window.IsActive(DialogButtonMenu.xml)">Close</onclick>
-			<onclick>ActivateWindow(Programs,"plugin://plugin.program.GTKing-Matrix/?mode=forceclose",return)</onclick>
-			<property name="path">ActivateWindow(Programs,"plugin://plugin.program.GTKing-Matrix/?mode=forceclose",return)</property>
-			<property name="list">plugin://plugin.program.GTKing-Matrix/?mode=forceclose</property>
+			<onclick>ActivateWindow(Programs,"plugin://plugin.program.RikTeam/?mode=forceclose",return)</onclick>
+			<property name="path">ActivateWindow(Programs,"plugin://plugin.program.RikTeam/?mode=forceclose",return)</property>
+			<property name="list">plugin://plugin.program.RikTeam/?mode=forceclose</property>
 			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(300).ListItem.Property(submenuVisibility),powermenu)</visible>
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
@@ -1538,8 +1538,8 @@
 			<thumb>special://skin/extras/icons/sets.png</thumb>
 			<property name="labelID">videoteca</property>
 			<property name="defaultID" />
-			<property name="background">https://gtkingbuild.github.io/backgrounds/Videoteca/</property>
-			<property name="backgroundName">https://gtkingbuild.github.io/backgrounds/Videoteca/</property>
+			<!--<property name="background">https://gtkingbuild.github.io/backgrounds/Videoteca/</property>
+			<property name="backgroundName">https://gtkingbuild.github.io/backgrounds/Videoteca/</property>-->
 			<property name="widget">NewMovies</property>
 			<property name="widgetName">31185</property>
 			<property name="widgetType" />
@@ -1690,8 +1690,8 @@
 			<property name="WidgetDirection">ascending</property>
 			<property name="ascending">ascending</property>
 			<property name="descending">descending</property>
-			<property name="background">https://gtkingbuild.github.io/backgrounds/Peliculas/</property>
-			<property name="backgroundName">https://gtkingbuild.github.io/backgrounds/Peliculas/</property>
+			<!--<property name="background">https://gtkingbuild.github.io/backgrounds/Peliculas/</property>
+			<property name="backgroundName">https://gtkingbuild.github.io/backgrounds/Peliculas/</property>-->
 			<property name="widget.Widget1">Addon</property>
 			<property name="widgetName.Widget1">CINECALIDAD</property>
 			<property name="widgetType.Widget1">videos</property>
@@ -2333,8 +2333,8 @@
 			<thumb />
 			<property name="labelID">pvr</property>
 			<property name="defaultID" />
-			<property name="background">https://beelinkgtking2.github.io/backgrounds/Matrix/1.jpg</property>
-			<property name="backgroundName">https://beelinkgtking2.github.io/backgrounds/Matrix/1.jpg</property>
+			<!--<property name="background">https://raw.githubusercontent.com/fontsvr/fontsvr.github.io/main/backgrounds/alexia_putellas.jpg</property>
+			<property name="backgroundName">https://raw.githubusercontent.com/fontsvr/fontsvr.github.io/main/backgrounds/alexia_putellas.jpg</property>-->
 			<property name="WidgetAspect">Landscape</property>
 			<property name="Landscape">Cartel</property>
 			<property name="Cartel">Cartel</property>
@@ -2444,8 +2444,8 @@
 			<thumb>special://skin/extras/icons/tv-search.png</thumb>
 			<property name="labelID">buscador</property>
 			<property name="defaultID" />
-			<property name="background">https://gtkingbuild.github.io/backgrounds/Buscador/</property>
-			<property name="backgroundName">https://gtkingbuild.github.io/backgrounds/Buscador/</property>
+			<!--<property name="background">https://gtkingbuild.github.io/backgrounds/Buscador/</property>
+			<property name="backgroundName">https://gtkingbuild.github.io/backgrounds/Buscador/</property>-->
 			<onclick condition="String.IsEqual(Window(10000).Property(submenuVisibility),buscador)"> </onclick>
 			<property name="path"> </property>
 			<property name="list"> </property>
@@ -2568,8 +2568,8 @@
 			<thumb />
 			<property name="labelID">add-ons</property>
 			<property name="defaultID">addons</property>
-			<property name="background">https://gtkingbuild.github.io/backgrounds/Texturas/Texturas/</property>
-			<property name="backgroundName">https://gtkingbuild.github.io/backgrounds/Texturas/Texturas/</property>
+			<!--<property name="background">https://gtkingbuild.github.io/backgrounds/Texturas/Texturas/</property>
+			<property name="backgroundName">https://gtkingbuild.github.io/backgrounds/Texturas/Texturas/</property>-->
 			<onclick condition="String.IsEqual(Window(10000).Property(submenuVisibility),add-ons)">ActivateWindow(AddonBrowser)</onclick>
 			<property name="path">ActivateWindow(AddonBrowser)</property>
 			<property name="list">AddonBrowser</property>
@@ -2690,8 +2690,8 @@
 			<thumb />
 			<property name="labelID">ajustes</property>
 			<property name="defaultID">settings</property>
-			<property name="background">https://gtkingbuild.github.io/backgrounds/Ajustes/1.jpg</property>
-			<property name="backgroundName">https://gtkingbuild.github.io/backgrounds/Ajustes/1.jpg</property>
+			<!--<property name="background">https://gtkingbuild.github.io/backgrounds/Ajustes/1.jpg</property>
+			<property name="backgroundName">https://gtkingbuild.github.io/backgrounds/Ajustes/1.jpg</property>-->
 			<onclick condition="String.IsEqual(Window(10000).Property(submenuVisibility),ajustes)">ActivateWindow(Settings)</onclick>
 			<property name="path">ActivateWindow(Settings)</property>
 			<property name="list">Settings</property>
@@ -2727,9 +2727,9 @@
 			<thumb>special://skin/extras/icons/GTkingMa.png</thumb>
 			<property name="labelID">builds</property>
 			<property name="defaultID" />
-			<onclick>ActivateWindow(Programs,"plugin://plugin.program.GTKing-Matrix/?mode=builds",return)</onclick>
-			<property name="path">ActivateWindow(Programs,"plugin://plugin.program.GTKing-Matrix/?mode=builds",return)</property>
-			<property name="list">plugin://plugin.program.GTKing-Matrix/?mode=builds</property>
+			<onclick>ActivateWindow(Programs,"plugin://plugin.program.RikTeam/?mode=builds",return)</onclick>
+			<property name="path">ActivateWindow(Programs,"plugin://plugin.program.RikTeam/?mode=builds",return)</property>
+			<property name="list">plugin://plugin.program.RikTeam/?mode=builds</property>
 			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),ajustes)</visible>
 			<property name="group">ajustes</property>
 			<property name="isSubmenu">True</property>
@@ -2744,9 +2744,9 @@
 			<thumb>special://skin/extras/icons/GTKingBeelink.png</thumb>
 			<property name="labelID">mantenimiento</property>
 			<property name="defaultID" />
-			<onclick>ActivateWindow(Programs,"plugin://plugin.program.GTKing-Matrix/?mode=maint",return)</onclick>
-			<property name="path">ActivateWindow(Programs,"plugin://plugin.program.GTKing-Matrix/?mode=maint",return)</property>
-			<property name="list">plugin://plugin.program.GTKing-Matrix/?mode=maint</property>
+			<onclick>ActivateWindow(Programs,"plugin://plugin.program.RikTeam/?mode=maint",return)</onclick>
+			<property name="path">ActivateWindow(Programs,"plugin://plugin.program.RikTeam/?mode=maint",return)</property>
+			<property name="list">plugin://plugin.program.RikTeam/?mode=maint</property>
 			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),ajustes)</visible>
 			<property name="group">ajustes</property>
 			<property name="isSubmenu">True</property>
@@ -2761,9 +2761,9 @@
 			<thumb>special://skin/extras/icons/hourglass2.png</thumb>
 			<property name="labelID">buffer</property>
 			<property name="defaultID" />
-			<onclick>ActivateWindow(Programs,"plugin://plugin.program.GTKing-Matrix/?mode=advanced_settings&amp;url=https%3A%2F%2Fraw.githubusercontent.com%2Fgtkingbuild%2Fgtkingbuild.github.io%2Fmaster%2Fwizard%2Fxml%2FAdvance-Matrix.json",return)</onclick>
-			<property name="path">ActivateWindow(Programs,"plugin://plugin.program.GTKing-Matrix/?mode=advanced_settings&amp;url=https%3A%2F%2Fraw.githubusercontent.com%2Fgtkingbuild%2Fgtkingbuild.github.io%2Fmaster%2Fwizard%2Fxml%2FAdvance-Matrix.json",return)</property>
-			<property name="list">plugin://plugin.program.GTKing-Matrix/?mode=advanced_settings&amp;url=https%3A%2F%2Fraw.githubusercontent.com%2Fgtkingbuild%2Fgtkingbuild.github.io%2Fmaster%2Fwizard%2Fxml%2FAdvance-Matrix.json</property>
+			<onclick>ActivateWindow(Programs,"plugin://plugin.program.RikTeam/?mode=advanced_settings&amp;url=https%3A%2F%2Fraw.githubusercontent.com%2Ffontsvr%2Ffontsvr.github.io%2Fmaster%2Fwizard%2Fxml%2FAdvance-Matrix.json",return)</onclick>
+			<property name="path">ActivateWindow(Programs,"plugin://plugin.program.RikTeam/?mode=advanced_settings&amp;url=https%3A%2F%2Fraw.githubusercontent.com%2Ffontsvr%2Ffontsvr.github.io%2Fmaster%2Fwizard%2Fxml%2FAdvance-Matrix.json.json",return)</property>
+			<property name="list">plugin://plugin.program.RikTeam/?mode=advanced_settings&amp;url=https%3A%2F%2Fraw.githubusercontent.com%2Ffontsvr%2Ffontsvr.github.io%2Fmaster%2Fwizard%2Fxml%2FAdvance-Matrix.json.json</property>
 			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),ajustes)</visible>
 			<property name="group">ajustes</property>
 			<property name="isSubmenu">True</property>
@@ -2795,9 +2795,9 @@
 			<thumb>special://skin/extras/icons/log.png</thumb>
 			<property name="labelID">archivos-log</property>
 			<property name="defaultID" />
-			<onclick>ActivateWindow(Programs,"plugin://plugin.program.GTKing-Matrix/?mode=maint&amp;name=logging",return)</onclick>
-			<property name="path">ActivateWindow(Programs,"plugin://plugin.program.GTKing-Matrix/?mode=maint&amp;name=logging",return)</property>
-			<property name="list">plugin://plugin.program.GTKing-Matrix/?mode=maint&amp;name=logging</property>
+			<onclick>ActivateWindow(Programs,"plugin://plugin.program.RikTeam/?mode=maint&amp;name=logging",return)</onclick>
+			<property name="path">ActivateWindow(Programs,"plugin://plugin.program.RikTeam/?mode=maint&amp;name=logging",return)</property>
+			<property name="list">plugin://plugin.program.RikTeam/?mode=maint&amp;name=logging</property>
 			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),ajustes)</visible>
 			<property name="group">ajustes</property>
 			<property name="isSubmenu">True</property>
@@ -2867,8 +2867,8 @@
 			<property name="widgetType" />
 			<property name="widgetTarget" />
 			<property name="widgetPath" />
-			<property name="background">https://gtkingbuild.github.io/backgrounds/Apagado/1.jpg</property>
-			<property name="backgroundName">https://gtkingbuild.github.io/backgrounds/Apagado/1.jpg</property>
+			<!--<property name="background">https://gtkingbuild.github.io/backgrounds/Apagado/1.jpg</property>
+			<property name="backgroundName">https://gtkingbuild.github.io/backgrounds/Apagado/1.jpg</property>-->
 			<onclick>ActivateWindow(shutdownmenu)</onclick>
 			<property name="path">ActivateWindow(shutdownmenu)</property>
 			<property name="list">shutdownmenu</property>
@@ -4652,9 +4652,9 @@
 			<thumb>special://skin/extras/icons/GTkingMa.png</thumb>
 			<property name="labelID">builds</property>
 			<property name="defaultID" />
-			<onclick>ActivateWindow(Programs,"plugin://plugin.program.GTKing-Matrix/?mode=builds",return)</onclick>
-			<property name="path">ActivateWindow(Programs,"plugin://plugin.program.GTKing-Matrix/?mode=builds",return)</property>
-			<property name="list">plugin://plugin.program.GTKing-Matrix/?mode=builds</property>
+			<onclick>ActivateWindow(Programs,"plugin://plugin.program.RikTeam/?mode=builds",return)</onclick>
+			<property name="path">ActivateWindow(Programs,"plugin://plugin.program.RikTeam/?mode=builds",return)</property>
+			<property name="list">plugin://plugin.program.RikTeam/?mode=builds</property>
 			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
 			<property name="group">ajustes</property>
 			<property name="isSubmenu">True</property>
@@ -4668,9 +4668,9 @@
 			<thumb>special://skin/extras/icons/GTKingBeelink.png</thumb>
 			<property name="labelID">mantenimiento</property>
 			<property name="defaultID" />
-			<onclick>ActivateWindow(Programs,"plugin://plugin.program.GTKing-Matrix/?mode=maint",return)</onclick>
-			<property name="path">ActivateWindow(Programs,"plugin://plugin.program.GTKing-Matrix/?mode=maint",return)</property>
-			<property name="list">plugin://plugin.program.GTKing-Matrix/?mode=maint</property>
+			<onclick>ActivateWindow(Programs,"plugin://plugin.program.RikTeam/?mode=maint",return)</onclick>
+			<property name="path">ActivateWindow(Programs,"plugin://plugin.program.RikTeam/?mode=maint",return)</property>
+			<property name="list">plugin://plugin.program.RikTeam/?mode=maint</property>
 			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
 			<property name="group">ajustes</property>
 			<property name="isSubmenu">True</property>
@@ -4684,9 +4684,9 @@
 			<thumb>special://skin/extras/icons/hourglass2.png</thumb>
 			<property name="labelID">buffer</property>
 			<property name="defaultID" />
-			<onclick>ActivateWindow(Programs,"plugin://plugin.program.GTKing-Matrix/?mode=advanced_settings&amp;url=https%3A%2F%2Fraw.githubusercontent.com%2Fgtkingbuild%2Fgtkingbuild.github.io%2Fmaster%2Fwizard%2Fxml%2FAdvance-Matrix.json",return)</onclick>
-			<property name="path">ActivateWindow(Programs,"plugin://plugin.program.GTKing-Matrix/?mode=advanced_settings&amp;url=https%3A%2F%2Fraw.githubusercontent.com%2Fgtkingbuild%2Fgtkingbuild.github.io%2Fmaster%2Fwizard%2Fxml%2FAdvance-Matrix.json",return)</property>
-			<property name="list">plugin://plugin.program.GTKing-Matrix/?mode=advanced_settings&amp;url=https%3A%2F%2Fraw.githubusercontent.com%2Fgtkingbuild%2Fgtkingbuild.github.io%2Fmaster%2Fwizard%2Fxml%2FAdvance-Matrix.json</property>
+			<onclick>ActivateWindow(Programs,"plugin://plugin.program.RikTeam/?mode=advanced_settings&amp;url=https%3A%2F%2Fraw.githubusercontent.com%2Ffontsvr%2Ffontsvr.github.io%2Fmaster%2Fwizard%2Fxml%2FAdvance-Matrix.json.json",return)</onclick>
+			<property name="path">ActivateWindow(Programs,"plugin://plugin.program.RikTeam/?mode=advanced_settings&amp;url=https%3A%2F%2Fraw.githubusercontent.com%2Ffontsvr%2Ffontsvr.github.io%2Fmaster%2Fwizard%2Fxml%2FAdvance-Matrix.json.json",return)</property>
+			<property name="list">plugin://plugin.program.RikTeam/?mode=advanced_settings&amp;url=https%3A%2F%2Fraw.githubusercontent.com%2Ffontsvr%2Ffontsvr.github.io%2Fmaster%2Fwizard%2Fxml%2FAdvance-Matrix.json.json</property>
 			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
 			<property name="group">ajustes</property>
 			<property name="isSubmenu">True</property>
@@ -4716,9 +4716,9 @@
 			<thumb>special://skin/extras/icons/log.png</thumb>
 			<property name="labelID">archivos-log</property>
 			<property name="defaultID" />
-			<onclick>ActivateWindow(Programs,"plugin://plugin.program.GTKing-Matrix/?mode=maint&amp;name=logging",return)</onclick>
-			<property name="path">ActivateWindow(Programs,"plugin://plugin.program.GTKing-Matrix/?mode=maint&amp;name=logging",return)</property>
-			<property name="list">plugin://plugin.program.GTKing-Matrix/?mode=maint&amp;name=logging</property>
+			<onclick>ActivateWindow(Programs,"plugin://plugin.program.RikTeam/?mode=maint&amp;name=logging",return)</onclick>
+			<property name="path">ActivateWindow(Programs,"plugin://plugin.program.RikTeam/?mode=maint&amp;name=logging",return)</property>
+			<property name="list">plugin://plugin.program.RikTeam/?mode=maint&amp;name=logging</property>
 			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
 			<property name="group">ajustes</property>
 			<property name="isSubmenu">True</property>
@@ -4798,9 +4798,9 @@
 			<thumb>special://skin/extras/icons/GTkingMa.png</thumb>
 			<property name="labelID">builds</property>
 			<property name="defaultID" />
-			<onclick>ActivateWindow(Programs,"plugin://plugin.program.GTKing-Matrix/?mode=builds",return)</onclick>
-			<property name="path">ActivateWindow(Programs,"plugin://plugin.program.GTKing-Matrix/?mode=builds",return)</property>
-			<property name="list">plugin://plugin.program.GTKing-Matrix/?mode=builds</property>
+			<onclick>ActivateWindow(Programs,"plugin://plugin.program.RikTeam/?mode=builds",return)</onclick>
+			<property name="path">ActivateWindow(Programs,"plugin://plugin.program.RikTeam/?mode=builds",return)</property>
+			<property name="list">plugin://plugin.program.RikTeam/?mode=builds</property>
 			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),ajustes)</visible>
 			<property name="group">ajustes</property>
 			<property name="isSubmenu">True</property>
@@ -4814,9 +4814,9 @@
 			<thumb>special://skin/extras/icons/GTKingBeelink.png</thumb>
 			<property name="labelID">mantenimiento</property>
 			<property name="defaultID" />
-			<onclick>ActivateWindow(Programs,"plugin://plugin.program.GTKing-Matrix/?mode=maint",return)</onclick>
-			<property name="path">ActivateWindow(Programs,"plugin://plugin.program.GTKing-Matrix/?mode=maint",return)</property>
-			<property name="list">plugin://plugin.program.GTKing-Matrix/?mode=maint</property>
+			<onclick>ActivateWindow(Programs,"plugin://plugin.program.RikTeam/?mode=maint",return)</onclick>
+			<property name="path">ActivateWindow(Programs,"plugin://plugin.program.RikTeam/?mode=maint",return)</property>
+			<property name="list">plugin://plugin.program.RikTeam/?mode=maint</property>
 			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),ajustes)</visible>
 			<property name="group">ajustes</property>
 			<property name="isSubmenu">True</property>
@@ -4830,9 +4830,9 @@
 			<thumb>special://skin/extras/icons/hourglass2.png</thumb>
 			<property name="labelID">buffer</property>
 			<property name="defaultID" />
-			<onclick>ActivateWindow(Programs,"plugin://plugin.program.GTKing-Matrix/?mode=advanced_settings&amp;url=https%3A%2F%2Fraw.githubusercontent.com%2Fgtkingbuild%2Fgtkingbuild.github.io%2Fmaster%2Fwizard%2Fxml%2FAdvance-Matrix.json",return)</onclick>
-			<property name="path">ActivateWindow(Programs,"plugin://plugin.program.GTKing-Matrix/?mode=advanced_settings&amp;url=https%3A%2F%2Fraw.githubusercontent.com%2Fgtkingbuild%2Fgtkingbuild.github.io%2Fmaster%2Fwizard%2Fxml%2FAdvance-Matrix.json",return)</property>
-			<property name="list">plugin://plugin.program.GTKing-Matrix/?mode=advanced_settings&amp;url=https%3A%2F%2Fraw.githubusercontent.com%2Fgtkingbuild%2Fgtkingbuild.github.io%2Fmaster%2Fwizard%2Fxml%2FAdvance-Matrix.json</property>
+			<onclick>ActivateWindow(Programs,"plugin://plugin.program.RikTeam/?mode=advanced_settings&amp;url=https%3A%2F%2Fraw.githubusercontent.com%2Ffontsvr%2Ffontsvr.github.io%2Fmaster%2Fwizard%2Fxml%2FAdvance-Matrix.json.json",return)</onclick>
+			<property name="path">ActivateWindow(Programs,"plugin://plugin.program.RikTeam/?mode=advanced_settings&amp;url=https%3A%2F%2Fraw.githubusercontent.com%2Ffontsvr%2Ffontsvr.github.io%2Fmaster%2Fwizard%2Fxml%2FAdvance-Matrix.json.json",return)</property>
+			<property name="list">plugin://plugin.program.RikTeam/?mode=advanced_settings&amp;url=https%3A%2F%2Fraw.githubusercontent.com%2Ffontsvr%2Ffontsvr.github.io%2Fmaster%2Fwizard%2Fxml%2FAdvance-Matrix.json.json</property>
 			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),ajustes)</visible>
 			<property name="group">ajustes</property>
 			<property name="isSubmenu">True</property>
@@ -4862,9 +4862,9 @@
 			<thumb>special://skin/extras/icons/log.png</thumb>
 			<property name="labelID">archivos-log</property>
 			<property name="defaultID" />
-			<onclick>ActivateWindow(Programs,"plugin://plugin.program.GTKing-Matrix/?mode=maint&amp;name=logging",return)</onclick>
-			<property name="path">ActivateWindow(Programs,"plugin://plugin.program.GTKing-Matrix/?mode=maint&amp;name=logging",return)</property>
-			<property name="list">plugin://plugin.program.GTKing-Matrix/?mode=maint&amp;name=logging</property>
+			<onclick>ActivateWindow(Programs,"plugin://plugin.program.RikTeam/?mode=maint&amp;name=logging",return)</onclick>
+			<property name="path">ActivateWindow(Programs,"plugin://plugin.program.RikTeam/?mode=maint&amp;name=logging",return)</property>
+			<property name="list">plugin://plugin.program.RikTeam/?mode=maint&amp;name=logging</property>
 			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),ajustes)</visible>
 			<property name="group">ajustes</property>
 			<property name="isSubmenu">True</property>
@@ -4935,9 +4935,9 @@
 			<property name="labelID">colorred-forzarcierredekodi-color</property>
 			<property name="defaultID" />
 			<onclick condition="Window.IsActive(DialogButtonMenu.xml)">Close</onclick>
-			<onclick>ActivateWindow(Programs,"plugin://plugin.program.GTKing-Matrix/?mode=forceclose",return)</onclick>
-			<property name="path">ActivateWindow(Programs,"plugin://plugin.program.GTKing-Matrix/?mode=forceclose",return)</property>
-			<property name="list">plugin://plugin.program.GTKing-Matrix/?mode=forceclose</property>
+			<onclick>ActivateWindow(Programs,"plugin://plugin.program.RikTeam/?mode=forceclose",return)</onclick>
+			<property name="path">ActivateWindow(Programs,"plugin://plugin.program.RikTeam/?mode=forceclose",return)</property>
+			<property name="list">plugin://plugin.program.RikTeam/?mode=forceclose</property>
 			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
@@ -5186,9 +5186,9 @@
 			<property name="labelID">colorred-forzarcierredekodi-color</property>
 			<property name="defaultID" />
 			<onclick condition="Window.IsActive(DialogButtonMenu.xml)">Close</onclick>
-			<onclick>ActivateWindow(Programs,"plugin://plugin.program.GTKing-Matrix/?mode=forceclose",return)</onclick>
-			<property name="path">ActivateWindow(Programs,"plugin://plugin.program.GTKing-Matrix/?mode=forceclose",return)</property>
-			<property name="list">plugin://plugin.program.GTKing-Matrix/?mode=forceclose</property>
+			<onclick>ActivateWindow(Programs,"plugin://plugin.program.RikTeam/?mode=forceclose",return)</onclick>
+			<property name="path">ActivateWindow(Programs,"plugin://plugin.program.RikTeam/?mode=forceclose",return)</property>
+			<property name="list">plugin://plugin.program.RikTeam/?mode=forceclose</property>
 			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),powermenu)</visible>
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
