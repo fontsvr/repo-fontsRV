@@ -1,9 +1,9 @@
 name="[B][COLOR white]•• [COLOR red]Parche: [COLOR crimson]Tactil NEXUS[COLOR tan]13/05/2023[/COLOR][/B]"
-url="https://github.com/fontsvr/repo-fontsVR/releases/download/1.0-nexus.parche.GTactil/Parche.Tactil.NEXUS.zip"
+url="https://github.com/fontsvr/repo-fontsVR/releases/download/1.0/Parche.Tactil01.zip"
 icon="https://fontsvr.github.io/wizard/imagenes/bgtactil.png"
 fanart="https://fontsvr.github.io/wizard/imagenes/fanart.png"
 adult="no"
-description="Parche Tactil NEXUS"
+description="Parche Tactil MATRIX|NEXUS"
 
 name=""
 url="https://"

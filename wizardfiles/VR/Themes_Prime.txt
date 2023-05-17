@@ -1,9 +1,9 @@
 name="[B][COLOR white]•• [COLOR red]Parche: [COLOR crimson]RikTeam Prime MATRIX|NEXUS[COLOR tan]22/03/2023[/COLOR][/B]"
-url="https://github.com/fontsvr/repo-fontsVR/releases/download/1.0-matrix.parche.Prime/Parche.RikTeam.Prime.MATRIX.zip"
+url="https://github.com/fontsvr/repo-fontsVR/releases/download/1.0/Parche.Tactil01.zip"
 icon="https://fontsvr.github.io/wizard/imagenes/bgprime.png"
 fanart="https://fontsvr.github.io/wizard/imagenes/fanart2.png"
 adult="no"
-description="Parche GTKing Prime MATRIX"
+description="Parche Prime MATRIX|NEXUS"
 
 name="[B][COLOR white]•  [COLOR orange]MOTOR: [COLOR white]Elementum Android[/COLOR][/B]"
 url="https://github.com/fontsvr/repo-fontsVR/releases/download/0.18x/elementum_arm.zip"
