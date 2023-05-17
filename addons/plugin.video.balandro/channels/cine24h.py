@@ -73,7 +73,7 @@ def generos(item):
     ]
 
     for opc, tit in opciones:
-        itemlist.append(item.clone( title=tit, url= host + 'category/' + opc + '/', action = 'list_all' ))
+        itemlist.append(item.clone( title=tit, url= host + 'category/' + opc + '/', action = 'list_all', text_color = 'deepskyblue' ))
 
     return itemlist
 
@@ -88,7 +88,7 @@ def anios(item):
     for x in range(current_year, 1939, -1):
         url = host + '?s=trfilter&trfilter=1&years%5B%5D=' + str(x)
 
-        itemlist.append(item.clone( title=str(x), url=url, action='list_all' ))
+        itemlist.append(item.clone( title=str(x), url=url, action='list_all', text_color = 'deepskyblue' ))
 
     return itemlist
 
@@ -120,13 +120,14 @@ def list_all(item):
         title = re.sub(r'\((.*)', '', title)
         title = re.sub(r'\[(.*?)\]', '', title)
 
+        title = title.replace('&#8211;', '')
+
         thumb = scrapertools.find_single_match(article, '<img src="(.*?)"')
 
         year = scrapertools.find_single_match(article, '<span class="Year">(.*?)</span>')
         if not year: year = '-'
 
-        itemlist.append(item.clone( action='findvideos', url=url, title = title, thumbnail = thumb,
-                                    contentType='movie', contentTitle=title, infoLabels={'year': year} ))
+        itemlist.append(item.clone( action='findvideos', url=url, title = title, thumbnail = thumb, contentType='movie', contentTitle=title, infoLabels={'year': year} ))
 
         if len(itemlist) >= perpage: break
 
@@ -189,8 +190,7 @@ def findvideos(item):
         if not url: url = scrapertools.find_single_match(data, 'id="' + opt + '".*?src=&quot;(.*?)&quot;')
 
         if url:
-           itemlist.append(Item( channel = item.channel, action = 'play', title = '', server = 'directo', url = url,
-                                 language = lang, quality = qlty, other = other.capitalize() ))
+           itemlist.append(Item( channel = item.channel, action = 'play', title = '', server = 'directo', url = url, language = lang, quality = qlty, other = other.capitalize() ))
 
     # ~ downloads
 

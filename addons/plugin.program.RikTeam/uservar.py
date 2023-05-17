@@ -14,7 +14,7 @@ ART = os.path.join(PATH, 'resources', 'media')
 #        User Edit Variables                            #
 #########################################################
 ADDONTITLE = '[COLOR azure][B]RikTeam[/B][/COLOR] [COLOR lime][B]MATRIX|[/COLOR][COLOR white]|[COLOR violet]NEXUS[/B][/COLOR]'
-BUILDERNAME = 'RikTeam Nexus'
+BUILDERNAME = 'Rik Team'
 EXCLUDES = [ADDON_ID, 'repository.fontsVR']
 # Text File with build info in it.
 BUILDFILE = 'https://raw.githubusercontent.com/fontsvr/repo-fontsVR/main/wizardfiles/builds.txt'
@@ -24,8 +24,8 @@ UPDATECHECK = 0
 # Text File with apk info in it.  Leave as 'http://' to ignore
 APKFILE = 'https://raw.githubusercontent.com/fontsvr/repo-fontsVR/main/wizardfiles/apks.txt'
 # Text File with Youtube Videos urls.  Leave as 'http://' to ignore
-#YOUTUBETITLE = 'DETALLE de Rik Team'
-#YOUTUBEFILE = 'https://raw.githubusercontent.com/fontsvr/repo-fontsVR/main/wizardfiles/youtube.txt'
+YOUTUBETITLE = 'DETALLE de Rik Team'
+YOUTUBEFILE = 'https://raw.githubusercontent.com/fontsvr/repo-fontsVR/main/wizardfiles/youtube.txt'
 # Text File for addon installer.  Leave as 'http://' to ignore
 ADDONFILE = 'http://'
 # Text File for advanced settings.  Leave as 'http://' to ignore
@@ -77,7 +77,7 @@ THEME4 = u'[COLOR {color1}][B]Build Actual:[/B][/COLOR] [COLOR {color2}]{{}}[/CO
 # Current Theme Header / {0} is the menu item and is required
 THEME5 = u'[COLOR {color1}][B]Parche Actual:[/B][/COLOR] [COLOR {color2}]{{}}[/COLOR]'.format(color1=COLOR1, color2=COLOR2, color3=COLOR3, color4=COLOR4)
 # Current Theme Header / {0} is the menu item and is required
-THEME6 = u'[COLOR {color1}]{{}}[/COLOR]'.format(color1=COLOR4)
+THEME6 = u'[COLOR {color1}]{{}}[/COLOR]'.format(color1=COLOR5)
 
 # Message for Contact Page
 # Enable 'Contact' menu item 'Yes' hide or 'No' dont hide
@@ -119,14 +119,14 @@ ENABLE = 'Yes'
 # Url to notification file
 NOTIFICATION = 'https://raw.githubusercontent.com/fontsvr/repo-fontsVR/main/wizardfiles/RV/Notify.txt'
 # Use either 'Text' or 'Image'
-HEADERTYPE = 'Text'
+HEADERTYPE = 'Image'
 # Font size of header #'Font14' 
-FONTHEADER = 'Font14'  
+FONTHEADER = ''  
 HEADERMESSAGE = '[COLOR azure][B]RikTeam[/B][/COLOR] [COLOR lime][B]MATRIX[COLOR white]|[COLOR violet]NEXUS[/B][/COLOR]'
 # url to image if using Image 424x180
 HEADERIMAGE = 'https://res.cloudinary.com/dsmvomgrd/image/upload/v1683640913/build/banner.png'
 # Font for Notification Window #'Font13' 
-FONTSETTINGS = 'Font13'
+FONTSETTINGS = ''
 # Background for Notification Window
 BACKGROUND = 'https://res.cloudinary.com/dsmvomgrd/image/upload/v1683640927/build/fandrart.png'
 #########################################################

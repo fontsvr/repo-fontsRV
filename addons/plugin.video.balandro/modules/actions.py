@@ -55,7 +55,7 @@ def _marcar_canales(item):
             return
 
     config.set_setting('status', item.estado, item.canal)
-	
+
     el_canal = ('Cambiado a [B][COLOR %s] %s [COLOR %s] ' + item.canal.capitalize() + '[/COLOR][/B]') % (color_exec, new_tipo, color_avis)
     platformtools.dialog_notification(config.__addon_name, el_canal)
 
@@ -180,6 +180,7 @@ def search_trailers(item):
 
     tipo = 'movie' if item.contentType == 'movie' else 'tv'
     nombre = item.contentTitle if item.contentType == 'movie' else item.contentSerieName
+
     if item.infoLabels['tmdb_id']:
         tmdb_search = Tmdb(id_Tmdb=item.infoLabels['tmdb_id'], tipo=tipo, idioma_busqueda='es')
     else:
@@ -201,7 +202,7 @@ def search_trailers(item):
             platformtools.dialog_notification(nombre, '[B][COLOR %s]Sin tráiler en TMDB[/COLOR][/B]' % color_alert)
     else:
         while not xbmc.Monitor().abortRequested():
-            ret = xbmcgui.Dialog().select('Tráilers para %s' % nombre, opciones, useDetails=True)
+            ret = xbmcgui.Dialog().select('Tráilers para [B][COLOR yellow]%s[/B][/COLOR]' % nombre, opciones, useDetails=True)
             if ret == -1: break
 
             platformtools.dialog_notification(resultados[ret]['name'], 'Cargando tráiler ...', time=3000, sound=False)
@@ -266,7 +267,7 @@ def manto_proxies(item):
 
     from core import channeltools
 
-    filtros = {'searchable': True}
+    filtros = {'active': True}
 
     ch_list = channeltools.get_channels_list(filtros=filtros)
 
@@ -315,17 +316,25 @@ def manto_params(item):
     if platformtools.dialog_yesno(config.__addon_name, "Se quitarán: 'Logins' en canales, 'Dominios' seleccionados en los canales, 'Canales Incluidos/Excluidos' en búsquedas, 'Canales Excluidos' en buscar proxies global, y se Inicializarán otros 'Parámetros'.", '[COLOR yellow][B]¿ Confirma Restablecer a sus valores por defecto los Parámetros Internos del addon ?[/B][/COLOR]'):
         config.set_setting('adults_password', '')
 
+        config.set_setting('dominio', '', 'test_providers')
+        config.set_setting('channel_test_providers_dominio', '')
+
+        config.set_setting('proxies', '', 'test_providers')
+
         config.set_setting('channel_animefenix_dominio', '')
         config.set_setting('channel_animeflv_dominio', '')
+
         config.set_setting('channel_caricaturashd_dominio', '')
         config.set_setting('channel_cinecalidad_dominio', '')
         config.set_setting('channel_cinecalidadla_dominio', '')
         config.set_setting('channel_cinecalidadlol_dominio', '')
-        config.set_setting('channel_cinetux_dominio', '')
+        config.set_setting('channel_cinecalidadmx_dominio', '')
         config.set_setting('channel_cuevana3_dominio', '')
         config.set_setting('channel_cuevana3video_dominio', '')
+
         config.set_setting('channel_divxtotal_dominio', '')
         config.set_setting('channel_dontorrents_dominio', '')
+
         config.set_setting('channel_elifilms_dominio', '')
         config.set_setting('channel_elitetorrent_dominio', '')
         config.set_setting('channel_entrepeliculasyseries_dominio', '')
@@ -338,12 +347,14 @@ def manto_params(item):
         config.set_setting('channel_hdfull_hdfull_login', False)
         config.set_setting('channel_hdfull_hdfull_password', '')
         config.set_setting('channel_hdfull_hdfull_username', '')
-
         config.set_setting('channel_hdfullse_dominio', '')
-        config.set_setting('channel_inkapelis_dominio', '')
-        config.set_setting('channel_kindor_dominio', '')
+
+        config.set_setting('channel_nextdede_nextdede_login', False)
+        config.set_setting('channel_nextdede_nextdede_email', '')
+        config.set_setting('channel_nextdede_nextdede_password', '')
+        config.set_setting('channel_nextdede_nextdede_username', '')
+
         config.set_setting('channel_pelis28_dominio', '')
-        config.set_setting('channel_pelisflix_dominio', '')
         config.set_setting('channel_pelishouse_dominio', '')
         config.set_setting('channel_pelismaraton_dominio', '')
         config.set_setting('channel_pelispedia_dominio', '')
@@ -351,19 +362,18 @@ def manto_params(item):
         config.set_setting('channel_pelisplus_dominio', '')
         config.set_setting('channel_pelisplushd_dominio', '')
         config.set_setting('channel_pelisplushdlat_dominio', '')
-
+        config.set_setting('channel_pelisplushdnz_dominio', '')
         config.set_setting('channel_playdede_dominio', '')
         config.set_setting('channel_playdede_playdede_login', False)
         config.set_setting('channel_playdede_playdede_password', '')
         config.set_setting('channel_playdede_playdede_username', '')
 
-        config.set_setting('channel_repelis24_dominio', '')
-        config.set_setting('channel_repelishd_dominio', '')
         config.set_setting('channel_series24_dominio', '')
-        config.set_setting('channel_seriesanimadas_dominio', '')
+        config.set_setting('channel_serieskao_dominio', '')
         config.set_setting('channel_seriesyonkis_dominio', '')
+        config.set_setting('channel_srnovelas_dominio', '')
         config.set_setting('channel_subtorrents_dominio', '')
-        config.set_setting('channel_torrentdivx_dominio', '')
+
         config.set_setting('channel_torrentpelis_dominio', '')
 
         config.set_setting('channels_proxies_memorized', '')
@@ -378,15 +388,19 @@ def manto_params(item):
 
         config.set_setting('proxysearch_excludes', '')
 
+        config.set_setting('proxysearch_process', '')
+        config.set_setting('proxysearch_process_proxies', '')
+
         config.set_setting('search_last_all', '')
         config.set_setting('search_last_movie', '')
         config.set_setting('search_last_tvshow', '')
         config.set_setting('search_last_documentary', '')
         config.set_setting('search_last_person', '')
 
-        config.set_setting('downloadpath', '')
+        download_path = filetools.join(config.get_data_path(), 'downloads')
+        config.set_setting('downloadpath', download_path)
 
-        config.set_setting('chrome_last_version', '108.0.5359.99')
+        config.set_setting('chrome_last_version', '113.0.5672.93')
 
         config.set_setting('debug', '0')
 
@@ -395,6 +409,8 @@ def manto_params(item):
         config.set_setting('developer_test_servers', '')
 
         config.set_setting('user_test_channel', '')
+
+        manto_proxies(item)
 
         platformtools.dialog_notification(config.__addon_name, '[B][COLOR %s]Parámetros restablecidos[/B][/COLOR]' % color_infor)
 
@@ -492,18 +508,6 @@ def manto_temporales(item):
         if existe: hay_temporales = True
 
     else:
-        path = os.path.join(config.get_data_path(), 'servers_todo.log')
-        existe = filetools.exists(path)
-        if existe: hay_temporales = True
-
-        path = os.path.join(config.get_data_path(), 'qualities_todo.log')
-        existe = filetools.exists(path)
-        if existe: hay_temporales = True
-
-        path = os.path.join(config.get_data_path(), 'proxies.log')
-        existe = filetools.exists(path)
-        if existe: hay_temporales = True
-
         path = os.path.join(config.get_data_path(), 'info_channels.csv')
         existe = filetools.exists(path)
         if existe: hay_temporales = True
@@ -521,6 +525,10 @@ def manto_temporales(item):
         if existe: hay_temporales = True
 
         path = os.path.join(config.get_data_path(), 'temp_updates.zip')
+        existe = filetools.exists(path)
+        if existe: hay_temporales = True
+
+        path = os.path.join(config.get_data_path(), 'tempfile_mkdtemp')
         existe = filetools.exists(path)
         if existe: hay_temporales = True
 
@@ -551,18 +559,6 @@ def manto_temporales(item):
             if existe: filetools.remove(path)
 
         else:
-            path = os.path.join(config.get_data_path(), 'servers_todo.log')
-            existe = filetools.exists(path)
-            if existe: filetools.remove(path)
-
-            path = os.path.join(config.get_data_path(), 'qualities_todo.log')
-            existe = filetools.exists(path)
-            if existe: filetools.remove(path)
-
-            path = os.path.join(config.get_data_path(), 'proxies.log')
-            existe = filetools.exists(path)
-            if existe: filetools.remove(path)
-
             path = os.path.join(config.get_data_path(), 'info_channels.csv')
             existe = filetools.exists(path)
             if existe: filetools.remove(path)
@@ -583,6 +579,10 @@ def manto_temporales(item):
             existe = filetools.exists(path)
             if existe: filetools.remove(path)
 
+            path = os.path.join(config.get_data_path(), 'tempfile_mkdtemp')
+            existe = filetools.exists(path)
+            if existe: filetools.rmdirtree(path)
+
         if item._logs:
             platformtools.dialog_notification(config.__addon_name, '[B][COLOR %s]Ficheros Logs eliminados[/B][/COLOR]' % color_infor)
         else:
@@ -598,6 +598,12 @@ def manto_addons_packages(item):
 
     existe = filetools.exists(path)
     if existe: hay_temporales = True
+
+    if existe:
+        packages = []
+        packages = os.listdir(path)
+
+        if not packages: hay_temporales = False
 
     if hay_temporales == False:
         platformtools.dialog_notification(config.__addon_name, '[B][COLOR %s]No hay ficheros en Addons/Packages[/COLOR][/B]' % color_alert)
@@ -618,6 +624,12 @@ def manto_addons_temp(item):
 
     existe = filetools.exists(path)
     if existe: hay_temporales = True
+
+    if existe:
+        temps = []
+        temps = os.listdir(path)
+
+        if not temps: hay_temporales = False
 
     if hay_temporales == False:
         platformtools.dialog_notification(config.__addon_name, '[B][COLOR %s]No hay ficheros en Addons/Temp[/COLOR][/B]' % color_alert)
@@ -649,10 +661,30 @@ def manto_caches(item):
         platformtools.dialog_ok(config.__addon_name, '[B][COLOR pink]Ficheros Caché de su Media Center eliminados[/B][/COLOR]', '[B][COLOR yellow]Debe Abandonar obligatoriamente su Media Center e Ingresar de nuevo en el.[/B][/COLOR]')
 
 
+def manto_thumbs(item):
+    logger.info()
+
+    path = translatePath(os.path.join('special://home/userdata/Thumbnails', ''))
+
+    hay_thumbs = False
+
+    existe = filetools.exists(path)
+    if existe: hay_thumbs = True
+
+    if hay_thumbs == False:
+        platformtools.dialog_notification(config.__addon_name, '[B][COLOR %s]No hay ficheros de Thumbnails en su Media Center[/COLOR][/B]' % color_alert)
+        return
+
+    if platformtools.dialog_yesno(config.__addon_name, '[COLOR red][B]¿ Confirma Eliminar Todos los ficheros de Thumbnails de su Media Center ?[/B][/COLOR]', '[COLOR yellow][B]Atención: el Proceso podría durar un cierto tiempo considerable, en función del numero de archivos existentes.[/B][/COLOR]'):
+        filetools.rmdirtree(path)
+
+        platformtools.dialog_ok(config.__addon_name, '[B][COLOR pink]Ficheros Thumbnails de su Media Center eliminados[/B][/COLOR]', '[B][COLOR yellow]Debe Abandonar obligatoriamente su Media Center e Ingresar de nuevo en el.[/B][/COLOR]')
+
+
 def manto_tracking_dbs(item):
     logger.info()
 
-    path = os.path.join(config.get_data_path(), 'tracking_dbs')
+    path = filetools.join(config.get_data_path(), 'tracking_dbs')
 
     existe = filetools.exists(path)
     if existe == False:
@@ -664,15 +696,40 @@ def manto_tracking_dbs(item):
         platformtools.dialog_notification(config.__addon_name, '[B][COLOR %s]Contenido Preferidos eliminado[/B][/COLOR]' % color_infor)
 
 
+def manto_tmdb_sqlite(item):
+    logger.info()
+
+    if not item.journal:
+        path = filetools.join(config.get_data_path(), 'tmdb.sqlite')
+
+        existe = filetools.exists(path)
+        if existe == False:
+            platformtools.dialog_notification(config.__addon_name, '[B][COLOR %s]Aún no tiene Tmdb Sqlite[/COLOR][/B]' % color_exec)
+
+        if platformtools.dialog_yesno(config.__addon_name, '[COLOR red][B]¿ Confirma Eliminar el fichero Tmdb Sqlite ?[/B][/COLOR]'):
+            filetools.remove(path)
+            platformtools.dialog_notification(config.__addon_name, '[B][COLOR %s]Fichero Tmdb Sqlite eliminado[/B][/COLOR]' % color_infor)
+
+    else:
+
+        path = filetools.join(config.get_data_path(), 'tmdb.sqlite-journal')
+
+        existe = filetools.exists(path)
+        if existe == False:
+            platformtools.dialog_notification(config.__addon_name, '[B][COLOR %s]Aún no tiene Tmdb Sqlite Journal[/COLOR][/B]' % color_exec)
+
+        if platformtools.dialog_yesno(config.__addon_name, '[COLOR red][B]¿ Confirma Eliminar el fichero Tmdb Sqlite Journal?[/B][/COLOR]'):
+            filetools.remove(path)
+            platformtools.dialog_notification(config.__addon_name, '[B][COLOR %s]Fichero Tmdb Sqlite Journal eliminado[/B][/COLOR]' % color_infor)
+
+
 def manto_folder_downloads(item):
     logger.info()
 
     downloadpath = config.get_setting('downloadpath', default='')
 
-    if downloadpath:
-        path = downloadpath
-    else:
-        path = os.path.join(config.get_data_path(), 'downloads')
+    if downloadpath: path = downloadpath
+    else: path = filetools.join(config.get_data_path(), 'downloads')
 
     existe = filetools.exists(path)
     if existe == False:
@@ -685,7 +742,7 @@ def manto_folder_downloads(item):
         # por si varió el path y quedaron descargas huerfanas en el path default
         if downloadpath:
            try:
-              path = os.path.join(config.get_data_path(), 'downloads')
+              path = filetools.join(config.get_data_path(), 'downloads')
               filetools.rmdirtree(path)
            except:
               pass
@@ -726,7 +783,7 @@ def adults_password(item):
         if len(password) != 4:
             platformtools.dialog_notification(config.__addon_name, '[B][COLOR %s]Pin obligatorio 4 dígitos[/B][/COLOR]' % color_alert)
             return
-        
+
         if str(password) == '0000':
             platformtools.dialog_notification(config.__addon_name, '[B][COLOR %s]Pin NO admitido[/COLOR][/B]' % color_avis)
             return
@@ -808,6 +865,16 @@ def show_ubicacion(item):
     platformtools.dialog_textviewer('Ubicación de las Descargas', path)
 
 
+def show_servers_alternatives(item):
+    logger.info()
+
+    from modules import filters
+
+    item.tipo = 'alternativos'
+
+    filters.show_servers_list(item)
+
+
 def test_internet(item):
     platformtools.dialog_notification(config.__addon_name, 'Comprobando [B][COLOR %s]Internet[/COLOR][/B]' % color_avis)
 
@@ -836,7 +903,7 @@ def test_internet(item):
 
     if your_ip:
         your_info = ''
-		
+
         try:
            your_info = httptools.downloadpage('https://ipinfo.io/json').data
         except:

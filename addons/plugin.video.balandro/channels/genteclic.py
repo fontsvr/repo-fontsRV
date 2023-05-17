@@ -37,11 +37,11 @@ def categorias(item):
     logger.info()
     itemlist = []
 
-    itemlist.append(item.clone( title = 'Conspiraciones', action = 'list_all', url = host + 'category/conspiraciones/' ))
+    itemlist.append(item.clone( title = 'Conspiraciones', action = 'list_all', url = host + 'category/conspiraciones/', text_color='moccasin' ))
 
-    itemlist.append(item.clone( title = 'Curiosidades', action = 'list_all', url = host + 'category/curiosidades/' ))
+    itemlist.append(item.clone( title = 'Curiosidades', action = 'list_all', url = host + 'category/curiosidades/', text_color='moccasin' ))
 
-    itemlist.append(item.clone( title = 'Documentales', action = 'list_all', url = host + 'category/documentales/' ))
+    itemlist.append(item.clone( title = 'Documentales', action = 'list_all', url = host + 'category/documentales/', text_color='moccasin' ))
 
     return itemlist
 
@@ -62,28 +62,20 @@ def list_all(item):
         url = scrapertools.find_single_match(article, ' href="([^"]+)"')
 
         title = scrapertools.find_single_match(article, '<h3 class="jeg_post_title">.*?<a href=".*?">(.*?)</a>')
-        if not title:
-            title = scrapertools.find_single_match(article, 'alt="(.*?)"')
+        if not title:  title = scrapertools.find_single_match(article, 'alt="(.*?)"')
 
         lang = ''
-        if 'latino' in title.lower():
-            lang = 'Lat'
-        elif 'español' in title.lower():
-            lang = 'Esp'
+        if 'latino' in title.lower(): lang = 'Lat'
+        elif 'español' in title.lower(): lang = 'Esp'
 
-        if not '-' in title:
-            title = title.replace('&#8211;', '-')
-        else:
-            title = title.replace('&#8211;', '')
+        if not '-' in title: title = title.replace('&#8211;', '-')
+        else: title = title.replace('&#8211;', '')
 
         if not '/documentales/' in item.url:
-            if '-' in title:
-                title = scrapertools.find_single_match(title, '(.*?)-')
+            if '-' in title: title = scrapertools.find_single_match(title, '(.*?)-')
 
-        if 'pelicula' in title:
-            title = scrapertools.find_single_match(title.lower(), '(.*?)pelicula')
-        elif 'película' in title:
-            title = scrapertools.find_single_match(title.lower(), '(.*?)película')
+        if 'pelicula' in title: title = scrapertools.find_single_match(title.lower(), '(.*?)pelicula')
+        elif 'película' in title: title = scrapertools.find_single_match(title.lower(), '(.*?)película')
 
         title = title.replace('Pelicula', '').replace('Película', '').replace('Online', '').replace('online', '')
         title = title.replace('Latino', '').replace('latino', '').replace('Español', '').replace('español', '').replace('completa en', '')
@@ -94,8 +86,7 @@ def list_all(item):
 
         thumb = scrapertools.find_single_match(article, ' data-src="([^"]+)')
 
-        itemlist.append(item.clone( action='findvideos', url=url, title=title, thumbnail=thumb, languages=lang,  
-                                    contentType='movie', infoLabels = {'year': '-'}, contentTitle=title))
+        itemlist.append(item.clone( action='findvideos', url=url, title=title, thumbnail=thumb, languages=lang, contentType='movie', infoLabels = {'year': '-'}, contentTitle=title ))
 
     tmdb.set_infoLabels(itemlist)
 
@@ -121,16 +112,14 @@ def findvideos(item):
 
             links = scrapertools.find_multiple_matches(data, patron)
 
-    if not links:
-        links = scrapertools.find_multiple_matches(data, '<div class="jeg_video_container">.*?src="(.*?)"')
+    if not links: links = scrapertools.find_multiple_matches(data, '<div class="jeg_video_container">.*?src="(.*?)"')
 
     ses = 0
 
     for url in links:
         ses += 1
 
-        if not url.startswith('http'):
-            url = 'https' + url
+        if not url.startswith('http'): url = 'https' + url
 
         servidor = servertools.get_server_from_url(url)
         servidor = servertools.corregir_servidor(servidor)

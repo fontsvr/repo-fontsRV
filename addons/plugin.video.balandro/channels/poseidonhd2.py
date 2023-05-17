@@ -5,7 +5,19 @@ from core.item import Item
 from core import httptools, scrapertools, servertools, tmdb
 
 
-host = 'https://www.poseidonhd2.com/'
+host = 'https://poseidonhd2.co/'
+
+
+def do_downloadpage(url, post=None, headers=None):
+    # ~ por si viene de enlaces guardados
+    ant_hosts = ['https://www.poseidonhd2.com/']
+
+    for ant in ant_hosts:
+        url = url.replace(ant, host)
+
+    data = httptools.downloadpage(url, post=post, headers=headers).data
+
+    return data
 
 
 def mainlist(item):
@@ -47,9 +59,9 @@ def mainlist_series(item):
 
     itemlist.append(item.clone( title = 'Catálogo', action = 'list_all', url = host + 'series', search_type = 'tvshow' ))
 
-    itemlist.append(item.clone( title = 'Estrenos', action = 'list_all', url = host + 'series/estrenos', search_type = 'tvshow' ))
+    itemlist.append(item.clone( title = 'Últimos episodios', action = 'last_epis', url = host + 'episodios', search_type = 'tvshow', text_color = 'olive' ))
 
-    itemlist.append(item.clone( title = 'Últimos episodios', action = 'last_epis', url = host + 'episodios', search_type = 'tvshow' ))
+    itemlist.append(item.clone( title = 'Estrenos', action = 'list_all', url = host + 'series/estrenos', search_type = 'tvshow' ))
 
     itemlist.append(item.clone( title = 'Más vistas', action = 'list_all', url = host + 'series/tendencias/semana', search_type = 'tvshow' ))
 
@@ -64,7 +76,7 @@ def generos(item):
 
     url = host[:-1]
 
-    data = httptools.downloadpage(url).data
+    data = do_downloadpage(url)
 
     bloque = scrapertools.find_single_match(data, '>Generos<(.*?)</ul>')
 
@@ -73,11 +85,11 @@ def generos(item):
     for url, title in matches:
         url = host[:-1] + url
 
-        itemlist.append(item.clone( action = 'list_all', title = title, url = url ))
+        itemlist.append(item.clone( action = 'list_all', title = title, url = url, text_color = 'deepskyblue' ))
 
     if itemlist:
         if item.search_type == 'movie':
-            itemlist.append(item.clone(action = 'list_all', title = 'Western', url = host + 'genero/western' ))
+            itemlist.append(item.clone(action = 'list_all', title = 'Western', url = host + 'genero/western', text_color = 'deepskyblue' ))
 
     return sorted(itemlist, key = lambda it: it.title)
 
@@ -86,7 +98,7 @@ def list_all(item):
     logger.info()
     itemlist = []
 
-    data = httptools.downloadpage(item.url).data
+    data = do_downloadpage(item.url)
 
     if '<h2' in data:
         bloque = scrapertools.find_single_match(data, '<h2(.*?)Destacadas</h3>')
@@ -150,7 +162,7 @@ def last_epis(item):
     logger.info()
     itemlist = []
 
-    data = httptools.downloadpage(item.url).data
+    data = do_downloadpage(item.url)
 
     bloque = scrapertools.find_single_match(data, '<h1(.*?)Destacadas</h3>')
 
@@ -180,7 +192,7 @@ def last_epis(item):
         epis = scrapertools.find_single_match(temp_epis, '.*?x(.*?)$')
 
         itemlist.append(item.clone( action = 'findvideos', url = url, title = titulo, thumbnail = thumb,
-                                   contentType = 'episode', contentSerieName = title, contentSeason = item.contentSeason, contentEpisodeNumber = epis ))
+                                    contentType = 'episode', contentSerieName = title, contentSeason = item.contentSeason, contentEpisodeNumber = epis ))
 
     tmdb.set_infoLabels(itemlist)
 
@@ -201,7 +213,7 @@ def temporadas(item):
     logger.info()
     itemlist = []
 
-    data = httptools.downloadpage(item.url).data
+    data = do_downloadpage(item.url)
 
     matches = scrapertools.find_multiple_matches(data, '<option value="(.*?)"')
 
@@ -216,7 +228,7 @@ def temporadas(item):
             itemlist = episodios(item)
             return itemlist
 
-        itemlist.append(item.clone( action = 'episodios', title = title, page = 0, contentType = 'season', contentSeason = season ))
+        itemlist.append(item.clone( action = 'episodios', title = title, page = 0, contentType = 'season', contentSeason = season, text_color = 'tan' ))
 
     tmdb.set_infoLabels(itemlist)
 
@@ -230,16 +242,18 @@ def episodios(item):
     if not item.page: item.page = 0
     if not item.perpage: item.perpage = 50
 
-    data = httptools.downloadpage(item.url).data
+    data = do_downloadpage(item.url)
 
     bloque = scrapertools.find_single_match(str(data), '{"number":' + str(item.contentSeason) + '.*?"episodes"(.*?)]}')
 
     matches = scrapertools.find_multiple_matches(str(bloque), '"title":"(.*?)".*?"number":(.*?),.*?"image":"(.*?)"')
 
-    if item.page == 0:
+    if item.page == 0 and item.perpage == 50:
         sum_parts = len(matches)
 
-        try: tvdb_id = scrapertools.find_single_match(str(item), "'tvdb_id': '(.*?)'")
+        try:
+            tvdb_id = scrapertools.find_single_match(str(item), "'tvdb_id': '(.*?)'")
+            if not tvdb_id: tvdb_id = scrapertools.find_single_match(str(item), "'tmdb_id': '(.*?)'")
         except: tvdb_id = ''
 
         if tvdb_id:
@@ -247,6 +261,7 @@ def episodios(item):
                 platformtools.dialog_notification('PoseidonHd2', '[COLOR cyan]Cargando Todos los elementos[/COLOR]')
                 item.perpage = sum_parts
         else:
+            item.perpage = sum_parts
 
             if sum_parts >= 1000:
                 if platformtools.dialog_yesno(item.contentSerieName.replace('&#038;', '&').replace('&#8217;', "'"), '¿ Hay [COLOR yellow][B]' + str(sum_parts) + '[/B][/COLOR] elementos disponibles, desea cargarlos en bloques de [COLOR cyan][B]500[/B][/COLOR] elementos ?'):
@@ -259,14 +274,20 @@ def episodios(item):
                     item.perpage = 250
 
             elif sum_parts >= 250:
-                if platformtools.dialog_yesno(item.contentSerieName.replace('&#038;', '&').replace('&#8217;', "'"), '¿ Hay [COLOR yellow][B]' + str(sum_parts) + '[/B][/COLOR] elementos disponibles, desea cargarlos en bloques de [COLOR cyan][B]100[/B][/COLOR] elementos ?'):
-                    platformtools.dialog_notification('PoseidonHd2', '[COLOR cyan]Cargando 100 elementos[/COLOR]')
-                    item.perpage = 100
+                if platformtools.dialog_yesno(item.contentSerieName.replace('&#038;', '&').replace('&#8217;', "'"), '¿ Hay [COLOR yellow][B]' + str(sum_parts) + '[/B][/COLOR] elementos disponibles, desea cargarlos en bloques de [COLOR cyan][B]125[/B][/COLOR] elementos ?'):
+                    platformtools.dialog_notification('PoseidonHd2', '[COLOR cyan]Cargando 125 elementos[/COLOR]')
+                    item.perpage = 125
+
+            elif sum_parts >= 125:
+                if platformtools.dialog_yesno(item.contentSerieName.replace('&#038;', '&').replace('&#8217;', "'"), '¿ Hay [COLOR yellow][B]' + str(sum_parts) + '[/B][/COLOR] elementos disponibles, desea cargarlos en bloques de [COLOR cyan][B]75[/B][/COLOR] elementos ?'):
+                    platformtools.dialog_notification('PoseidonHd2', '[COLOR cyan]Cargando 75 elementos[/COLOR]')
+                    item.perpage = 75
 
             elif sum_parts > 50:
                 if platformtools.dialog_yesno(item.contentSerieName.replace('&#038;', '&').replace('&#8217;', "'"), '¿ Hay [COLOR yellow][B]' + str(sum_parts) + '[/B][/COLOR] elementos disponibles, desea cargarlos [COLOR cyan][B]Todos[/B][/COLOR] de una sola vez ?'):
                     platformtools.dialog_notification('PoseidonHd2', '[COLOR cyan]Cargando ' + str(sum_parts) + ' elementos[/COLOR]')
                     item.perpage = sum_parts
+                else: item.perpage = 50
 
     for title, epis, thumb in matches[item.page * item.perpage:]:
         url = item.url + '/temporada/' + str(item.contentSeason) + '/episodio/' + epis
@@ -290,7 +311,7 @@ def findvideos(item):
     logger.info()
     itemlist = []
 
-    data = httptools.downloadpage(item.url).data
+    data = do_downloadpage(item.url)
 
     matches = scrapertools.find_multiple_matches(data, '<li class="open_submenu active actives">(.*?)</div></li>')
 
@@ -323,23 +344,27 @@ def findvideos(item):
                 srv = scrapertools.find_single_match(srv, '<!-- -->. <!-- -->(.*?)<!-- -->').strip()
 
                 if srv:
-                   srv = srv.lower()
-
-                   srv = normalize_server(srv)
-
-                   if not srv: continue
+                   if srv == 'hqq' or srv ==  'waaw' or srv ==  'netu': continue
 
                    other = ''
 
                    if srv == 'drive': srv ='gvideo'
+                   elif srv == 'ok-ru': srv ='okru'
                    elif srv == 'voex': srv ='voe'
                    elif srv == 'videovard': other = srv
                    elif srv == 'player' or srv == 'embed':
                       other = srv
                       srv = ''
 
-                   itemlist.append(Item( channel = item.channel, action = 'play', server = srv, title = '', url = url, language = lang, quality = qlty,
-                                         other = other.capitalize() ))
+                   if srv:
+                       srv = servertools.corregir_servidor(srv)
+
+                       if servertools.is_server_available(srv):
+                           if not servertools.is_server_enabled(srv): continue
+                       else:
+                           if not config.get_setting('developer_mode', default=False): continue
+
+                   itemlist.append(Item( channel = item.channel, action = 'play', server = srv, title = '', url = url, language = lang, quality = qlty, other = other.capitalize() ))
 
     # ~ download
     matches = scrapertools.find_multiple_matches(data, '<span class="Num">#(.*?)</td></tr>')
@@ -350,11 +375,15 @@ def findvideos(item):
         srv = scrapertools.find_single_match(match, '</span>(.*?)</td>').strip()
         srv = srv.replace('<!-- -->', '').strip()
 
-        srv = normalize_server(srv)
+        if srv == 'hqq' or srv ==  'waaw' or srv ==  'netu': continue
+        elif srv == '1fichier': continue
 
-        if not srv: continue
+        srv = servertools.corregir_servidor(srv)
 
-        if srv == '1fichier': continue
+        if servertools.is_server_available(srv):
+            if not servertools.is_server_enabled(srv): continue
+        else:
+            if not config.get_setting('developer_mode', default=False): continue
 
         lang = scrapertools.find_single_match(match, '<td>(.*?)</td>')
 
@@ -376,34 +405,6 @@ def findvideos(item):
     return itemlist
 
 
-def normalize_server(server):
-    server = servertools.corregir_servidor(server)
-
-    if server == 'netu': server = ''
-    elif server == 'powvideo': server = ''
-    elif server == 'streamplay': server = ''
-    elif server == 'uploadedto': server = ''
-
-    elif server == 'jetload': server = ''
-    elif server == 'vidcloud': server = ''
-    elif server == 'openload': server = ''
-    elif server == 'clicknupload': server = ''
-    elif server == 'onlystream': server = ''
-    elif server == 'rapidvideo': server = ''
-    elif server == 'rapidvid': server = ''
-    elif server == 'streamango': server = ''
-    elif server == 'streamcherry': server = ''
-    elif server == 'streamcloud': server = ''
-    elif server == 'streamix': server = ''
-    elif server == 'thevideo': server = ''
-    elif server == 'thevid': server = ''
-    elif server == 'uploadmp4': server = ''
-    elif server == 'verystream': server = ''
-    elif server == 'vidcloud': server = ''
-
-    return server
-
-
 def play(item):
     logger.info()
     itemlist = []
@@ -416,7 +417,7 @@ def play(item):
     host_player = host.replace('https://', 'https://fs.')
 
     if url.startswith('https://player.'):
-        data = httptools.downloadpage(url).data
+        data = do_downloadpage(url)
 
         url_final = scrapertools.find_single_match(data, "var url = '(.*?)'")
         if not url_final: url_final = scrapertools.find_single_match(data, 'let url = "(.*?)"')
@@ -431,7 +432,7 @@ def play(item):
                url_final = ''
 
     if url_final == '':
-        data = httptools.downloadpage(url).data
+        data = do_downloadpage(url)
 
         value_php = scrapertools.find_single_match(data, '<input type="hidden" name="data" value="([^"]+)"')
 
@@ -440,7 +441,7 @@ def play(item):
 
             post = {'h': index_php}
 
-            url_final = httptools.downloadpage(host_player + 'r.php', post = post).url
+            url_final = httptools.downloadpage(host_player + 'r.php', post = post)
 
             if not url_final:
                 data_post = httptools.downloadpage(host_player + 'api.php', post = post).data
@@ -456,7 +457,7 @@ def play(item):
             url_final = httptools.downloadpage(host + 'r.php', post = post).url
 
             if '/index.php?' in url_final:
-                index_php = url_final.replace( host_player + 'index.php?h=', '')
+                index_php = url_final.replace(host_player + 'index.php?h=', '')
 
                 post = {'h': index_php}
 
