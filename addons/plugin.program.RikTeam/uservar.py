@@ -65,7 +65,6 @@ COLOR1 = 'violet'
 COLOR2 = 'white'
 COLOR3 = 'dodgerblue'
 COLOR4 = 'turquoise'
-
 # Primary menu items   / {0} is the menu item and is required
 THEME1 = u'[COLOR {color1}][COLOR {color1}][B]-[/B][/COLOR][COLOR {color2}][B][/B][COLOR {color1}][/COLOR] [COLOR {color2}]{{}}[/COLOR]'.format(color1=COLOR1, color2=COLOR2, color3=COLOR3, color4=COLOR4)
 # Build Names          / {0} is the menu item and is required

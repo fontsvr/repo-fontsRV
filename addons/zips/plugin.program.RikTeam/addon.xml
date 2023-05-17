@@ -10,7 +10,11 @@
 	<extension point="xbmc.python.pluginsource" debugging="true" library="default.py">
 		<provides>executable</provides>
 	</extension>
-  
+   <extension point="xbmc.addon.repository" name="fontsVR">		
+		<info>https://raw.githubusercontent.com/fontsvr/repo-fontsVR/main/addons/zips/addons.xml</info>
+        <checksum>https://raw.githubusercontent.com/fontsvr/repo-fontsVR/main/addons/zips/addons.xml.md5</checksum>
+        <datadir zip="true">https://raw.githubusercontent.com/fontsvr/repo-fontsVR/repository.fontsvr</datadir>
+    </extension>
 	<extension point="xbmc.service" library="startup.py" start="startup"/>
   
 	<extension point="xbmc.addon.metadata">
@@ -20,7 +24,7 @@
         </description>
 		<platform>all</platform>
 		<reuselanguageinvoker>false</reuselanguageinvoker>
-		<source>https://github.com/fontsvr/repo-fontsVR/plugin.program.RikTeam</source>
+		<source>https://github.com/fontsvr/fontsvr.github.io</source>
 		<news>
 • plugin.program [COLOR azure][B]RikTeam[/B][/COLOR] [COLOR lime][B]MATRIX[/COLOR][COLOR white]|[/COLOR][COLOR violet]NEXUS[/B][/COLOR]
 		</news>
