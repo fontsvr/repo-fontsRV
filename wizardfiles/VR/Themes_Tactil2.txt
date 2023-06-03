@@ -1,4 +1,4 @@
-name="[B][COLOR white]•• [COLOR red]Parche: [COLOR crimson]Tactil NEXUS[COLOR tan]13/05/2023[/COLOR][/B]"
+name="[B][COLOR white]•• [COLOR red]Parche: [COLOR violet]Tactil NEXUS[COLOR tan]03/06/2023[/COLOR][/B]"
 url="https://github.com/fontsvr/repo-fontsVR/releases/download/1.1/Parche.202306V.zip"
 icon="https://fontsvr.github.io/wizard/imagenes/bgtactil.png"
 fanart="https://fontsvr.github.io/wizard/imagenes/fanart.png"
