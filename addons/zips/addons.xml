@@ -835,7 +835,25 @@ provider-name="jurialmunkey">
 </extension>
 </addon>
 
-<addon id="plugin.video.torrest" name="Torrest" provider-name="i96751414" version="0.0.12">
+<addon id="plugin.video.TorrentAcestream" name="[COLOR mediumslateblue]Torrents-Acestream[/COLOR]" version="0.0.3" provider-name="AceTorr">
+  <requires>
+   <import addon="script.module.six" />
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="es">Multitud de Peliculas Torrent con motor Acestream</summary>
+    <description>Cine de alta calidad usando [COLOR red]Acestream[/COLOR] como Motor [COLOR blue]Torrent[/COLOR].[CR]*Precisa del addon [COLOR yellow]Horus[/COLOR] para arrancar el motor Acestream.[CR][CR]Acestream tiene la particularidad de usar la memoria [COLOR green]RAM[/COLOR], por lo que al usarlo como Motor Torrent gestiona la visualización sin dejar a el equipo sin espacio de almacenamiento.[CR]Se puede usar como sustituto de Elementum en aquellos equipos que tienen Kodi 19 y Android 10 (o superior), en los que Elementum no funciona.</description>
+    <platform>all</platform>
+    <assets>
+        <icon>icon.png</icon>
+        <fanart>fanart.jpg</fanart>
+    </assets>
+  </extension>
+</addon>
+
+<addon id="plugin.video.torrest" name="Torrest" provider-name="i96751414" version="0.0.16">
     <requires>
         <!--<import addon="xbmc.python" version="3.0.0"/>-->
         <import addon="script.module.requests" version="2.22.0"/>
@@ -852,6 +870,9 @@ provider-name="jurialmunkey">
         <summary lang="en">Torrest on Kodi</summary>
         <description lang="en">Torrest is a service with a rest API which allows torrent streaming.</description>
         <news>
+- Update for torrest 0.0.4 (https://github.com/i96751414/torrest-cpp/releases/tag/v0.0.4)
+- Allow forcing torrest binary
+- Allow custom user-agent definitions
         </news>
         <assets>
             <icon>icon.png</icon>
@@ -864,12 +885,17 @@ provider-name="jurialmunkey">
     </extension>
 </addon>
 
-<addon id="plugin.video.vavooto" name="VAVOO.TO" version="5.3" provider-name="michaz">
+<addon id="plugin.video.vavooto" name="VAVOO.TO" version="5.9.1" provider-name="kasi,michaz">
     <requires>
+        <import addon="script.module.vavoo"/>
         <import addon="script.module.requests"/>
         <import addon="inputstream.ffmpegdirect" optional="true" />
+        <import addon="script.module.resolveurl" optional="true" />
+        <import addon="script.module.urlresolver" optional="true" />
+        <!-- only for debug -->
+        <import addon="script.module.pydevd" optional="true"/>
     </requires>
-    <extension point="xbmc.python.pluginsource" library="lib/main.py">
+    <extension point="xbmc.python.pluginsource" library="main.py">
         <provides>video</provides>
     </extension>
     <extension point="xbmc.addon.metadata">
@@ -1068,6 +1094,8 @@ provider-name="jurialmunkey">
     </extension>
 </addon>
 
+<addon id="repository.elementum" name="Elementum Repository" version="0.1.87" provider-name="elgatito"><requires></requires><extension point="xbmc.addon.repository" name="Elementum Repository"><dir><info compressed="false">http://127.0.0.1:65220/repository/elgatito/plugin.video.elementum/addons.xml</info><checksum>http://127.0.0.1:65220/repository/elgatito/plugin.video.elementum/addons.xml.md5</checksum><datadir zip="true">http://127.0.0.1:65220/repository/elgatito/</datadir></dir></extension><extension point="xbmc.addon.metadata"><platform>all</platform><summary lang="en">GitHub repository for Elementum updates</summary></extension></addon>
+
 <addon id="repository.fontsvr" name="[B]Repo[/B] [COLOR azure][B]FONTSVR[/B] [COLOR limegreen][B]MATRIX[/B][/COLOR]|[COLOR violet][B]NEXUS[/B][/COLOR]" version="1.0" provider-name="Rik Team">
     <extension point="xbmc.addon.repository" name="[B[COLOR white]Repo FONTSVR[/B][/COLOR]">
         <dir>
@@ -1252,7 +1280,6 @@ provider-name="jurialmunkey">
   </extension>
 </addon>
 
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addon id="repository.rfontsv" name="[B]Repo[/B] [COLOR azure][B]RFONTSV[/B] [COLOR limegreen][B]Matrix[/B][/COLOR]|[COLOR violet][B]Nexus[/B][/COLOR]" version="1.0" provider-name="Rik Team">
     <extension point="xbmc.addon.repository" name="RFONTSV Repository">
         <dir>
@@ -1272,6 +1299,44 @@ provider-name="jurialmunkey">
 			<fanart>fanart.jpg</fanart>
         </assets>
 		<source>https://github.com/rfontsv/rfontsv.github.io/</source>
+    </extension>
+</addon>
+
+<addon id="script.elementum.burst" name="Elementum [COLOR FFFF6B00]Burst[/COLOR]" version="0.0.71" provider-name="elgatito">
+    <requires>
+        <import addon="xbmc.addon" version="16.0.0" />
+        <import addon="plugin.video.elementum" optional="true"/>
+        <import addon="script.module.kodi-six" />
+        <import addon="script.module.requests" />
+        <import addon="script.module.future" version="0.16.0.4"/>
+    </requires>
+    <extension point="xbmc.python.script" library="burst.py">
+        <provides>executable</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en">Elementum torrents provider</summary>
+        <summary lang="hr">Elementum torrent pružatelji usluga</summary>
+        <summary lang="es">Proveedor de torrents Elementum</summary>
+        <summary lang="ru">Поисковое дополнение Elementum</summary>
+        <summary lang="sv">Elementum-torrentleverantör</summary>
+        <description lang="en">Elementum Burst is a lean and mean multi-provider for Elementum.</description>
+        <description lang="hr">Elementum Burst je višestruki pružatelj usluga za Elementum.</description>
+        <description lang="es">Elementum Burst es un multi-proveedor simple y eficiente para Elementum.</description>
+        <description lang="ru">Elementum Burst это поисковое дополнение, для поиска торрентов для Elementum.</description>
+        <description lang="sv">Elementum Burst är en enkel och effektiv multi-leverantör för Elementum.</description>
+        <disclaimer lang="en">The author does not host or distribute any of the content displayed by this addon. The author does not have any affiliation with the content providers.</disclaimer>
+        <disclaimer lang="hr">Autor ovog dodatka ne posjeduje i ne distribuira bilo kakav sadržaj koji je pronađen. Autor nije povezan sa bilo kojim izvorom sadržaja.</disclaimer>
+        <disclaimer lang="es">El autor no aloja ni distribuye ninguno de los contenidos mostrados por este complemento. El autor no tiene ninguna afiliación con los proveedores de contenido.</disclaimer>
+        <disclaimer lang="ru">Автор не несёт ответственности за использование дополнения, не распространяет данные, выводимые дополнением.</disclaimer>
+        <disclaimer lang="sv">Skaparen är inte värd eller distribuerar något av innehållet som visas av detta tillägg. Skaparen har ingen anslutning till innehållsleverantörerna.</disclaimer>
+        <license>WTFPL, Version 2, December 2004. See included LICENSE.</license>
+        <website>https://elementum.surge.sh</website>
+        <source>https://github.com/elgatito/script.elementum.burst</source>
+        <forum>TODO</forum>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
     </extension>
 </addon>
 
@@ -1363,6 +1428,35 @@ provider-name="jurialmunkey">
     </extension>
 </addon>
 
+<addon id="script.module.requests"
+       name="requests"
+       version="2.22.0+matrix.1"
+       provider-name="kennethreitz">
+  <requires>
+    <import addon="xbmc.python" version="3.0.0"/>
+    <import addon="script.module.certifi" version="2019.11.28+matrix.1"/>
+    <import addon="script.module.chardet" version="3.0.4+matrix.1"/>
+    <import addon="script.module.idna" version="2.8.1+matrix.1"/>
+    <import addon="script.module.urllib3" version="1.25.8+matrix.1"/>
+  </requires>
+  <extension point="xbmc.python.module"
+             library="lib" />
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">Python HTTP for Humans</summary>
+    <description lang="en_GB">Packed for KODI from https://pypi.org/project/requests/</description>
+    <platform>all</platform>
+    <language></language>
+    <license>Apache2</license>
+    <forum></forum>
+    <website>http://python-requests.org</website>
+    <source>https://github.com/Freso/script.module.requests</source>
+    <email>freso.dk AT gmail.com</email>
+    <assets>
+      <icon>resources/icon.png</icon>
+    </assets>
+  </extension>
+</addon>
+
 <addon id="script.module.tmdbhelper" name="TMDbHelper Common" provider-name="jurialmunkey" version="0.0.7">
   <extension point="xbmc.python.module" library="resources/modules" />
   <extension point="xbmc.addon.metadata">
@@ -1376,6 +1470,18 @@ provider-name="jurialmunkey">
       <fanart>fanart.jpg</fanart>
     </assets>
   </extension>
+</addon>
+
+<addon id="script.module.vavoo" name="Vavoosign" version="0.1.3.1" provider-name="michaz1988">
+	<requires>
+		<import addon="script.module.requests"/>
+	</requires>
+	<extension point="xbmc.python.module" library="lib" />
+	<extension point="xbmc.addon.metadata">
+		<assets>
+			<icon>icon.png</icon>
+		</assets>
+	</extension>
 </addon>
 
 <addon
