@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
-import sys, re, requests, time, xbmcgui, xbmc, json
+import sys, re, requests, time, xbmcgui, xbmc, json, vavoosigner
 from resources.lib import utils
 
-home = xbmcgui.Window(10000)
 vavoourl="https://www2.vavoo.to/live2/index"
 
 def resolve_link(link):
@@ -161,7 +160,7 @@ def get_hls_channels():
 
 	def _getchannels(group, cursor=0, germany=False):
 		global channels
-		_headers={"user-agent":"WATCHED/1.8.3 (android)", "accept": "application/json", "content-type": "application/json; charset=utf-8", "cookie": "lng=", "watched-sig": utils.getWatchedSig()}
+		_headers={"user-agent":"WATCHED/1.8.3 (android)", "accept": "application/json", "content-type": "application/json; charset=utf-8", "cookie": "lng=", "watched-sig": vavoosigner.getWatchedSig()}
 		_data={"adult": True,"cursor": cursor,"filter": {"group": group},"sort": "name"}
 		r = requests.post("https://www.oha.to/oha-tv-index/directory.watched", data=json.dumps(_data), headers=_headers).json()
 		nextCursor = r.get("nextCursor")
@@ -249,7 +248,7 @@ def livePlay(name):
 			title = "%s (%s/%s)" % (name, i + 1, len(m))  # wird verwendet für infoLabels
 	n = m[i]
 	o = xbmcgui.ListItem(name)
-	url = resolve_link(n) if utils.addon.getSetting("hls") == "true" else "%s?n=1&b=5&vavoo_auth=%s|User-Agent=VAVOO/2.6" % (n, utils.getAuthSignature())
+	url = resolve_link(n) if utils.addon.getSetting("hls") == "true" else "%s?n=1&b=5&vavoo_auth=%s|User-Agent=VAVOO/2.6" % (n, vavoosigner.getAuthSignature())
 	#url = "%s?n=1&b=5&vavoo_auth=%s|User-Agent=VAVOO/2.6" % (n, utils.getAuthSignature())
 	o.setPath(url)
 	if ".m3u8" in url:

@@ -33,10 +33,6 @@ def service_enabled():
     return get_boolean_setting("service_enabled")
 
 
-def run_as_root():
-    return get_boolean_setting("run_as_root")
-
-
 def set_service_enabled(value):
     set_boolean_setting("service_enabled", value)
 
@@ -55,3 +51,11 @@ def get_files_order():
 
 def show_background_progress():
     return get_boolean_setting("show_bg_progress")
+
+
+def set_has_libtorrest(value):
+    set_boolean_setting("has_libtorrest", value)
+
+
+def get_force_torrest():
+    return get_boolean_setting("force_torrest")

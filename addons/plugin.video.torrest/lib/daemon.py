@@ -1,33 +1,13 @@
 import logging
 import os
-import pipes
 import re
-import select
-import shutil
 import stat
 import subprocess
 import sys
 import threading
-from io import FileIO
 
 from lib.os_platform import PLATFORM, System
 from lib.utils import bytes_to_str, PY3
-
-
-def get_current_app_id():
-    with open("/proc/{:d}/cmdline".format(os.getpid())) as fp:
-        return fp.read().rstrip("\0")
-
-
-def join_cmd(cmd):
-    return " ".join(pipes.quote(arg) for arg in cmd)
-
-
-def read_select(fd, timeout):
-    r, _, _ = select.select([fd], [], [], timeout)
-    if fd not in r:
-        raise SelectTimeoutError("Timed out waiting for pipe read")
-
 
 # https://docs.microsoft.com/en-us/windows/win32/api/handleapi/nf-handleapi-sethandleinformation
 HANDLE_FLAG_INHERIT = 0x00000001
@@ -63,47 +43,6 @@ class SelectTimeoutError(Exception):
     pass
 
 
-class Pipe(object):
-    def __init__(self):
-        self._r, self._w = os.pipe()
-
-    @property
-    def r(self):
-        return self._r
-
-    @property
-    def w(self):
-        return self._w
-
-    def read(self, buf, timeout=0):
-        if self._r < 0:
-            raise ValueError("read file descriptor is closed")
-        if timeout > 0:
-            read_select(self._r, timeout)
-        return os.read(self._r, buf)
-
-    def write(self, data):
-        if self._w < 0:
-            raise ValueError("write file descriptor is closed")
-        return os.write(self._w, data)
-
-    def close(self, read=False, write=False):
-        both = not (read or write)
-        if (both or read) and self._r >= 0:
-            os.close(self._r)
-            self._r = -1
-        if (both or write) and self._w >= 0:
-            os.close(self._w)
-            self._w = -1
-
-    def __enter__(self):
-        return self
-
-    def __exit__(self, exc_type, exc_val, exc_tb):
-        self.close()
-        return False
-
-
 class DefaultDaemonLogger(threading.Thread):
     def __init__(self, fd, default_level=logging.INFO, path=None):
         super(DefaultDaemonLogger, self).__init__()
@@ -134,23 +73,24 @@ class DefaultDaemonLogger(threading.Thread):
 
 class DaemonLogger(DefaultDaemonLogger):
     levels_mapping = {
-        "CRITICAL": logging.CRITICAL,
-        "ERROR": logging.ERROR,
-        "WARNING": logging.WARNING,
-        "NOTICE": logging.INFO,
-        "INFO": logging.INFO,
-        "DEBUG": logging.DEBUG,
+        "critical": logging.CRITICAL,
+        "error": logging.ERROR,
+        "warning": logging.WARNING,
+        "notice": logging.INFO,
+        "info": logging.INFO,
+        "debug": logging.DEBUG,
+        "trace": logging.DEBUG,
     }
 
     tag_regex = re.compile("\x1b\\[[\\d;]+m")
     level_regex = re.compile(r"^(?:{})*\d+-\d+-\d+ \d+:\d+:\d+\.\d+ ({})".format(
-        tag_regex.pattern, "|".join(levels_mapping)))
+        tag_regex.pattern, "|".join(levels_mapping)), re.IGNORECASE)
 
     def _get_level_and_message(self, line):
         m = self.level_regex.search(line)
         if m:
             line = line[len(m.group(0)):].lstrip(" ")
-            level = self.levels_mapping[m.group(1)]
+            level = self.levels_mapping[m.group(1).lower()]
         else:
             level = self._default_level
 
@@ -162,53 +102,18 @@ class DaemonNotFoundError(Exception):
 
 
 class Daemon(object):
-    def __init__(self, name, daemon_dir, work_dir=None, android_find_dest_dir=True,
-                 android_extra_dirs=(), dest_dir=None, pid_file=None, root=False):
+    def __init__(self, name, daemon_dir, work_dir=None, pid_file=None):
         self._name = name
+        self._dir = daemon_dir
         self._work_dir = work_dir
         self._pid_file = pid_file
-        self._root = root
-        self._root_pid = -1
-        if PLATFORM.system == System.windows:
-            self._name += ".exe"
-
-        src_path = os.path.join(daemon_dir, self._name)
-        if not os.path.exists(src_path):
-            raise DaemonNotFoundError("Daemon source path does not exist: " + src_path)
-
-        if PLATFORM.system == System.android and android_find_dest_dir:
-            app_dir = os.path.join(os.sep, "data", "data", get_current_app_id())
-            if not os.path.exists(app_dir):
-                logging.debug("Default android app dir '%s' does not exist", app_dir)
-                for directory in android_extra_dirs:
-                    if os.path.exists(directory):
-                        app_dir = directory
-                        break
-
-            logging.debug("Using android app dir '%s'", app_dir)
-            self._dir = os.path.join(app_dir, "files", name)
-        else:
-            self._dir = dest_dir or daemon_dir
         self._path = os.path.join(self._dir, self._name)
 
-        if self._dir is not daemon_dir:
-            if not os.path.exists(self._path) or self._get_sha1(src_path) != self._get_sha1(self._path):
-                logging.info("Updating %s daemon '%s'", PLATFORM.system, self._path)
-                if os.path.exists(self._dir):
-                    logging.debug("Removing old daemon dir %s", self._dir)
-                    shutil.rmtree(self._dir)
-                shutil.copytree(daemon_dir, self._dir)
+        if not os.path.exists(self._path):
+            raise DaemonNotFoundError("Daemon source path does not exist: " + self._path)
 
         self._p = None  # type: subprocess.Popen or None
         self._logger = None  # type: DaemonLogger or None
-
-    @staticmethod
-    def _get_sha1(path):
-        # Using FileIO instead of open as fseeko with OFF_T=64 is broken in android NDK
-        # See https://trac.kodi.tv/ticket/17827
-        with FileIO(path) as f:
-            f.seek(-40, os.SEEK_END)
-            return f.read()
 
     def kill_leftover_process(self):
         if self._pid_file and os.path.exists(self._pid_file):
@@ -216,21 +121,11 @@ class Daemon(object):
                 with open(self._pid_file) as f:
                     pid = int(f.read().rstrip("\r\n\0"))
                 logging.warning("Killing process with pid %d", pid)
-                self._kill(pid, 9)
+                os.kill(pid, 9)
             except Exception as e:
                 logging.error("Failed killing process: %s", e)
             finally:
                 os.remove(self._pid_file)
-
-    def _kill(self, pid, signal):
-        if self._root:
-            if PLATFORM.system == System.android:
-                subprocess.check_call(["su", "-c", "kill -{} {}".format(signal, pid)])
-            else:
-                logging.debug("Not possible to use root on this platform. Falling back to os.kill.")
-                os.kill(pid, signal)
-        else:
-            os.kill(pid, signal)
 
     def ensure_exec_permissions(self):
         st = os.stat(self._path)
@@ -275,24 +170,14 @@ class Daemon(object):
         kwargs["stderr"] = subprocess.STDOUT
         kwargs["cwd"] = work_dir
 
-        if self._root:
-            if PLATFORM.system == System.android:
-                cmd = ["su", "-c", "echo $$ && exec " + join_cmd(cmd)]
-            else:
-                logging.warning("Not possible to use root on this platform")
-
         logging.debug("Creating process with command %s and params %s", cmd, kwargs)
         try:
             self._p = subprocess.Popen(cmd, **kwargs)
 
-            if self._root and PLATFORM.system == System.android:
-                read_select(self._p.stdout.fileno(), 10)
-                self._root_pid = int(self._p.stdout.readline().rstrip())
-
             if self._pid_file:
                 logging.debug("Saving pid file %s", self._pid_file)
                 with open(self._pid_file, "w") as f:
-                    f.write(str(self._root_pid if self._root_pid >= 0 else self._p.pid))
+                    f.write(str(self._p.pid))
         finally:
             if PLATFORM.system == System.windows:
                 windows_restore_file_handles_inheritance(handles)
@@ -301,23 +186,13 @@ class Daemon(object):
         if self._p is not None:
             logging.info("Terminating daemon")
             try:
-                self._terminate()
+                self._p.terminate()
             except (OSError, subprocess.CalledProcessError):
                 logging.info("Daemon already terminated")
             if self._pid_file and os.path.exists(self._pid_file):
                 os.remove(self._pid_file)
-            self._root_pid = -1
+            self._p.stdout.close()
             self._p = None
-
-    def _terminate(self):
-        if self._root and self._root_pid >= 0:
-            if PLATFORM.system == System.android:
-                subprocess.check_call(["su", "-c", "kill {}".format(self._root_pid)])
-            else:
-                logging.debug("Not possible to use root on this platform. Falling back to terminate.")
-                self._p.terminate()
-        else:
-            self._p.terminate()
 
     def daemon_poll(self):
         return self._p and self._p.poll()
