@@ -1,9 +1,9 @@
-name="[B][COLOR white]•• [COLOR orange]Parche: [COLOR crimson]VR20Aeon [COLOR tan]26/06/2023[/COLOR][/B]"
-url="https://github.com/fontsvr/repo-fontsVR/releases/download/1.0/Parche.No.Disponible.zip"
+name="[B][COLOR white]•• [COLOR orange]Parche: [COLOR crimson]VR20Aeon + Addons Video [COLOR tan]27/06/2023[/COLOR][/B]"
+url="https://github.com/fontsvr/repo-fontsVR/rel/VR20Aeon+addons.video.zip"
 icon="https://fontsvr.github.io/wizard/imagenes/VR20Aeon_bg.png"
 fanart="https://fontsvr.github.io/wizard/imagenes/VR20Aeon_fanart.png"
 adult="no"
-description="Parche VR20AEON"
+description="Parche VR20AEON+Addons de Video"
 
 name="[B][COLOR white]•  [COLOR orange]MOTOR: [COLOR white]Elementum Android[/COLOR][/B]"
 url="https://github.com/fontsvr/repo-fontsVR/releases/download/0.18x/elementum_arm.zip"
