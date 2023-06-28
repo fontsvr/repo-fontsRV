@@ -1,7 +1,7 @@
 
-name="Build RikTeam14523"
+name="Build RikTeam17523"
 version="1.0"
-url="https://github.com/fontsvr/repo-fontsVR/raw/rel/Build.RikTeam14523.zip"
+url="https://github.com/fontsvr/repo-fontsVR/raw/rel/Build.RikTeam17523.zip"
 minor="http://"
 gui="http://"
 kodi="19"
