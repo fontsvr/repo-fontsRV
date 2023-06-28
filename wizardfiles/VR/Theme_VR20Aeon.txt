@@ -6,7 +6,7 @@ adult="no"
 description="Parche VR20 Basic"
 
 name="[B][COLOR white]•• [COLOR yellow]Parche: [COLOR crimson]VR20Aeon + Addons Video [COLOR tan]28/06/2023[/COLOR][/B]"
-url="https://github.com/fontsvr/repo-fontsVR/raw/rel/VR20Aeon%2Baddons.video.zip"
+url="https://github.com/fontsvr/repo-fontsVR/raw/rel/VR20AeonMasaddons.video.zip"
 icon="https://fontsvr.github.io/wizard/imagenes/VR20Aeon_bg.png"
 fanart="https://fontsvr.github.io/wizard/imagenes/VR20Aeon_fanart.png"
 adult="no"
