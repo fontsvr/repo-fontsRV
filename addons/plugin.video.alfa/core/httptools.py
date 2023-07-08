@@ -551,7 +551,7 @@ def proxy_post_processing(url, proxy_data, response, **opt):
 
 def blocking_error(url, req, proxy_data, **opt):
 
-    if opt.get('canonical_check', False): return False
+    if not opt.get('canonical_check', True): return False
     code = str(req.status_code) or ''
     data = ''
     if req.content: data = req.content[:5000]
@@ -658,7 +658,7 @@ def canonical_quick_check(url, **opt):
 
 def canonical_check(url, response, req, **opt):
     
-    if opt.get('canonical_check', False): return response
+    if not opt.get('canonical_check', True): return response
     if not response['data']: return response
     if isinstance(response['data'], dict): return response
     if '//127.0.0.1' in url or '//192.168.' in url or '//10.' in url or '//176.' in url or '//localhost' in url: return response
@@ -951,6 +951,8 @@ def downloadpage(url, **opt):
                             opt['CF_if_NO_assistant'] = opt['canonical']['CF_if_NO_assistant']
     if 'forced_proxy_opt' not in opt and 'forced_proxy_opt' in opt.get('canonical', {}): \
                             opt['forced_proxy_opt'] = opt['canonical']['forced_proxy_opt']
+    if 'forced_proxy' not in opt and 'forced_proxy' in opt.get('canonical', {}): \
+                            opt['forced_proxy'] = opt['canonical']['forced_proxy']
     if 'cf_assistant_if_proxy' not in opt and 'cf_assistant_if_proxy' in opt.get('canonical', {}): \
                             opt['cf_assistant_if_proxy'] = opt['canonical']['cf_assistant_if_proxy']
     if opt.get('canonical', {}).get('forced_proxy_ifnot_assistant', '') or opt.get('forced_proxy_ifnot_assistant', ''):
@@ -962,6 +964,8 @@ def downloadpage(url, **opt):
     if 'set_tls_min' not in opt and 'set_tls_min' in opt.get('canonical', {}): opt['set_tls_min'] = opt['canonical']['set_tls_min']
     if 'check_blocked_IP' not in opt and 'check_blocked_IP' in opt.get('canonical', {}): 
                             opt['check_blocked_IP'] = opt['canonical']['check_blocked_IP']
+    if 'cf_assistant_get_source' not in opt and 'cf_assistant_get_source' in opt.get('canonical', {}): 
+                            opt['cf_assistant_get_source'] = opt['canonical']['cf_assistant_get_source']
 
     # Preparando la url
     if not PY3:
@@ -1220,7 +1224,8 @@ def downloadpage(url, **opt):
         
         response = build_response()
         response_code = req.status_code
-        response['data'] = req.content
+        response['data'] = req.content if not opt.get('cf_assistant_get_source', False) \
+                                       else req.reason if req.status_code in [207, 208] else req.content
         response['proxy__'] = proxy_stat(opt['url_save'], proxy_data, **opt)
 
         canonical = opt.get('canonical', {})
@@ -1444,6 +1449,14 @@ def downloadpage(url, **opt):
 
         except Exception:
             logger.error(traceback.format_exc(1))
+
+        if req.headers.get('Content-Encoding', '') == 'br':
+            try:
+                from lib.brotlipython.brotlipython import brotlidec
+                response['data'] = brotlidec(response['data'], [])
+            except Exception as e:
+                response['data'] = ''
+                logger.error('Error de descompresión BROTLI: %s' % str(e))
 
         response['url'] = req.url
 

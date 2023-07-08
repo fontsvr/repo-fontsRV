@@ -29,5 +29,5 @@
        <forum>https://www.mimediacenter.info/foro/</forum>
     </extension>
 
-    <extension point="xbmc.service" library="service.py" start="login|startup" />
+    <!--<extension point="xbmc.service" library="service.py" start="login|startup" />-->
 </addon>

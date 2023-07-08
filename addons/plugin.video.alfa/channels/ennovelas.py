@@ -31,8 +31,9 @@ forced_proxy_opt = 'ProxyCF'
 canonical = {
              'channel': 'ennovelas', 
              'host': config.get_setting("current_host", 'ennovelas', default=''), 
-             'host_alt': ["https://ww.ennovelas.net/"], 
-             'host_black_list': ["https://w.ennovelas.net/", "https://www.zonevipz.com/", "https://www.ennovelas.com/"], 
+             'host_alt': ["https://a.ennovelas.net/"], 
+             'host_black_list': ["https://e.ennovelas.net/", "https://ww.ennovelas.net/", 
+                                 "https://w.ennovelas.net/", "https://www.zonevipz.com/", "https://www.ennovelas.com/"], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
@@ -100,7 +101,7 @@ def mainlist(item):
     itemlist.append(Item(channel=item.channel, title="Novelas", action="list_all", 
                          url=host + "telenovelas/", c_type='series', thumbnail=get_thumb("tvshows", auto=True)))
     itemlist.append(Item(channel=item.channel, title=" - [COLOR paleturquoise]Nuevos Episodios[/COLOR]" , action="list_all", 
-                         url= host + "capitulos-n1/", c_type='episodios', thumbnail=get_thumb('new_episodes', auto=True)))
+                         url= host + "capitulos-n2/", c_type='episodios', thumbnail=get_thumb('new_episodes', auto=True)))
     itemlist.append(Item(channel=item.channel, title=" - [COLOR paleturquoise]Por Países[/COLOR]" , action="section", 
                          url= host, c_type='series', thumbnail=get_thumb('country', auto=True)))
 
@@ -265,14 +266,18 @@ def findvideos_matches(item, matches_int, langs, response, **AHkwargs):
 
         if elem_ini.input.get('name', '') != 'watch': continue
         url = elem_ini.get('action', '')
-        post = 'watch=%s&submit=' % elem_ini.input.get('value', '')
+        post = 'watch=%s' % elem_ini.input.get('value', '')
+        soup = AlfaChannel.create_soup(url, post=post, **kwargs)
 
-        for elem in AlfaChannel.create_soup(url, post=post, **kwargs).find('ul', class_="serversList").find_all('li'):
+        for elem in soup.find('div', class_="watch").find_all('iframe') or soup.find('ul', class_="serversList").find_all('li'):
             elem_json = {}
             #logger.error(elem)
 
-            elem_json['url'] = elem.get('data-server', '')
-            elem_json['url'] = scrapertools.find_single_match(elem_json['url'], "src='([^']+)'")
+            if elem.get('data-server', ''):
+                elem_json['url'] = elem.get('data-server', '')
+                elem_json['url'] = scrapertools.find_single_match(elem_json['url'], "src='([^']+)'")
+            else:
+                elem_json['url'] = elem.get('src', '')
             if not elem_json.get('url', ''): continue
             if 'ennovelas' in elem_json['url'] or 'lvturbo' in elem_json['url'] or 'vidmoly' in elem_json['url'] \
                                                or 'sbface' in elem_json['url']:

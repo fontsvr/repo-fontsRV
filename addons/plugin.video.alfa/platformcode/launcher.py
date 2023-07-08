@@ -41,44 +41,53 @@ def start():
     # Test if all the required directories are created
     #config.verify_directories_created()
     
+
+def load_item():
+    # Extract item from sys.argv
+    if sys.argv[2]:
+        sp = sys.argv[2].split('&')
+        url = sp[0]
+        item = Item().fromurl(url)
+        if len(sp) > 1:
+            for e in sp[1:]:
+                key, val = e.split('=')
+                item.__setattr__(key, val)
+
+    # If no item, this is mainlist
+    else:
+        if config.get_setting("start_page"):
+
+            if not config.get_setting("custom_start"):
+
+                category = config.get_setting("category")
+
+                if isinstance(category, int):
+                    category = config.get_localized_string(config.get_setting("category")).lower()
+
+                item = Item(channel="news", action="news", news=category.lower(), startpage=True)
+            else:
+                from channels import side_menu
+                item = Item()
+                item = side_menu.check_user_home(item)
+                item.startpage = True
+        else:
+            item = Item(channel="channelselector", action="getmainlist", viewmode="movie")
+    
+    if not config.get_setting('show_once'):
+        if config.verify_settings_integrity() and not config.get_setting('show_once'):
+            from platformcode import configurator
+            configurator.show_window()
+    
+    return item
+
+
 def run(item=None):
     logger.info()
 
+    itemlist = None
+
     if not item:
-        # Extract item from sys.argv
-        if sys.argv[2]:
-            sp = sys.argv[2].split('&')
-            url = sp[0]
-            item = Item().fromurl(url)
-            if len(sp) > 1:
-                for e in sp[1:]:
-                    key, val = e.split('=')
-                    item.__setattr__(key, val)
-
-        # If no item, this is mainlist
-        else:
-            if config.get_setting("start_page"):
-
-                if not config.get_setting("custom_start"):
-
-                    category = config.get_setting("category")
-
-                    if isinstance(category, int):
-                        category = config.get_localized_string(config.get_setting("category")).lower()
-
-                    item = Item(channel="news", action="news", news=category.lower(), startpage=True)
-                else:
-                    from channels import side_menu
-                    item = Item()
-                    item = side_menu.check_user_home(item)
-                    item.startpage = True
-            else:
-                item = Item(channel="channelselector", action="getmainlist", viewmode="movie")
-        
-        if not config.get_setting('show_once'):
-            if config.verify_settings_integrity() and not config.get_setting('show_once'):
-                from platformcode import configurator
-                configurator.show_window()
+        item = load_item()
 
     logger.info(item.tostring())
 
@@ -99,7 +108,18 @@ def run(item=None):
         # Special action for playing a video from the library
         if item.action == "play_from_library":
             play_from_library(item)
-            return
+
+        elif item.action == "keymap":
+            from platformcode import keymaptools
+            if item.open:
+                return keymaptools.open_shortcut_menu()
+            else:
+                return keymaptools.set_key()
+
+        elif item.action == "script":
+            from core import tmdb
+            if tmdb.drop_bd():
+                platformtools.dialog_notification(config.get_localized_string(20000), config.get_localized_string(60011), time=2000, sound=False)
 
         elif item.channel == 'channelselector':
             import channelselector
@@ -121,19 +141,6 @@ def run(item=None):
                 elif item.action == "filterchannels":
                     itemlist = channelselector.filterchannels(item.channel_type)
 
-                platformtools.render_items(itemlist, item)
-
-        elif item.action == "keymap":
-            from platformcode import keymaptools
-            if item.open:
-                return keymaptools.open_shortcut_menu()
-            else:
-                return keymaptools.set_key()
-
-        elif item.action == "script":
-            from core import tmdb
-            if tmdb.drop_bd():
-                platformtools.dialog_notification(config.get_localized_string(20000), config.get_localized_string(60011), time=2000, sound=False)
                 
         elif item.action == "function":
             """
@@ -223,9 +230,9 @@ def run(item=None):
             if item.context and 'alfavorites' in str(item.context) \
                             and item.action in ['findvideos', 'episodios', 'seasons', 'play']:
                 try:
-                    from lib import generictools
-                    item, it, overwrite = generictools.redirect_clone_newpct1(item)
-                except:
+                    from core.videolibrarytools import redirect_url
+                    item = redirect_url(item)
+                except Exception:
                     import traceback
                     logger.error(traceback.format_exc())
             
@@ -235,33 +242,35 @@ def run(item=None):
                 try:
                     from core import trakt_tools
                     trakt_tools.set_trakt_info(item)
-                except:
-                    pass
+                except Exception:
+                    import traceback
+                    logger.error(traceback.format_exc())
+
                 logger.info("item.action=%s" % item.action.upper())
                 # logger.debug("item_toPlay: " + "\n" + item.tostring('\n'))
 
                 # First checks if channel has a "play" function
                 if hasattr(channel, 'play'):
                     logger.info("Executing channel 'play' method")
-                    itemlist = channel.play(item)
+                    playlist = channel.play(item)
                     b_favourite = item.isFavourite
                     # Play should return a list of playable URLS
-                    if itemlist and len(itemlist) > 0 and isinstance(itemlist[0], Item):
-                        item = itemlist[0]
+                    if playlist and len(playlist) > 0 and isinstance(playlist[0], Item):
+                        item = playlist[0]
                         if b_favourite:
                             item.isFavourite = True
                         platformtools.play_video(item)
 
                     # Permitir varias calidades desde play en el canal
-                    elif itemlist and len(itemlist) > 0 and isinstance(itemlist[0], list):
-                        item.video_urls = itemlist
+                    elif playlist and len(playlist) > 0 and isinstance(playlist[0], list):
+                        item.video_urls = playlist
                         platformtools.play_video(item)
 
                     # If not, shows user an error message
-                    elif not itemlist and isinstance(itemlist, list):
+                    elif not playlist and isinstance(playlist, list):
                         platformtools.dialog_ok(config.get_localized_string(20000), config.get_localized_string(60339))
 
-                # If player don't have a "play" function, not uses the standard play from platformtools
+                # If player doesn't have a "play" function, the standard play from platformtools is used
                 else:
                     logger.info("Executing core 'play' method")
                     platformtools.play_video(item)
@@ -287,7 +296,6 @@ def run(item=None):
                 from platformcode import subtitletools
                 subtitletools.saveSubtitleName(item)
 
-                platformtools.render_items(itemlist, item)
 
             # Special action for adding a movie to the library
             elif item.action == "add_pelicula_to_library":
@@ -324,7 +332,7 @@ def run(item=None):
                 #     try:
                 #         current_saved_searches_list = list(config.get_setting("saved_searches_list", "search"))
                 #         last_search = current_saved_searches_list[0]
-                #     except:
+                #     except Exception:
                 #         pass
 
                 last_search = channeltools.get_channel_setting('Last_searched', 'search', '')
@@ -335,10 +343,7 @@ def run(item=None):
                     if "http" not in tecleado:
                         channeltools.set_channel_setting('Last_searched', tecleado, 'search')
                     itemlist = channel.search(item, tecleado)
-                else:
-                    return
 
-                platformtools.render_items(itemlist, item)
 
             # For all other actions
             else:
@@ -376,8 +381,6 @@ def run(item=None):
                 elif not config.get_setting('install_trakt'):
                     config.set_setting('install_trakt', True)
 
-                platformtools.render_items(itemlist, item)
-
     except urllib2.URLError as e:
         import traceback
         logger.error(traceback.format_exc())
@@ -386,13 +389,13 @@ def run(item=None):
         if hasattr(e, 'reason'):
             logger.error("Razon del error, codigo: %s | Razon: %s" % (str(e.reason[0]), str(e.reason[1])))
             texto = config.get_localized_string(30050)  # "No se puede conectar con el sitio web"
-            platformtools.dialog_ok("alfa", texto)
+            platformtools.dialog_ok("Alfa", texto)
 
         # Grab server response errors
         elif hasattr(e, 'code'):
             logger.error("Codigo de error HTTP : %d" % e.code)
             # "El sitio web no funciona correctamente (error http %d)"
-            platformtools.dialog_ok("alfa", config.get_localized_string(30051) % e.code)
+            platformtools.dialog_ok("Alfa", config.get_localized_string(30051) % e.code)
     except WebErrorException as e:
         import traceback
         from core import scrapertools
@@ -405,7 +408,7 @@ def run(item=None):
         platformtools.dialog_ok(
             config.get_localized_string(59985) + canal,
             config.get_localized_string(60013) %(e))
-    except:
+    except Exception:
         import traceback
         from core import scrapertools
         logger.error(traceback.format_exc())
@@ -420,7 +423,7 @@ def run(item=None):
             else:
                 log_name = "kodi.log"
             log_message = config.get_localized_string(50004) + config.translatePath("special://logpath") + log_name
-        except:
+        except Exception:
             log_message = ""
 
         if canal:
@@ -433,6 +436,9 @@ def run(item=None):
                 config.get_localized_string(60038),
                 config.get_localized_string(60015),
                 log_message)
+
+    if itemlist is not None:
+        platformtools.render_items(itemlist, item)
 
 
 
@@ -499,7 +505,7 @@ def limit_itemlist(itemlist):
 
         # logger.debug("Outlet itemlist size: %i" % len(new_list))
         return new_list
-    except:
+    except Exception:
         return itemlist
 
 

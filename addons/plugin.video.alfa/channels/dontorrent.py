@@ -32,9 +32,12 @@ forced_proxy_opt = 'ProxySSL'
 canonical = {
              'channel': 'dontorrent', 
              'host': config.get_setting("current_host", 'dontorrent', default=''), 
-             'host_alt': ['https://dontorrent.observer/', 'https://todotorrents.net/', 'https://dontorrent.in/', 
-                          'https://verdetorrent.com/', 'https://tomadivx.net/', 'https://donproxies.com/'], 
-             'host_black_list': ['https://dontorrent.cash/', 'https://dontorrent.care/', 'https://dontorrent.ms/', 
+             'host_alt': ["https://dontorrent.foo/", "https://todotorrents.net/", "https://dontorrent.in/", 
+                          "https://verdetorrent.com/", "https://tomadivx.net/", "https://donproxies.com/"], 
+             'host_black_list': ["https://dontorrent.boo/", "https://dontorrent.day/", 
+                                 "https://dontorrent.mov/", 'https://dontorrent.zip/', 'https://dontorrent.dad/', 
+                                 'https://dontorrent.discount/', 'https://dontorrent.company/', 'https://dontorrent.observer/', 
+                                 'https://dontorrent.cash/', 'https://dontorrent.care/', 'https://dontorrent.ms/', 
                                  'https://dontorrent.pictures/', 'https://dontorrent.cloud/', 'https://dontorrent.africa/', 
                                  'https://dontorrent.love/', 'https://dontorrent.ninja/', 'https://dontorrent.plus/', 
                                  'https://dontorrent.chat/', 'https://dontorrent.casa/', 'https://dontorrent.how/', 
@@ -61,9 +64,9 @@ canonical = {
 host = canonical['host'] or canonical['host_alt'][0]
 channel = canonical['channel']
 categoria = channel.capitalize()
-domain_torrent = 'blazing.network'
-host_torrent = 'https://%s' % domain_torrent if 'dontorrent' in host and not '.in/' in host else ''
-host_torrent_referer = 'https://%s' % domain_torrent if 'dontorrent' in host else host
+domain_torrent = 'dontorrent.foo'
+host_torrent = host if 'dontorrent' in host and not '.in/' in host else ''
+host_torrent_referer = host
 modo_ultima_temp = config.get_setting('seleccionar_ult_temporadda_activa', channel)     # Actualización sólo últ. Temporada?
 min_temp = modo_ultima_temp if not modo_ultima_temp else 'continue'
 
@@ -372,7 +375,7 @@ def list_all_matches(item, matches_int, **AHkwargs):
                     elif tv_path in elem_json['url']:
                         elem_json['quality'] = '*%s' % scrapertools.find_single_match(elem_json['title'], '\[([^\]]+)\]')
 
-                except:
+                except Exception:
                     logger.error(elem_a)
                     logger.error(traceback.format_exc())
                     continue
@@ -397,7 +400,7 @@ def list_all_matches(item, matches_int, **AHkwargs):
                                                                 .replace('Subs. integrados', '').strip() or 'HDTV')
                     elem_json['language'] = '*'
 
-                except:
+                except Exception:
                     logger.error(elem_a)
                     logger.error(traceback.format_exc())
                     continue
@@ -425,7 +428,7 @@ def list_all_matches(item, matches_int, **AHkwargs):
                     elem_json['quality'] = '*%s' % re.sub('(?i)\(|\)|Ninguno', '', elem_a.get_text(strip=True))
                     elem_json['language'] = '*'
 
-                except:
+                except Exception:
                     logger.error(elem_a)
                     logger.error(traceback.format_exc())
                     continue
@@ -437,6 +440,12 @@ def list_all_matches(item, matches_int, **AHkwargs):
                 matches.append(elem_json.copy())
 
         elif item.c_type in ['search']:
+            try:
+                items_found = int(elem.find('p', class_="lead").find_next('p', class_="lead").get_text('|', strip=True).split('|')[1])
+            except Exception:
+                items_found = 0
+            items_found_save = items_found
+
             for elem_a in elem.find_all('p'):
                 elem_json = {}
                 #logger.error(elem_a)
@@ -444,12 +453,13 @@ def list_all_matches(item, matches_int, **AHkwargs):
                 try:
                     if not elem_a.find('a'): continue
                     elem_json['url'] = elem_a.find('a').get("href", "")
+                    if items_found > 0: items_found -= 1
                     if movie_path not in elem_json['url'] and tv_path not in elem_json['url'] and docu_path not in elem_json['url']: continue
                     elem_json['title'] = re.sub('(?i)\s*\(.*?\).*?$', '', elem_a.get_text()).rstrip('.')
                     elem_json['quality'] = '*%s' % scrapertools.find_single_match(elem_a.get_text(), '\((.*?)\)').replace('Ninguno', '')
                     elem_json['language'] = '*'
 
-                except:
+                except Exception:
                     logger.error(elem_a)
                     logger.error(traceback.format_exc())
                     continue
@@ -458,12 +468,9 @@ def list_all_matches(item, matches_int, **AHkwargs):
 
                 matches.append(elem_json.copy())
 
-            if not AlfaChannel.last_page:
-                try:           
-                    AlfaChannel.last_page = int(float(elem.find('p', class_="lead").find_next('p', class_="lead")\
-                                                .get_text('|', strip=True).split('|')[1]) / float(len(matches))  + 0.500009)
-                except:
-                    AlfaChannel.last_page = 0
+            if AlfaChannel.last_page in [9999, 99999] and items_found:
+                AlfaChannel.last_page = int(float(items_found_save / float(findS['controls']['cnt_tot'])  + 0.500009))
+                AlfaChannel.cnt_tot = items_found_save
 
         elif item.c_type in ['peliculas', 'series']:
             for elem_a in elem.find_all('a'):
@@ -499,7 +506,7 @@ def list_all_matches(item, matches_int, **AHkwargs):
                             elem_json['title'] = elem_json['url']
                         elem_json['title'] = scrapertools.remove_htmltags(elem_json['title'])
 
-                except:
+                except Exception:
                     logger.error(elem_a)
                     logger.error(traceback.format_exc())
                     continue
@@ -587,7 +594,7 @@ def episodesxseason_matches(item, matches_int, **AHkwargs):
                     elem_json['season'] = contentSeason = int(elem_json['season'])
                     elem_json['episode'] = int(elem_json['episode'])
                     alt_epi = int(alt_epi)
-                except:
+                except Exception:
                     logger.error('ERROR al extraer Temporada/Episodio: %s' % sxe)
                     logger.error(td)
                     logger.error(traceback.format_exc())
@@ -682,7 +689,7 @@ def findvideos_matches(item, matches_int, langs, response, **AHkwargs):
                 if  elem.find('b', class_='bold', string=re.compile('Clave:')):
                     elem_json['password'] = elem.find('b', class_='bold', string=re.compile('Clave:'))\
                                                 .find_previous('p').get('data-clave', '')
-            except:
+            except Exception:
                 logger.error(elem)
                 logger.error(traceback.format_exc())
                 continue
@@ -719,7 +726,7 @@ def search(item, texto, **AHkwargs):
             return list_all(item)
         else:
             return []
-    except:
+    except Exception:
         for line in sys.exc_info():
             logger.error("%s" % line)
         logger.error(traceback.format_exc())
@@ -749,7 +756,7 @@ def newest(categoria, **AHkwargs):
             itemlist.pop()
 
     # Se captura la excepción, para no interrumpir al canal novedades si un canal falla
-    except:
+    except Exception:
         for line in sys.exc_info():
             logger.error("{0}".format(line))
         logger.error(traceback.format_exc())

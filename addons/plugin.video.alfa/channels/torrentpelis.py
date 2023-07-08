@@ -34,7 +34,7 @@ canonical = {
              'host': config.get_setting("current_host", 'torrentpelis', default=''), 
              'host_alt': ['https://torrentpelis.org/'], 
              'host_black_list': ['https://www2.torrentpelis.com/', 'https://www1.torrentpelis.com/', 'https://torrentpelis.com/'], 
-             'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 
+             'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'CF_stat': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
@@ -144,8 +144,6 @@ def list_all(item):
     if item.extra2 in ["GENERO", "TENDENCIAS"]: 
         findS['find'] = dict([('find', [{'tag': ['div'], 'class': ['items normal']}]), 
                               ('get_text', [{'tag': ['article'], 'class': ['item']}])])
-    elif item.extra == "search":
-        findS['find'] = findS.get('search', {})
                        
     return AlfaChannel.list_all(item, matches_post=list_all_matches, generictools=True, finds=findS, **kwargs)
                         
