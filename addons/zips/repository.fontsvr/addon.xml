@@ -21,6 +21,6 @@
             <icon>icon.png</icon>
 			<fanart>fanart.jpg</fanart>
         </assets>
-		<source>https://github.com/fontsvr/repo-fontsVR/</source>
+		<source>https://github.com/fontsvr/repo-fontsVR/tree/main/addons/</source>
     </extension>
 </addon>
