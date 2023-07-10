@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addon id="repository.fontsvr" name="[B]Repo[/B] [COLOR azure][B]FONTSVR[/B] [COLOR limegreen][B]MATRIX[/B][/COLOR]|[COLOR violet][B]NEXUS[/B][/COLOR]" version="1.0" provider-name="Rik Team">
-    <requires>
-    <import addon="xbmc.addon" version="12.0.0"/>    
-    </requires>
+   
 	<extension point="xbmc.addon.repository" name="[B[COLOR white]Repo FONTSVR[/B][/COLOR]">
         <dir>
 		<info compressed="false">https://raw.githubusercontent.com/fontsvr/repo-fontsVR/main/addons/zips/addons.xml</info>
@@ -21,6 +19,6 @@
             <icon>icon.png</icon>
 			<fanart>fanart.jpg</fanart>
         </assets>
-		<source>https://github.com/fontsvr/repo-fontsVR/tree/main/addons/</source>
+		<source>https://github.com/fontsvr/repo-fontsVR/</source>
     </extension>
 </addon>
