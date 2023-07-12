@@ -871,7 +871,7 @@ provider-name="jurialmunkey">
     </extension>
 </addon>
 
-<addon id="plugin.video.vavooto" name="VAVOO.TO" version="5.9.3.5" provider-name="kasi,michaz">
+<addon id="plugin.video.vavooto" name="VAVOO.TO" version="5.9.3.6" provider-name="kasi,michaz">
 	<requires>
 		<import addon="script.module.vavoo"/>
 		<import addon="script.module.requests"/>
@@ -1078,7 +1078,8 @@ provider-name="jurialmunkey">
     </extension>
     <extension point="xbmc.addon.metadata">
         <summary>Repo [COLOR azure]FONTSVR[/COLOR] [COLOR limegreen]MATRIX[/COLOR][COLOR azure]|[/COLOR][COLOR violet]NEXUS[/COLOR]</summary>
-        <description>Repositorio de addons [COLOR azure]FONTSVR[/COLOR][COLOR gold]Developers:[/COLOR] Rik Team</description>
+        <description>Repositorio de addons [COLOR azure]FONTSVR[/COLOR][COLOR gold]
+Developers:[/COLOR] Rik Team</description>
         <disclaimer>Repositorio de addons para Kodi 19.x MATRIX y 20.x NEXUS.</disclaimer>
         <platform>all</platform>
         <assets>
