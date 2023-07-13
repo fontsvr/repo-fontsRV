@@ -1,5 +1,4 @@
 {
     "addon_version": "3.9.2",
-    "init_version": "true",
-    "verify_data_jsons": "OK"
+    "init_version": "true"
 }

@@ -31,8 +31,8 @@ forced_proxy_opt = 'ProxyCF'
 canonical = {
              'channel': 'ennovelas', 
              'host': config.get_setting("current_host", 'ennovelas', default=''), 
-             'host_alt': ["https://a.ennovelas.net/"], 
-             'host_black_list': ["https://e.ennovelas.net/", "https://ww.ennovelas.net/", 
+             'host_alt': ["https://b.ennovelas.net/"], 
+             'host_black_list': ["https://a.ennovelas.net/", "https://e.ennovelas.net/", "https://ww.ennovelas.net/", 
                                  "https://w.ennovelas.net/", "https://www.zonevipz.com/", "https://www.ennovelas.com/"], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 
              'CF': False, 'CF_test': False, 'alfa_s': True
@@ -70,7 +70,7 @@ finds = {'find': {'find_all': [{'tag': ['article'], 'class': 'post'}]},
          'episode_clean': [], 
          'plot': {}, 
          'findvideos': dict([('find', [{'tag': ['div'], 'id': ['btnServers']}]), 
-                             ('find_all', [{'tag': ['form']}])]), 
+                             ('find_all', [{'tag': ['form', 'div']}])]), 
          'title_clean': [['(?i)TV|Online|(4k-hdr)|(fullbluray)|4k| - 4k|(3d)|miniserie|\s*\(\d{4}\)', ''],
                          ['[\(|\[]\s*[\)|\]]', ''], ['(?i)\s*(?:\s*–|-)?\s+(\d+)\s+(?:temp\w*\s+-*\s+)?cap.\w+\s+(\d+)', ''], 
                          ['(?i)(?:\s*–|-)?\s+cap.\w+\s+(\d+)', ''], ['(?i)(?:\s+\d+)?\s+temp\w*(?:\s+\d+)?', ''], 
@@ -153,6 +153,7 @@ def list_all_matches(item, matches_int, **AHkwargs):
         try:
             elem_json['url'] = elem.find('a').get("href", "")
             elem_json['title'] = elem.find('a', title=True).get('title', '')
+            if 'en vivo' in elem_json['title'].lower(): continue
             elem_json['thumbnail'] = elem.find("img", class_='imgLoaded').get("data-img", "")
             
             if item.c_type == 'episodios':
@@ -264,9 +265,10 @@ def findvideos_matches(item, matches_int, langs, response, **AHkwargs):
     for elem_ini in matches_int:
         #logger.error(elem_ini)
 
-        if elem_ini.input.get('name', '') != 'watch': continue
-        url = elem_ini.get('action', '')
-        post = 'watch=%s' % elem_ini.input.get('value', '')
+        if elem_ini.a and elem_ini.a.get('id', '') != 'btnWatch': continue
+        elif elem_ini.input and elem_ini.input.get('name', '') != 'watch': continue
+        url = elem_ini.get('action', '') or elem_ini.a.get('href', '')
+        post = 'watch=%s' % elem_ini.input.get('value', '') if elem_ini.input else None
         soup = AlfaChannel.create_soup(url, post=post, **kwargs)
 
         for elem in soup.find('div', class_="watch").find_all('iframe') or soup.find('ul', class_="serversList").find_all('li'):
@@ -281,6 +283,7 @@ def findvideos_matches(item, matches_int, langs, response, **AHkwargs):
             if not elem_json.get('url', ''): continue
             if 'ennovelas' in elem_json['url'] or 'lvturbo' in elem_json['url'] or 'vidmoly' in elem_json['url'] \
                                                or 'sbface' in elem_json['url']:
+                logger.debug('Servidor no soportado: %s' % elem_json['url'])
                 continue
 
             elem_json['title'] = '%s'

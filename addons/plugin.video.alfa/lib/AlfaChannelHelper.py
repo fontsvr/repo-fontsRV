@@ -1142,7 +1142,7 @@ class CustomChannel(AlfaChannelHelper):
 
 class DictionaryAllChannel(AlfaChannelHelper):
 
-    def list_all(self, item, data='', matches_post=None, postprocess=None, generictools=False, finds={}, **kwargs):
+    def list_all(self, item, data='', matches_post=None, postprocess=None, generictools=None, finds={}, **kwargs):
         logger.info()
         from channels import filtertools
         from core import tmdb
@@ -1448,7 +1448,8 @@ class DictionaryAllChannel(AlfaChannelHelper):
                     new_item.quality = self.find_quality(elem, item)
 
                 # Salvo que venga la llamada desde Episodios, se filtran las entradas para evitar duplicados de Temporadas
-                if isinstance(finds_controls.get('duplicates', False), list) and (self.tv_path in new_item.url \
+                if isinstance(finds_controls.get('duplicates', False), list) and \
+                             (item.c_type == 'documentales' or self.tv_path in new_item.url \
                               or (finds_controls.get('dup_movies', False) and self.movie_path in new_item.url)) \
                               and item.c_type != 'episodios' and item.extra != 'find_seasons':
                     url_list = new_item.url
@@ -1516,6 +1517,7 @@ class DictionaryAllChannel(AlfaChannelHelper):
                     new_item.title = '%sx%s - %s' % (new_item.contentSeason, new_item.contentEpisodeNumber, 
                                                      elem.get('title_episode', '') or new_item.title)
                     episodios = True
+                    if generictools is not False: generictools = True
 
                 if elem.get('mediatype', ''): new_item.contentType = elem['mediatype']
                 elif item.c_type == 'peliculas': new_item.contentType = 'movie'
@@ -1688,8 +1690,8 @@ class DictionaryAllChannel(AlfaChannelHelper):
                     
                     if profile in [DEFAULT]:
                         try:
-                            elem_json['url'] = elem.a.get("href", '')
-                            elem_json['title'] = elem.a.get_text(strip=True)
+                            elem_json['url'] = elem.a.get("href", '') if elem.a else elem.get("href", '') or elem.get("value", '')
+                            elem_json['title'] = elem.a.get_text(strip=True) if elem.a else elem.get_text(strip=True)
                             
                             # External Labels
                             if not elem_json.get('url') and finds.get('profile_labels', {}).get('section_url'):
@@ -1700,6 +1702,7 @@ class DictionaryAllChannel(AlfaChannelHelper):
                         except Exception:
                             elem_json['url'] = elem.get("href", '')
                             elem_json['title'] = elem.get_text(strip=True)
+                            logger.error(traceback.format_exc())
                     
                     matches.append(elem_json.copy())
                 AHkwargs['matches'] = matches
@@ -2180,7 +2183,7 @@ class DictionaryAllChannel(AlfaChannelHelper):
 
     def episodes(self, item, data='', action="findvideos", matches_post=None, postprocess=None, 
                  generictools=False, episodes_list={}, finds={}, **kwargs):
-        logger.info('Serie: %s; Season: %s' % (item.contentSerieName, item.contentSeason))
+        logger.info('Serie: %s; Season: %s/%s' % (item.contentSerieName, item.contentSeason, item.infoLabels['number_of_seasons']))
         from lib.generictools import AH_post_tmdb_episodios, AH_find_videolab_status
         from channels import filtertools
         from core import tmdb
@@ -3999,6 +4002,9 @@ class DictionaryAdultChannel(AlfaChannelHelper):
                     logger.error(traceback.format_exc())
 
             itemlist_total.extend(itemlist)
+
+        # Requerido para AutoPlay
+        autoplay.start(itemlist_total, item)
 
         return itemlist_total
 

@@ -60,6 +60,7 @@ except Exception:
     logger.error(traceback.format_exc())
 
 channel_py = "wolfmax4k"
+channel_py_episode_list = {}
 idioma_busqueda = 'es'
 idioma_busqueda_VO = 'es,en'
 movies_videolibrary_path = filetools.join(config.get_videolibrary_path(), config.get_setting("folder_movies"))
@@ -1526,7 +1527,7 @@ def AH_find_btdigg_matches(item, matches, **AHkwargs):
     return matches + matches_out
 
 
-def AH_find_btdigg_list_all_from_channel_py(self, item, matches=[], channel_alt='', channel_entries=20, btdigg_entries=80, **AHkwargs):
+def AH_find_btdigg_list_all_from_channel_py(self, item, matches=[], channel_alt=channel_py, channel_entries=20, btdigg_entries=80, **AHkwargs):
     logger.info()
 
     matches_inter = []
@@ -1580,7 +1581,7 @@ def AH_find_btdigg_list_all_from_channel_py(self, item, matches=[], channel_alt=
                 else:
                     elem_cfg['url'] = elem_cfg['url'] % item.texto
 
-            soup = self.create_soup(elem_cfg['url'], post=elem_cfg.get('post', None), timeout=channel.timeout, 
+            soup = self.create_soup(elem_cfg['url'] + str(item.page), post=elem_cfg.get('post', None), timeout=channel.timeout, 
                                     headers=headers, canonical=canonical_alt, alfa_s=True)
 
             if not self.response.sucess:
@@ -1691,7 +1692,8 @@ def AH_find_btdigg_list_all_from_BTDIGG(self, item, matches=[], channel_alt='', 
 
     matches_inter = []
     matches_btdigg = matches[:]
-    movie_search = 'Bluray Castellano'
+    matches_len = len(matches_btdigg)
+    movie_search = 'Bluray Castellano|Castellano|Esp|wolfmax'
     tv_search = 'HDTV-720p|Cap.'
     titles_search = [tv_search if item.c_type == 'series' else movie_search if item.c_type == 'peliculas' else '']
     if item.c_type == 'search':
@@ -1723,8 +1725,8 @@ def AH_find_btdigg_list_all_from_BTDIGG(self, item, matches=[], channel_alt='', 
 
         format_tmdb_id(item)
 
-        if not PY3: from lib.alfaresolver import find_alternative_link
-        else: from lib.alfaresolver_py3 import find_alternative_link
+        if not PY3: from lib.alfaresolver import find_alternative_link, get_cached_files
+        else: from lib.alfaresolver_py3 import find_alternative_link, get_cached_files
 
         quality_alt = '720p 1080p 4kwebrip 4k'
         if item.c_type == 'peliculas':
@@ -1826,7 +1828,7 @@ def AH_find_btdigg_list_all_from_BTDIGG(self, item, matches=[], channel_alt='', 
             else:
                 elem_json['quality'] += ', %s' % matches_index[elem_json['title'].lower()]
 
-    if DEBUG: logger.debug('matches_BTDIGG: %s / %s' % (len(matches_btdigg), matches_btdigg))
+    if DEBUG: logger.debug('matches_BTDIGG: %s / %s' % (len(matches_btdigg) - matches_len, matches_btdigg))
     return matches_btdigg
 
 
@@ -1837,18 +1839,21 @@ def CACHING_find_btdigg_list_all_NEWS_from_BTDIGG_(options=None):
     monitor = xbmc.Monitor()
     if not PY3: from lib.alfaresolver import find_alternative_link
     else: from lib.alfaresolver_py3 import find_alternative_link
+    from lib.AlfaChannelHelper import DictionaryAllChannel
 
     item = Item()
     btdigg_entries = 50
     torrent_params = {}
-    movie_search_1 = 'wolfmax4k Bluray'
-    movie_search_2 = 'Bluray Castellano'
-    tv_search = 'HDTV-720p|Cap.'
-    titles_search = [[movie_search_1, 'movie'], [movie_search_2, 'movie'], [tv_search, 'tvshow']]
+    movie_search_1 = 'wolfmax4k Bluray|Bluray|Esp|wolfmax'
+    movie_search_2 = 'Bluray Castellano|Castellano|Bluray|Esp'
+    tv_search_1 = 'HDTV-720p wolfmax4k|Cap.|wolfmax'
+    tv_search_2 = 'HDTV-720p|Cap.'
+    titles_search = [[movie_search_1, 'movie'], [movie_search_2, 'movie'], [tv_search_1, 'tvshow'], [tv_search_2, 'tvshow']]
     disable_cache = True
     cached = {'movie': [], 'tvshow': []}
 
     try:
+        
         for title_search, contentType in titles_search:
             quality_alt = '[HDTV] 720p 1080p 4kwebrip 4k'
             if 'Bluray' in title_search: quality_alt +=  ' rip screener'
@@ -1892,7 +1897,32 @@ def CACHING_find_btdigg_list_all_NEWS_from_BTDIGG_(options=None):
             cached[contentType].extend(matches[:])
             window.setProperty("alfa_cached_btdigg_%s" % contentType, str(cached[contentType]))
             if monitor.waitForAbort(1 * 60):
-                break
+                return
+
+        cached_episodes = {}
+        matches = []
+        channel = __import__('channels.%s' % channel_py, None,
+                             None, ["channels.%s" % channel_py])
+        self = DictionaryAllChannel(channel.host, channel=channel_py, finds=channel.finds, debug=DEBUG)
+        item.contentType = 'episode'
+        item.c_type = 'series'
+
+        for item.page in range(1, 6):
+            matches = (AH_find_btdigg_list_all_from_channel_py(self, item, matches=matches))
+            if monitor.waitForAbort(10):
+                return
+
+        for elem in matches:
+            try:
+                elem['season'], elem['episode'] = scrapertools.find_single_match(elem['url'], '(?i)\/temp\w*-?(\d+)\/cap\w*-?(\d+)')
+                elem['season'] = int(elem['season'])
+                elem['episode'] = int(elem['episode'])
+                elem['mediatype'] = 'episode'
+            except Exception:
+                logger.error('Error en EPISODIO: %s' % elem['url'])
+
+            cached_episodes[elem['title'].lower()] = elem
+        window.setProperty("alfa_cached_btdigg_%s" % item.contentType, str(cached_episodes))
 
     except Exception:
         logger.error(traceback.format_exc())
@@ -2043,6 +2073,7 @@ def AH_find_btdigg_list_all(self, item, matches=[], channel_alt='', **AHkwargs):
 
 def AH_find_btdigg_seasons(self, item, matches=[], domain_alt='', **AHkwargs):
     logger.info()
+    global channel_py_episode_list
 
     controls = self.finds.get('controls', {})
     url = AHkwargs.pop('url', item.url)
@@ -2052,6 +2083,10 @@ def AH_find_btdigg_seasons(self, item, matches=[], domain_alt='', **AHkwargs):
     canonical = AHkwargs.pop('canonical', self.canonical)
     matches = sorted(matches, key=lambda it: int(it.get('season', 0))) if matches else []
     season_high = [elem_json['season'] for elem_json in matches] if matches else [0]
+    channel_py_strict = False
+    tv_search = 'HDTV-720p|Cap.'
+    titles_search = [tv_search]
+
     if (item.infoLabels['number_of_seasons'] in season_high and contentSeason == 0) \
                          or (contentSeason > 0 and contentSeason in season_high \
                          and season_high[-1] >= item.infoLabels['number_of_seasons']):
@@ -2065,8 +2100,13 @@ def AH_find_btdigg_seasons(self, item, matches=[], domain_alt='', **AHkwargs):
 
         format_tmdb_id(item)
 
-        if not PY3: from lib.alfaresolver import find_alternative_link
-        else: from lib.alfaresolver_py3 import find_alternative_link
+        if not PY3: from lib.alfaresolver import find_alternative_link, get_cached_files
+        else: from lib.alfaresolver_py3 import find_alternative_link, get_cached_files
+
+        if item.library_urls and item.from_action not in ['update_tvshow'] and not item.sub_action:
+            if not channel_py_episode_list: channel_py_episode_list = get_cached_files('episode')
+            if item.contentSerieName.lower() in channel_py_episode_list:
+                channel_py_strict = True
 
         season = item.infoLabels['number_of_seasons'] or 1
         seasons = season
@@ -2093,13 +2133,14 @@ def AH_find_btdigg_seasons(self, item, matches=[], domain_alt='', **AHkwargs):
         patron_sea = 'Cap.(\d+)\d{2}'
         
         torrent_params = {
-                          'title_prefix': [], 
+                          'title_prefix': titles_search, 
                           'quality_alt': quality_alt, 
                           'find_alt_link_season': seasons, 
                           'find_alt_link_next': 0, 
                           'link_found_limit': limit_items_found, 
                           'domain_alt': domain_alt or None, #find_alt_domains,
-                          'extensive_search': False if contentSeason > 0 else False
+                          'extensive_search': False if contentSeason > 0 else False,
+                          'channel_py_strict': channel_py_strict
                           }
 
         x = 0
@@ -2154,12 +2195,14 @@ def AH_find_btdigg_seasons(self, item, matches=[], domain_alt='', **AHkwargs):
 
 def AH_find_btdigg_episodes(self, item, matches=[], domain_alt='', **AHkwargs):
     logger.info()
+    global channel_py_episode_list
 
     controls = self.finds.get('controls', {})
     contentSeason = AHkwargs.pop('btdigg_contentSeason', controls.get('btdigg_contentSeason', 0))
     disable_cache = not AHkwargs.pop('btdigg_cache', controls.get('btdigg_cache', True))
     quality_control = AHkwargs.pop('btdigg_quality_control', controls.get('btdigg_quality_control', False))
     canonical = AHkwargs.pop('canonical', self.canonical)
+    channel_py_strict = False
 
     matches = sorted(matches, key=lambda it: int(it.get('episode', 0))) if matches else []
     matches_len = len(matches)
@@ -2221,11 +2264,20 @@ def AH_find_btdigg_episodes(self, item, matches=[], domain_alt='', **AHkwargs):
 
         format_tmdb_id(item)
 
-        if not PY3: from lib.alfaresolver import find_alternative_link
-        else: from lib.alfaresolver_py3 import find_alternative_link
+        if not PY3: from lib.alfaresolver import find_alternative_link, get_cached_files
+        else: from lib.alfaresolver_py3 import find_alternative_link, get_cached_files
+
+        if item.library_urls and item.from_action not in ['update_tvshow'] and not item.sub_action:
+            if not channel_py_episode_list: channel_py_episode_list = get_cached_files('episode')
+            if item.contentSerieName.lower() in channel_py_episode_list:
+                channel_py_strict = True
 
         season = seasons = item.infoLabels['season'] or 1
         episode_max = item.infoLabels['temporada_num_episodios'] or item.infoLabels['number_of_episodes']
+        if not channel_py_strict:
+            sxe_max = '%sx%s' % (item.infoLabels['number_of_seasons'], str(episode_max).zfill(2))
+            if sxe_max in item.library_playcounts:
+                return matches
 
         quality_alt = '720p 1080p 4kwebrip 4k'
         if item.contentType == 'movie':
@@ -2236,7 +2288,7 @@ def AH_find_btdigg_episodes(self, item, matches=[], domain_alt='', **AHkwargs):
                 quality_alt +=  ' [HDTV]'
             elif '720' not in item.quality:
                 quality_alt =  '[HDTV]'
-                
+
         limit_pages = 7
         limit_pages_min = 4
         limit_items_found = 10 * 10
@@ -2251,7 +2303,8 @@ def AH_find_btdigg_episodes(self, item, matches=[], domain_alt='', **AHkwargs):
                           'find_alt_link_next': 0, 
                           'link_found_limit': limit_items_found, 
                           'domain_alt': domain_alt or None, #find_alt_domains
-                          'extensive_search': False if contentSeason > 0 else False
+                          'extensive_search': False if contentSeason > 0 else False,
+                          'channel_py_strict': channel_py_strict
                           }
 
         x = 0

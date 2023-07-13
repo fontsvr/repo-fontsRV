@@ -63,7 +63,7 @@ finds = {'find': {'find_all': [{'tag': ['div'], 'class': ['col-lg-2']}]},
          'get_quality': {}, 
          'get_quality_rgx': [], 
          'next_page': {}, 
-         'next_page_rgx': [['\/page\/\d+', '/page/%s/'], ['\&pg=\d+', '&pg=%s']], 
+         'next_page_rgx': [['\&pg=\d+', '&pg=%s'], ['\/\d+$', '/%s']], 
          'last_page': dict([('find', [{'tag': ['div'], 'class': ['mod-pagination']}]), 
                             ('find_all', [{'tag': ['a'], '@POS': [-1], '@ARG': 'href', '@TEXT': '\/(\d+)'}])]), 
          'year': {}, 
@@ -153,44 +153,44 @@ def submenu(item):
 
     if item.c_type == 'peliculas':
         itemlist.append(Item(channel=item.channel, title="Todas las Películas", 
-                             action="list_all", url=item.url, 
+                             action="list_all", url=item.url + '1', 
                              thumbnail=get_thumb('movies', auto=True), c_type=item.c_type, contentPlot=item.plot))
         
         itemlist.append(Item(channel=item.channel, title=" - [COLOR paleturquoise]por Calidad: Bluray[/COLOR]", 
-                             action="list_all", url=item.url + 'bluray/', 
+                             action="list_all", url=item.url + 'bluray/1', 
                              thumbnail=get_thumb('quality', auto=True), c_type=item.c_type, contentPlot=item.plot))
 
         itemlist.append(Item(channel=item.channel, title=" - [COLOR paleturquoise]por Calidad: Bluray 720p[/COLOR]", 
-                             action="list_all", url=item.url + 'bluray-720p/', 
+                             action="list_all", url=item.url + 'bluray-720p/1', 
                              thumbnail=get_thumb('quality', auto=True), c_type=item.c_type, contentPlot=item.plot))
 
         itemlist.append(Item(channel=item.channel, title=" - [COLOR paleturquoise]por Calidad: Bluray 1080p[/COLOR]", 
-                             action="list_all", url=item.url + 'bluray-1080p/', 
+                             action="list_all", url=item.url + 'bluray-1080p/1', 
                              thumbnail=get_thumb('quality', auto=True), c_type=item.c_type, contentPlot=item.plot))
 
         itemlist.append(Item(channel=item.channel, title=" - [COLOR paleturquoise]por Calidad: 4K[/COLOR]", 
-                             action="list_all", url=item.url + '4k-2160p/', 
+                             action="list_all", url=item.url + '4k-2160p/1', 
                              thumbnail=get_thumb('quality', auto=True), c_type=item.c_type, contentPlot=item.plot))
 
     if item.c_type == 'episodios':
         itemlist.append(Item(channel=item.channel, title="Todas las Series (episodios)", 
-                             action="list_all", url=item.url, 
+                             action="list_all", url=item.url + '1', 
                              thumbnail=get_thumb('movies', auto=True), c_type=item.c_type, contentPlot=item.plot))
 
         itemlist.append(Item(channel=item.channel, title=" - [COLOR paleturquoise]por Calidad: HDTV[/COLOR]", 
-                             action="list_all", url=item.url + '480p/', 
+                             action="list_all", url=item.url + '480p/1', 
                              thumbnail=get_thumb('quality', auto=True), c_type=item.c_type, contentPlot=item.plot))
                              
         itemlist.append(Item(channel=item.channel, title=" - [COLOR paleturquoise]por Calidad: HDTV 720p[/COLOR]", 
-                             action="list_all", url=item.url + '720p/', 
+                             action="list_all", url=item.url + '720p/1', 
                              thumbnail=get_thumb('quality', auto=True), c_type=item.c_type, contentPlot=item.plot))
 
         itemlist.append(Item(channel=item.channel, title=" - [COLOR paleturquoise]por Calidad: WEB-DL 1080p[/COLOR]", 
-                             action="list_all", url=item.url + '1080p/', 
+                             action="list_all", url=item.url + '1080p/1', 
                              thumbnail=get_thumb('quality', auto=True), c_type=item.c_type, contentPlot=item.plot))
 
         itemlist.append(Item(channel=item.channel, title=" - [COLOR paleturquoise]por Calidad: 4K[/COLOR]", 
-                             action="list_all", url=item.url + '4k-2160p/', 
+                             action="list_all", url=item.url + '4k-2160p/1', 
                              thumbnail=get_thumb('quality', auto=True), c_type=item.c_type, contentPlot=item.plot))
 
     return itemlist

@@ -37,8 +37,8 @@
         <reuselanguageinvoker>true</reuselanguageinvoker>
         <summary lang="en_GB">Automatically changes out widgets</summary>
         <description lang="en_GB">Automatically changes out widgets on the homescreen for a more interesting browsing experience.</description>
-	<summary lang="es_ES">Cambia los widgets automáticamente</summary>
-	<description lang="es_ES">Cambia los widgets en la pantalla de inicio automáticamente para una experiencia de navegación más interesante.</description>
+	<summary lang="es_ES">Cambia los widgets automÃ¡ticamente</summary>
+	<description lang="es_ES">Cambia los widgets en la pantalla de inicio automÃ¡ticamente para una experiencia de navegaciÃ³n mÃ¡s interesante.</description>
 	<platform>all</platform>
         <license>LGPL-3.0</license>
         <website>https://www.github.com/drinfernoo/</website>
@@ -383,13 +383,13 @@
 	<extension point="xbmc.addon.metadata">
 		<summary lang="es">[COLOR azure]RikTeam[/COLOR] [COLOR lime]MATRIX[COLOR white]|[COLOR violet]NEXUS[/B][/COLOR] tu Wizard para KODI 19.x y 20.x</summary>
 		<description>
-[B]• Developers:[/B] [COLOR gold]Rik Team[/COLOR]
+[B]â€¢ Developers:[/B] [COLOR gold]Rik Team[/COLOR]
         </description>
 		<platform>all</platform>
 		<reuselanguageinvoker>false</reuselanguageinvoker>
 		<source>https://github.com/fontsvr/fontsvr.github.io</source>
 		<news>
-• plugin.program [COLOR azure][B]RikTeam[/B][/COLOR] [COLOR lime][B]MATRIX[/COLOR][COLOR white]|[/COLOR][COLOR violet]NEXUS[/B][/COLOR]
+â€¢ plugin.program [COLOR azure][B]RikTeam[/B][/COLOR] [COLOR lime][B]MATRIX[/COLOR][COLOR white]|[/COLOR][COLOR violet]NEXUS[/B][/COLOR]
 		</news>
 		<assets>
 			<icon>icon.png</icon>
@@ -419,13 +419,13 @@
     <extension point="xbmc.addon.metadata">
         <summary lang="es">[COLOR azure]RikTeam[/COLOR] [COLOR white]Wizard [COLOR violet]NEXUS][/COLOR] tu Wizard para Kodi 20.x Nexus</summary>
         <description lang="es">[COLOR azure]RikTeam[/COLOR] [COLOR white]Wizard [COLOR violet]NEXUS][/COLOR][COLOR lightpink] Complementos incluidos: Scripts,Elementum,Luar,Kelebek y fuentes para Kodi[/COLOR]
-		[B]• Developers:[/B] [COLOR gold]Rik Team[/COLOR]
+		[B]â€¢ Developers:[/B] [COLOR gold]Rik Team[/COLOR]
 		</description>
         <platform>all</platform>
         <reuselanguageinvoker>false</reuselanguageinvoker>
         <source>https://github.com/fontsvr/fontsvr.github.io</source>
 		<news>
-• plugin.program [COLOR azure][B]RikTeam[/B][/COLOR] [COLOR white][B]Wizard[/B][/COLOR] [COLOR violet]NEXUS[/B][/COLOR]
+â€¢ plugin.program [COLOR azure][B]RikTeam[/B][/COLOR] [COLOR white][B]Wizard[/B][/COLOR] [COLOR violet]NEXUS[/B][/COLOR]
 		</news>
         <assets>
             <icon>icon.png</icon>
@@ -448,7 +448,7 @@
                 <platform>all</platform>
 		<summary lang="en">RikTeam_fonts</summary>
 		<summary lang="es">RikTeam_fonts</summary>
-		<description lang="en">[B][COLOR white]Añadir fuentes a KODI con las fuentes más recientes.  [COLOR yellow] ** [COLOR violet] RikTeam [COLOR yellow] ** [/COLOR][/B]</description>
+		<description lang="en">[B][COLOR white]AÃ±adir fuentes a KODI con las fuentes mÃ¡s recientes.  [COLOR yellow] ** [COLOR violet] RikTeam [COLOR yellow] ** [/COLOR][/B]</description>
 		<website></website>
 		<license>GPL 2.0</license>
 		<platform>all</platform>
@@ -476,32 +476,32 @@
 		<provides>video</provides>
 	</extension>
 	<extension point="xbmc.addon.metadata">
-		<summary lang="ca">Navega amb Kodi per pàgines web.</summary>
+		<summary lang="ca">Navega amb Kodi per pÃ gines web.</summary>
 		<summary lang="en">Browse web pages using Kodi</summary>
-		<summary lang="es">Navega con Kodi por páginas web.</summary>
+		<summary lang="es">Navega con Kodi por pÃ¡ginas web.</summary>
 		<summary lang="it">Sfoglia le pagine web con Kodi.</summary>
-		<summary lang="pt">Navegue por páginas da web com Kodi.</summary>
-		<description lang="ca">Navega amb Kodi per pàgines web per veure els vídeos de manera fàcil.</description>
+		<summary lang="pt">Navegue por pÃ¡ginas da web com Kodi.</summary>
+		<description lang="ca">Navega amb Kodi per pÃ gines web per veure els vÃ­deos de manera fÃ cil.</description>
 		<description lang="en">Browse web pages using Kodi to easily watch their video content.</description>
-		<description lang="es">Navega con Kodi por páginas web para ver sus videos de manera fácil.</description>
+		<description lang="es">Navega con Kodi por pÃ¡ginas web para ver sus videos de manera fÃ¡cil.</description>
 		<description lang="it">Sfoglia le pagine web con Kodi per guardare facilmente i tuoi video.</description>
-		<description lang="pt">Navegue pelas páginas da web com Kodi para assistir seus vídeos facilmente.</description>
-		<disclaimer lang="ca">[COLOR red]Els propietaris i distribuïdors d'aquest complemento no proveeixen ni distribueixen cap contingut mostrat pel complemento ni tenen affiliación alguna amb els proveïdors de l'contingut.[/COLOR]</disclaimer>
+		<description lang="pt">Navegue pelas pÃ¡ginas da web com Kodi para assistir seus vÃ­deos facilmente.</description>
+		<disclaimer lang="ca">[COLOR red]Els propietaris i distribuÃ¯dors d'aquest complemento no proveeixen ni distribueixen cap contingut mostrat pel complemento ni tenen affiliaciÃ³n alguna amb els proveÃ¯dors de l'contingut.[/COLOR]</disclaimer>
 		<disclaimer lang="en">[COLOR red]The owners and submitters to this addon do not host or distribute any of the content displayed by these addons nor do they have any affiliation with the content providers.[/COLOR]</disclaimer>
-		<disclaimer lang="es">[COLOR red]Los propietarios y distribuidores de este addon no proveen ni distribuyen ningún contenido mostrado por el addon ni tienen affiliación alguna con los proveedores del contenido.[/COLOR]</disclaimer>
-		<disclaimer lang="it">[COLOR red]I proprietari e i distributori di questo addon aggiuntivo non forniscono o distribuiscono alcun contenuto visualizzato dal addon aggiuntivo né hanno alcuna affiliazione con i fornitori di contenuti.[/COLOR]</disclaimer>
-		<disclaimer lang="pt">[COLOR red]Os proprietários e distribuidores deste addon não fornecem ou distribuem qualquer conteúdo exibido pelo addon nem têm qualquer afiliação com os provedores de conteúdo.[/COLOR]</disclaimer>
+		<disclaimer lang="es">[COLOR red]Los propietarios y distribuidores de este addon no proveen ni distribuyen ningÃºn contenido mostrado por el addon ni tienen affiliaciÃ³n alguna con los proveedores del contenido.[/COLOR]</disclaimer>
+		<disclaimer lang="it">[COLOR red]I proprietari e i distributori di questo addon aggiuntivo non forniscono o distribuiscono alcun contenuto visualizzato dal addon aggiuntivo nÃ© hanno alcuna affiliazione con i fornitori di contenuti.[/COLOR]</disclaimer>
+		<disclaimer lang="pt">[COLOR red]Os proprietÃ¡rios e distribuidores deste addon nÃ£o fornecem ou distribuem qualquer conteÃºdo exibido pelo addon nem tÃªm qualquer afiliaÃ§Ã£o com os provedores de conteÃºdo.[/COLOR]</disclaimer>
 		<platform>all</platform>
 		<license>GNU GPL v3</license>
 		<source>https://github.com/alfa-addon/addon</source>
-		<news>[B]Estos son los cambios para esta versión:[/B]
+		<news>[B]Estos son los cambios para esta versiÃ³n:[/B]
 
       [COLOR green][B]Arreglos[/B][/COLOR]
-      ¤ TvAnime                         ¤ Dontorrent                    ¤ Gnula
-      ¤ Hdfull                              ¤ Playdede                       ¤ +18
+      Â¤ TvAnime                         Â¤ Dontorrent                    Â¤ Gnula
+      Â¤ Hdfull                              Â¤ Playdede                       Â¤ +18
 
       [COLOR green][B]Novedades y Remasterizaciones[/B][/COLOR]
-      ¤ +18                                 ¤ Wolfmax4k                    ¤ Yts
+      Â¤ +18                                 Â¤ Wolfmax4k                    Â¤ Yts
 
         </news>
 		<assets>
@@ -513,7 +513,7 @@
 			<screenshot>resources/media/screenshots/4.jpg</screenshot>
 		</assets>
 	</extension>
-	<!--<extension point="xbmc.service" library="videolibrary_service.py" start="login|startup">--></extension>
+	<extension point="xbmc.service" library="videolibrary_service.py" start="login|startup"></extension>
 </addon>
 
 <addon id="plugin.video.balandro" name="Balandro" version="3.0.5" provider-name="Balandro Team">
@@ -526,12 +526,12 @@
   </extension>
 
   <extension point="xbmc.addon.metadata">
-    <summary>Balandro es un Navegador de páginas Webs</summary>
+    <summary>Balandro es un Navegador de pÃ¡ginas Webs</summary>
     <assets>
       <icon>icon.png</icon>
     </assets>
     <news>
-    [COLOR darkorange][B]Versión  [/COLOR][COLOR yellow]3.0.5[/COLOR][COLOR red]  Mayo de 2023[/B][/COLOR]
+    [COLOR darkorange][B]VersiÃ³n  [/COLOR][COLOR yellow]3.0.5[/COLOR][COLOR red]  Mayo de 2023[/B][/COLOR]
 
     [COLOR goldenrod][B]Media Centers Soportados[/COLOR][COLOR plum]  20.x,  19.x,  18.x  y  17.x[/B][/COLOR]
 
@@ -545,21 +545,21 @@
 
     [COLOR blue][B]Agradecimientos:[/B][/COLOR]
         Cita destacada a los miembros de Balandro Team
-        Mención especial al grupo de Balandro Checkers
+        MenciÃ³n especial al grupo de Balandro Checkers
 
     [COLOR cyan][B]Canales:[/B][/COLOR]
-        Revisión Generalizada
+        RevisiÃ³n Generalizada
         Nuevos - Sin novedades
         Anulados - Las webs cerradas
 
     [COLOR springgreen][B]Servidores:[/B][/COLOR]
-        Revisión Generalizada
+        RevisiÃ³n Generalizada
         Nuevos - Sin novedades
         Anulados - Las webs cerradas
     </news>
-    <summary>Balandro es un navegador de páginas webs</summary>
-    <description>[COLOR yellow][B]Balandro es desde el año [COLOR cyan]2018[COLOR yellow] un MOD derivado de Pelisalacarta y Alfa,[COLOR mediumaquamarine] y tiene como objeto, permitir visualizar Películas, Series y Documentales, todo a través de Internet y directamente desde su sistema Media Center. [COLOR orchid]Este Add-On es tan solo un mero Ejercicio de Aprendizaje del Lenguaje de Programación Python y se distribuye sin Ningún Contenido Multimedia adjunto al mismo [COLOR lightgrey][I]En consecuencia solo las Webs son Plenamente Responsables de los contenidos que publiquen.[/I][/B][/COLOR]</description>
-    <disclaimer>[COLOR tan][B]Está Prohibida su distribución, solo ó junto con Contenidos Multimedia Protegidos por los Derechos de Autor. [COLOR chocolate]Si este tipo de contenido está Prohibido en su País, solamente Usted será el Responsable de su uso. [COLOR white]La vulneración de estas prohibiciones Exonerarán de cualquier Culpa a sus Autores, [COLOR red]Siendo el unico Responsable quien lo haya Distribuido ó Utilizado Ilegalmente.[/B][/COLOR]</disclaimer>
+    <summary>Balandro es un navegador de pÃ¡ginas webs</summary>
+    <description>[COLOR yellow][B]Balandro es desde el aÃ±o [COLOR cyan]2018[COLOR yellow] un MOD derivado de Pelisalacarta y Alfa,[COLOR mediumaquamarine] y tiene como objeto, permitir visualizar PelÃ­culas, Series y Documentales, todo a travÃ©s de Internet y directamente desde su sistema Media Center. [COLOR orchid]Este Add-On es tan solo un mero Ejercicio de Aprendizaje del Lenguaje de ProgramaciÃ³n Python y se distribuye sin NingÃºn Contenido Multimedia adjunto al mismo [COLOR lightgrey][I]En consecuencia solo las Webs son Plenamente Responsables de los contenidos que publiquen.[/I][/B][/COLOR]</description>
+    <disclaimer>[COLOR tan][B]EstÃ¡ Prohibida su distribuciÃ³n, solo Ã³ junto con Contenidos Multimedia Protegidos por los Derechos de Autor. [COLOR chocolate]Si este tipo de contenido estÃ¡ Prohibido en su PaÃ­s, solamente Usted serÃ¡ el Responsable de su uso. [COLOR white]La vulneraciÃ³n de estas prohibiciones ExonerarÃ¡n de cualquier Culpa a sus Autores, [COLOR red]Siendo el unico Responsable quien lo haya Distribuido Ã³ Utilizado Ilegalmente.[/B][/COLOR]</disclaimer>
     <platform>all</platform>
     <license>GNU GPL v3</license>
     <source>https://balandro-tk.github.io/balandro/</source>
@@ -614,7 +614,7 @@
         <summary>creado por picapau, lourdes, supertopo y luisma</summary>
         <description>ESTE ADDON NO CONTIENE ENLACES PROPIOS,SON RECOPILACIONES DE LA RED, SOLO SE FACILITA EL ACESSO A ESAS WEBS, ESTAS WEBS SON LAS RESPONSABLES DE LOS CONTENIDOS
         </description>
-		<disclaimer>Este es un software [COLOR red][B]gratuito[/B][/COLOR][CR][COLOR red][B]Pero no se permite[/B][/COLOR] su distribuición preinstalada en ningún tipo de dispositivo ni tampoco su inclusión total o parcial en cualquier paquete de software y/o hardware por el que el usuario final deba [COLOR red][B]pagar o hacer una donación[/B][/COLOR], por su adquisición, por su uso o por recibir asistencia.[CR]Si cree que alguna de estas normas no se está cumpliendo póngase en contacto con nosotros.</disclaimer>
+		<disclaimer>Este es un software [COLOR red][B]gratuito[/B][/COLOR][CR][COLOR red][B]Pero no se permite[/B][/COLOR] su distribuiciÃ³n preinstalada en ningÃºn tipo de dispositivo ni tampoco su inclusiÃ³n total o parcial en cualquier paquete de software y/o hardware por el que el usuario final deba [COLOR red][B]pagar o hacer una donaciÃ³n[/B][/COLOR], por su adquisiciÃ³n, por su uso o por recibir asistencia.[CR]Si cree que alguna de estas normas no se estÃ¡ cumpliendo pÃ³ngase en contacto con nosotros.</disclaimer>
         <platform>all</platform>
         <assets>
             <icon>icon.gif</icon>
@@ -635,16 +635,61 @@
     </extension>
 	<extension point="xbmc.python.module" library="libs" />
     <extension point="xbmc.addon.metadata">
-        <description>Hasta las narices de las apikeys de YouTube? Y de ver como calidad máxima los videos de la plataforma solo hasta 720p?[CR]Pues se acabó! Desde nuestra taberna os presentamos un nuevo addon de YouTube, donde no hace falta APIKEY alguna, ni tampoco hay ningún tipo de restricción para ver los videos a la máxima calidad ofrecida, 720p, 1080p, 2K y 4K![CR]Todo esto y mucho mas...</description>
-        <disclaimer>Este es un software [COLOR red][B]gratuito[/B][/COLOR][CR][COLOR red][B]Pero no se permite[/B][/COLOR] su distribuición preinstalada en ningún tipo de dispositivo ni tampoco su inclusión total o parcial en cualquier paquete de software y/o hardware por el que el usuario final deba [COLOR red][B]pagar o hacer una donación[/B][/COLOR], por su adquisición, por su uso o por recibir asistencia.[CR]Si cree que alguna de estas normas no se está cumpliendo póngase en contacto con nosotros.</disclaimer>
+        <description>Hasta las narices de las apikeys de YouTube? Y de ver como calidad mÃ¡xima los videos de la plataforma solo hasta 720p?[CR]Pues se acabÃ³! Desde nuestra taberna os presentamos un nuevo addon de YouTube, donde no hace falta APIKEY alguna, ni tampoco hay ningÃºn tipo de restricciÃ³n para ver los videos a la mÃ¡xima calidad ofrecida, 720p, 1080p, 2K y 4K![CR]Todo esto y mucho mas...</description>
+        <disclaimer>Este es un software [COLOR red][B]gratuito[/B][/COLOR][CR][COLOR red][B]Pero no se permite[/B][/COLOR] su distribuiciÃ³n preinstalada en ningÃºn tipo de dispositivo ni tampoco su inclusiÃ³n total o parcial en cualquier paquete de software y/o hardware por el que el usuario final deba [COLOR red][B]pagar o hacer una donaciÃ³n[/B][/COLOR], por su adquisiciÃ³n, por su uso o por recibir asistencia.[CR]Si cree que alguna de estas normas no se estÃ¡ cumpliendo pÃ³ngase en contacto con nosotros.</disclaimer>
         <platform>all</platform>
         <assets>
             <icon>icon.jpg</icon>
             <fanart>fanart.jpg</fanart>
         </assets>
         <license>[B]Este es un software gratuito[/B]</license>
-        <news>- Añadida opción de reproducción externa de playlists[CR]- Correcciones menores
+        <news>- AÃ±adida opciÃ³n de reproducciÃ³n externa de playlists[CR]- Correcciones menores
         </news>
+    </extension>
+</addon>
+
+<addon id="plugin.video.elementum" name="Elementum" version="0.1.87" provider-name="elgatito">
+    <requires>
+        <import addon="xbmc.addon" version="16.0.0" />
+        <import addon="repository.elementum" optional="true" />
+        <import addon="script.module.kodi-six" />
+        <import addon="script.module.requests" />
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="navigation.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.service" library="service.py" start="startup" />
+    <extension point="xbmc.python.module" library="resources/site-packages" />
+    <extension point="xbmc.subtitle.module" library="navigation.py" />
+    <extension point="xbmc.addon.metadata">
+        <summary lang="ru">Elementum: Стриминг видео</summary>
+        <summary lang="en">Elementum: Media streaming</summary>
+        <summary lang="hr">Elementum: Medijsko strujanje</summary>
+        <summary lang="es">Elementum: Transmisión de medios</summary>
+        <summary lang="sv">Elementum: medieströmning</summary>
+        <description lang="ru">Elementum это дополнение для поиска и воспроизведения торрентов. Дополнение не ходит на запрещенные сайты самостоятельно. Хотя, для поиска используются дополнения (называемые провайдерами), которые устанавливаются отдельно.[CR]Этот проект является ответвлением хорошо извесных, но не поддерживаемых Pulsar/Quasar от steeve и scakemyer.</description>
+        <description lang="en">Elementum is a torrent finding and streaming engine. It doesn't go on torrent websites for legal reasons. However, it calls specially crafted add-ons (called providers) that are installed separately.[CR]This project is a fork of the well known, but no longer maintained Pulsar/Quasar projects from steeve and scakemyer.</description>
+        <description lang="hr">Elementum je pogon pretraživanja i strujanja. Ne posjećuje torrent web stranice iz pravnih razloga. Ipak, koristi posebno napravljene dodatke (nazvane pružatelji usluge) koji su instalirani odvojeno.[CR]Ovaj projekt je ogranak dobro poznatih, ali više ne održavanih Pulsar/Quasar projekata od autora steevea i scakemyera.</description>
+        <description lang="es">Elementum es un motor de búsqueda y transmisión torrent. No navega por sitios web torrent por razones legales. Sin embargo, llama a complementos especialmente diseñados para ello (denominados providers o proveedores) que se instalan por separado.[CR]Este proyecto es un fork de los bien conocidos, pero ya sin soporte proyectos Pulsar/Quasar de steeve y scakemyer.[CR]</description>
+        <description lang="sv">Elementum är en torrentsöknings- och strömningsmotor. Det går inte till torrentwebbplatser av juridiska skäl. Den anropar dock speciellt utformade tillägg (kallade leverantörer) som installeras separat.[CR]Detta projekt är en förgrening av de välkända, men inte längre underhållna Pulsar/Quasar-projekten av steeve och scakemyer. </description>
+        <disclaimer lang="ru">Автор дополнения не несёт ответственности за скачивание или поиск информации и содержимого в этом дополнении. Автор никак не связан с Kodi, командой Kodi, или XBMC Foundation.</disclaimer>
+        <disclaimer lang="en">The author does not own or host any content found within this Addon. The author is not connected to or in any other way affiliated with Kodi, Team Kodi, or the XBMC Foundation.</disclaimer>
+        <disclaimer lang="hr">Autor ovog dodatka ne posjeduje i ne distribuira bilo kakav sadržaj koji je pronađen. Autor nije povezan sa ili na bilo koji drugi način bilo sa Kodijem, Team Kodijem ili XBMC fundacijom.</disclaimer>
+        <disclaimer lang="es">El autor no posee ni aloja ningún contenido que se encuentre a través de este complemento. El autor no está unido ni relacionado de ninguna manera con Kodi, Team Kodi, o XBMC Foundation.</disclaimer>
+        <disclaimer lang="sv">Skaparen äger inte eller är värd av något innehåll som finns i detta tillägg. Författaren är inte ansluten till eller på något annat sätt en del av Kodi, Team Kodi eller XBMC Foundation.</disclaimer>
+        <language>en el es de fi fr he hr it nl pt ro sk sv</language>
+        <platform>all</platform>
+        <website>http://elementum.surge.sh/</website>
+        <source>https://github.com/elgatito/plugin.video.elementum</source>
+        <forum></forum>
+        <license>Non commercial. See https://github.com/elgatito/plugin.video.elementum/blob/master/LICENSE</license>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+            <screenshot>resources/screenshots/home.png</screenshot>
+            <screenshot>resources/screenshots/movies.png</screenshot>
+            <screenshot>resources/screenshots/webui.png</screenshot>
+        </assets>
     </extension>
 </addon>
 
@@ -676,7 +721,7 @@
     </extension>
 
 	<extension point="xbmc.addon.metadata">
-		<summary>Canales de Televisión, deportes y más...</summary>
+		<summary>Canales de TelevisiÃ³n, deportes y mÃ¡s...</summary>
 		<description>
 Puedes seguirme en https://t.me/kodispain y http://konectas.es
 
@@ -686,7 +731,7 @@ Este complemento no aloja ningun contenido mostrado.
 Todo el contenido se encuentra libremente en internet.
 No se acepta ninguna responsabilidad por el uso de este addon.
 
-¡Disfruta!
+Â¡Disfruta!
 		</description>
 		<platform>all</platform>
 		<assets>
@@ -697,7 +742,7 @@ No se acepta ninguna responsabilidad por el uso de este addon.
 			<screenshot>resources/media/screenshoot-3.jpg</screenshot>
 			<screenshot>resources/media/screenshoot-4.jpg</screenshot>
 		</assets>
-		<news>Primera versión también compatible con Kodi 19 Matrix</news>
+		<news>Primera versiÃ³n tambiÃ©n compatible con Kodi 19 Matrix</news>
 	</extension>
 </addon>
 
@@ -722,14 +767,54 @@ No se acepta ninguna responsabilidad por el uso de este addon.
 
 	<extension point="xbmc.addon.metadata">
 		<summary>Magellan Tv e Filmes</summary>
-		<description>Magellan_Matrix é um plugin de vídeo gratuito para o KODI que agrega links de reprodução de vídeos de vários tipos,encontrados
-		livremente na internet,levando o lazer e o prazer a todos vocês, para assistirem e curtirem cada momento, com a família e amigos.</description>
+		<description>Magellan_Matrix Ã© um plugin de vÃ­deo gratuito para o KODI que agrega links de reproduÃ§Ã£o de vÃ­deos de vÃ¡rios tipos,encontrados
+		livremente na internet,levando o lazer e o prazer a todos vocÃªs, para assistirem e curtirem cada momento, com a famÃ­lia e amigos.</description>
 		<platform>all</platform>
 		<assets>
 			<icon>icon.png</icon>
 			<fanart>fanart.jpg</fanart>
 		</assets>
 	</extension>
+</addon>
+
+<addon id="plugin.video.moestv" name="Moe's TV" version="0.2.1" provider-name="La Taberna">
+  <requires>
+    <import addon="script.module.six" version="1.11.0"/>
+    <import addon="script.module.simplecache"/>
+    <import addon="script.module.inputstreamhelper" version="0.5.0"/>
+    <import addon="plugin.video.duffyou" version="0.1.2"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+    <provides>video</provides>
+  </extension>
+
+  <extension point="xbmc.addon.metadata">
+    <summary>TelevisiÃ³n a la carta y en directo.[CR]Algunos de los enlaces de la secciÃ³n 'En Directo' provienen de las listas publicadas en https://www.tdtchannels.com/ </summary>
+    <disclaimer>Este es un software [COLOR red][B]gratuito[/B][/COLOR][CR][COLOR red][B]Pero no se permite[/B][/COLOR] su distribuiciÃ³n preinstalada en ningÃºn tipo de dispositivo ni tampoco su inclusiÃ³n total o parcial en cualquier paquete de software y/o hardware por el que el usuario final deba [COLOR red][B]pagar o hacer una donaciÃ³n[/B][/COLOR], por su adquisiciÃ³n, por su uso o por recibir asistencia.[CR]Si cree que alguna de estas normas no se estÃ¡ cumpliendo pÃ³ngase en contacto con nosotros.</disclaimer>
+    <platform>all</platform>
+    <assets>
+        <icon>icon.jpg</icon>
+        <fanart>fanart.jpg</fanart>
+    </assets>
+    <license>[B]Este es un software gratuito[/B]</license>
+    <news> - VersiÃ³n 0.1.3:
+      * Mostrar vistos en skin embuary
+      [CR]- VersiÃ³n 0.1.2:
+      * Reparado fix en multi-bitrate
+      [CR]- VersiÃ³n 0.1.1:
+      * Reparado fix MPD en Atresplayer
+      * Uso de Duff You para resolver enlaces de youtube
+      * Mejoras en la actualizaciÃ³n de canales
+      [CR]- Version 0.0.9:
+      * Nuevos canales
+      * Cambios en el orden de los canales
+      * Permitir descargas en la mayoria de los canales.
+      * Canal Mitele: Reparar Geolocalizacion de IPs en windows 10 y kodi 19
+      * Mejora en la actualizaciÃ³n de canales
+      * Otras reparaciones menores
+      [CR]- VersiÃ³n inicial 0.0.7
+    </news>
+  </extension>
 </addon>
 
 <addon id="plugin.video.palantir2" name="[COLOR gold]Palantir 2[/COLOR]" version="2.3.3" provider-name="TierraMedia">
@@ -745,8 +830,8 @@ No se acepta ninguna responsabilidad por el uso de este addon.
     <provides>video</provides>
   </extension>
   <extension point="xbmc.addon.metadata">
-    <description>Visualiza el contenido de la nube, series, películas.[CR][COLOR red]Todo el contenido disponible en este Addon esta sacado de servidores gratuitos, disponible en la red para todos los usuarios.[/COLOR]</description>
-    <disclaimer>Este es un software [COLOR red][B]gratuito[/B][/COLOR][CR][COLOR red][B]Pero no se permite[/B][/COLOR] su distribuición preinstalada en ningún tipo de dispositivo ni tampoco su inclusión total o parcial en cualquier paquete de software y/o hardware por el que el usuario final deba [COLOR red][B]pagar o hacer una donación[/B][/COLOR], por su adquisición, por su uso o por recibir asistencia.[CR]Si cree que alguna de estas normas no se está cumpliendo póngase en contacto con nosotros.</disclaimer>
+    <description>Visualiza el contenido de la nube, series, pelÃ­culas.[CR][COLOR red]Todo el contenido disponible en este Addon esta sacado de servidores gratuitos, disponible en la red para todos los usuarios.[/COLOR]</description>
+    <disclaimer>Este es un software [COLOR red][B]gratuito[/B][/COLOR][CR][COLOR red][B]Pero no se permite[/B][/COLOR] su distribuiciÃ³n preinstalada en ningÃºn tipo de dispositivo ni tampoco su inclusiÃ³n total o parcial en cualquier paquete de software y/o hardware por el que el usuario final deba [COLOR red][B]pagar o hacer una donaciÃ³n[/B][/COLOR], por su adquisiciÃ³n, por su uso o por recibir asistencia.[CR]Si cree que alguna de estas normas no se estÃ¡ cumpliendo pÃ³ngase en contacto con nosotros.</disclaimer>
     <platform>all</platform>
     <assets>
         <icon>icon.png</icon>
@@ -790,7 +875,7 @@ No se acepta ninguna responsabilidad por el uso de este addon.
 
 	<extension point="xbmc.addon.metadata">
 		<summary>TACONES</summary>
-		<description>Addon sin ánimo de lucro y con fines exclusivamente educativos</description>
+		<description>Addon sin Ã¡nimo de lucro y con fines exclusivamente educativos</description>
 		<platform>all</platform>
 		<assets>
 			<icon>icon.png</icon>
@@ -800,7 +885,7 @@ No se acepta ninguna responsabilidad por el uso de este addon.
 			<screenshot>resources/media/screenshoot-3.jpg</screenshot>
 			<screenshot>resources/media/screenshoot-4.jpg</screenshot>
 		</assets>
-		<news>Primera versión también compatible con Kodi 19 Matrix</news>
+		<news>Primera versiÃ³n tambiÃ©n compatible con Kodi 19 Matrix</news>
 	</extension>
 </addon>
 
@@ -905,7 +990,7 @@ provider-name="jurialmunkey">
     <extension point="xbmc.addon.metadata">
         <summary lang="es">[COLOR orange]WINNER 2[/COLOR]</summary>
         <description lang="es">Addon con eventos deportivos en directo.</description>
-        <disclaimer lang="es">Este es un software [COLOR red][B]gratuito[/B][/COLOR][CR][COLOR red][B]Pero no se permite[/B][/COLOR] su distribuición preinstalada en ningún tipo de dispositivo ni tampoco su inclusión total o parcial en cualquier paquete de software y/o hardware por el que el usuario final deba [COLOR red][B]pagar o hacer una donación[/B][/COLOR], por su adquisición, por su uso o por recibir asistencia.[CR]Si cree que alguna de estas normas no se está cumpliendo póngase en contacto con nosotros.</disclaimer>
+        <disclaimer lang="es">Este es un software [COLOR red][B]gratuito[/B][/COLOR][CR][COLOR red][B]Pero no se permite[/B][/COLOR] su distribuiciÃ³n preinstalada en ningÃºn tipo de dispositivo ni tampoco su inclusiÃ³n total o parcial en cualquier paquete de software y/o hardware por el que el usuario final deba [COLOR red][B]pagar o hacer una donaciÃ³n[/B][/COLOR], por su adquisiciÃ³n, por su uso o por recibir asistencia.[CR]Si cree que alguna de estas normas no se estÃ¡ cumpliendo pÃ³ngase en contacto con nosotros.</disclaimer>
         <license lang="es">[B]Este es un software gratuito[/B]</license>
         <platform>all</platform>
         <assets>
@@ -933,17 +1018,17 @@ provider-name="jurialmunkey">
         <summary lang="en">Alfa Add-on Repository</summary>
         <summary lang="es">Repositorio de Alfa Add-on</summary>
         <summary lang="it">Repository di Alfa Add-on</summary>
-        <summary lang="pt">Repositório de Alfa Add-on</summary>
-        <description lang="ca">Repositori per instal·lar Alfa Addon, un dels principals add-ons de contingut de parla hispana al món, successor al conegut Pelisalacarta-ce. També es proveeix algunes utilitats addicionals.</description>
+        <summary lang="pt">RepositÃ³rio de Alfa Add-on</summary>
+        <description lang="ca">Repositori per instalÂ·lar Alfa Addon, un dels principals add-ons de contingut de parla hispana al mÃ³n, successor al conegut Pelisalacarta-ce. TambÃ© es proveeix algunes utilitats addicionals.</description>
         <description lang="en">Repository to install Alfa Addon, one of the main Spanish-speaking content add-ons in the world, successor to the well-known Pelisalacarta-ce. Some additional utilities are also provided.</description>
-        <description lang="es">Repositorio para instalar Alfa Addon, uno de los principales add-ons de contenido de habla hispana en el mundo, sucesor al conocido Pelisalacarta-ce. También se provee de algunas utilidades adicionales.</description>
-        <description lang="it">Repository per installare Alfa Addon, uno dei principali add-on di contenuti di lingua spagnola nel mondo, successore del noto Pelisalacarta-ce. Vengono fornite anche alcune utilità aggiuntive.</description>
-        <description lang="pt">Repositório para instalação do Alfa Addon, um dos principais add-ons de conteúdo em língua espanhola do mundo, sucessor do conhecido Pelisalacarta-ce. Alguns utilitários adicionais também são fornecidos.</description>
-        <disclaimer lang="ca">[COLOR red]Els propietaris i distribuïdors d'aquest complemento no proveeixen ni distribueixen cap contingut mostrat pel complemento ni tenen affiliación alguna amb els proveïdors de l'contingut.[/COLOR]</disclaimer>
+        <description lang="es">Repositorio para instalar Alfa Addon, uno de los principales add-ons de contenido de habla hispana en el mundo, sucesor al conocido Pelisalacarta-ce. TambiÃ©n se provee de algunas utilidades adicionales.</description>
+        <description lang="it">Repository per installare Alfa Addon, uno dei principali add-on di contenuti di lingua spagnola nel mondo, successore del noto Pelisalacarta-ce. Vengono fornite anche alcune utilitÃ  aggiuntive.</description>
+        <description lang="pt">RepositÃ³rio para instalaÃ§Ã£o do Alfa Addon, um dos principais add-ons de conteÃºdo em lÃ­ngua espanhola do mundo, sucessor do conhecido Pelisalacarta-ce. Alguns utilitÃ¡rios adicionais tambÃ©m sÃ£o fornecidos.</description>
+        <disclaimer lang="ca">[COLOR red]Els propietaris i distribuÃ¯dors d'aquest complemento no proveeixen ni distribueixen cap contingut mostrat pel complemento ni tenen affiliaciÃ³n alguna amb els proveÃ¯dors de l'contingut.[/COLOR]</disclaimer>
         <disclaimer lang="en">[COLOR red]The owners and submitters to this add-on do not host or distribute any of the content displayed by these add-ons nor do they have any affiliation with the content providers.[/COLOR]</disclaimer>
-        <disclaimer lang="es">[COLOR red]Los propietarios y distribuidores de este add-on no proveen ni distribuyen ningún contenido mostrado por el add-on ni tienen afiliación alguna con los proveedores del contenido.[/COLOR]</disclaimer>
-        <disclaimer lang="it">[COLOR red]I proprietari e i distributori di questo add-on aggiuntivo non forniscono o distribuiscono alcun contenuto visualizzato dal add-on aggiuntivo né hanno alcuna affiliazione con i fornitori di contenuti.[/COLOR]</disclaimer>
-        <disclaimer lang="pt">[COLOR red]Os proprietários e distribuidores deste add-on não fornecem ou distribuem qualquer conteúdo exibido pelo add-on nem têm qualquer afiliação com os provedores de conteúdo.[/COLOR]</disclaimer>
+        <disclaimer lang="es">[COLOR red]Los propietarios y distribuidores de este add-on no proveen ni distribuyen ningÃºn contenido mostrado por el add-on ni tienen afiliaciÃ³n alguna con los proveedores del contenido.[/COLOR]</disclaimer>
+        <disclaimer lang="it">[COLOR red]I proprietari e i distributori di questo add-on aggiuntivo non forniscono o distribuiscono alcun contenuto visualizzato dal add-on aggiuntivo nÃ© hanno alcuna affiliazione con i fornitori di contenuti.[/COLOR]</disclaimer>
+        <disclaimer lang="pt">[COLOR red]Os proprietÃ¡rios e distribuidores deste add-on nÃ£o fornecem ou distribuem qualquer conteÃºdo exibido pelo add-on nem tÃªm qualquer afiliaÃ§Ã£o com os provedores de conteÃºdo.[/COLOR]</disclaimer>
         <platform>all</platform>
         <assets>
             <icon>icon.png</icon>
@@ -1009,14 +1094,14 @@ provider-name="jurialmunkey">
           <icon>icon.png</icon>
        </assets>
        <news>
-       [COLOR darkorange][B]Versión  [/COLOR][COLOR yellow]3.0.0[/COLOR][COLOR red]  Enero 2023[/B][/COLOR]
+       [COLOR darkorange][B]VersiÃ³n  [/COLOR][COLOR yellow]3.0.0[/COLOR][COLOR red]  Enero 2023[/B][/COLOR]
 
        [COLOR goldenrod][B]Media Centers soportados[COLOR plum][I]  20.x,  19.x,  18.x  y  17.x[/I][/B][/COLOR]
 
        [COLOR springgreen][B]Fuentes:[/COLOR]  [COLOR cyan]balandro-tk.github.io/balandro/[/B][/COLOR]
        </news>
-       <description>[COLOR yellow][B]Balandro es desde el año [COLOR cyan]2018[COLOR yellow] MOD derivado de Pelisalacarta y Alfa,[COLOR mediumaquamarine] y Tiene Como Objeto, Permitir Visualizar Películas, Series y Documentales, Todo a Través de Internet y Directamente Desde su Sistema Media Center. [COLOR orchid]Este Add-On es Tan Solo un Mero Ejercicio de Aprendizaje Del Lenguaje de Programación Python y se Distribuye Sin Ningún Contenido Multimedia Adjunto al Mismo [COLOR lightgrey][I]En Consecuencia Solo Las Webs Son Plenamente Responsables de Los Contenidos Que Publiquen.[/I][/B][/COLOR]</description>
-       <disclaimer>[COLOR tan][B]Está Prohibida su Distribución, Solo o Junto Con Contenidos Multimedia Protegidos Por Los Derechos de Autor. [COLOR chocolate]Si Este Tipo de Contenido Está Prohibido en su País, Solamente Usted Será el Responsable de su Uso. [COLOR white]La Vulneración de Estas Prohibiciones Exonerarán de Cualquier Culpa a sus Autores, [COLOR red]Siendo el Único Responsable Quien lo Haya Distribuido o Utilizado Ilegalmente.[/B][/COLOR]</disclaimer>
+       <description>[COLOR yellow][B]Balandro es desde el aÃ±o [COLOR cyan]2018[COLOR yellow] MOD derivado de Pelisalacarta y Alfa,[COLOR mediumaquamarine] y Tiene Como Objeto, Permitir Visualizar PelÃ­culas, Series y Documentales, Todo a TravÃ©s de Internet y Directamente Desde su Sistema Media Center. [COLOR orchid]Este Add-On es Tan Solo un Mero Ejercicio de Aprendizaje Del Lenguaje de ProgramaciÃ³n Python y se Distribuye Sin NingÃºn Contenido Multimedia Adjunto al Mismo [COLOR lightgrey][I]En Consecuencia Solo Las Webs Son Plenamente Responsables de Los Contenidos Que Publiquen.[/I][/B][/COLOR]</description>
+       <disclaimer>[COLOR tan][B]EstÃ¡ Prohibida su DistribuciÃ³n, Solo o Junto Con Contenidos Multimedia Protegidos Por Los Derechos de Autor. [COLOR chocolate]Si Este Tipo de Contenido EstÃ¡ Prohibido en su PaÃ­s, Solamente Usted SerÃ¡ el Responsable de su Uso. [COLOR white]La VulneraciÃ³n de Estas Prohibiciones ExonerarÃ¡n de Cualquier Culpa a sus Autores, [COLOR red]Siendo el Ãšnico Responsable Quien lo Haya Distribuido o Utilizado Ilegalmente.[/B][/COLOR]</disclaimer>
        <platform>all</platform>
        <license>GNU GPL v3</license>
        <source>https://balandro-tk.github.io/balandro/</source>
@@ -1065,10 +1150,10 @@ provider-name="jurialmunkey">
     </extension>
 </addon>
 
-<addon id="repository.fontsvr" name="[B]Repo[/B] [COLOR azure][B]FONTSVR[/B] [COLOR limegreen][B]MATRIX[/B][/COLOR]|[COLOR violet][B]NEXUS[/B][/COLOR]" version="1.0" provider-name="Rik Team">
-   <requires>
-      <import addon="xbmc.addon" version="12.0.0"/>
-  </requires>
+<addon id="repository.fontsvr" name="[B]Repo[/B] [COLOR azure][B]FONTSVR[/B][/COLOR]" version="1.0" provider-name="Rik Team">
+    <requires>
+        <import addon="xbmc.addon" version="12.0.0"/>
+    </requires>
 	<extension point="xbmc.addon.repository" name="[B[COLOR white]Repo FONTSVR[/B][/COLOR]">
         <dir>
 		<info compressed="false">https://raw.githubusercontent.com/fontsvr/repo-fontsVR/main/addons/zips/addons.xml</info>
@@ -1077,16 +1162,15 @@ provider-name="jurialmunkey">
 		</dir>
     </extension>
     <extension point="xbmc.addon.metadata">
-        <summary>Repo [COLOR azure]FONTSVR[/COLOR] [COLOR limegreen]MATRIX[/COLOR][COLOR azure]|[/COLOR][COLOR violet]NEXUS[/COLOR]</summary>
-        <description>Repositorio de addons [COLOR azure]FONTSVR[/COLOR][COLOR gold]
-Developers:[/COLOR] Rik Team</description>
+        <summary>Repo [COLOR azure]FONTSVR[/COLOR] [COLOR limegreen]Matrix[/COLOR][COLOR azure]|[/COLOR][COLOR violet]Nexus[/COLOR]</summary>
+        <description>Repositorio de addons [COLOR azure]FONTSVR[/COLOR][CR][COLOR gold]Developers:[/COLOR] Rik Team</description>
         <disclaimer>Repositorio de addons para Kodi 19.x MATRIX y 20.x NEXUS.</disclaimer>
         <platform>all</platform>
         <assets>
             <icon>icon.png</icon>
 			<fanart>fanart.jpg</fanart>
         </assets>
-		<source>https://github.com/fontsvr/repo-fontsVR/addons/</source>
+		<source>https://github.com/fontsvr/repo-fontsVR/</source>
     </extension>
 </addon>
 
@@ -1110,7 +1194,7 @@ Developers:[/COLOR] Rik Team</description>
         <summary lang="en">GitHub virtual Add-on repository for TORREST and others</summary>
         <description lang="en">Customizable repository which acts as a proxy for defined GitHub users' add-ons updates, like TORREST.</description>
         <summary lang="es">Repositorio GitHub virtual para el Add-on TORREST y otros</summary>
-        <description lang="es">Repositorio configurable que actúa como un proxy para add-ons disponibles en GitHub, como TORREST.</description>
+        <description lang="es">Repositorio configurable que actÃºa como un proxy para add-ons disponibles en GitHub, como TORREST.</description>
         <news>
             - Add platform check support
             - Fix arch detection for aarch with 32 bits
@@ -1618,7 +1702,7 @@ Developers:[/COLOR] Rik Team</description>
     <platform>all</platform>
     <summary lang="es">Script instalador de complementos para Kodi.</summary>
     <description lang="es">Selecciona, instala y disfruta.</description>
-    <disclaimer>Este es un software [COLOR red][B]gratuito[/B][/COLOR][CR]No obstante, [COLOR red][B]no se permite[/B][/COLOR] su distribuición preinstalada en ningún tipo de dispositivo ni tampoco su inclusión total o parcial en cualquier paquete de software y/o hardware por el que el usuario final deba [COLOR red][B]pagar o hacer una donación[/B][/COLOR], por su adquisición, uso o asistencia.[CR]Si cree que alguna de estas normas no se está cumpliendo póngase en contacto con nosotros.</disclaimer>
+    <disclaimer>Este es un software [COLOR red][B]gratuito[/B][/COLOR][CR]No obstante, [COLOR red][B]no se permite[/B][/COLOR] su distribuiciÃ³n preinstalada en ningÃºn tipo de dispositivo ni tampoco su inclusiÃ³n total o parcial en cualquier paquete de software y/o hardware por el que el usuario final deba [COLOR red][B]pagar o hacer una donaciÃ³n[/B][/COLOR], por su adquisiciÃ³n, uso o asistencia.[CR]Si cree que alguna de estas normas no se estÃ¡ cumpliendo pÃ³ngase en contacto con nosotros.</disclaimer>
     <assets>
       <icon>icon.gif</icon>
       <fanart>fanart.jpg</fanart>
@@ -1638,12 +1722,12 @@ Developers:[/COLOR] Rik Team</description>
     </extension>
     <extension point="xbmc.addon.metadata">
         <description>Horus:
-"Señor de sus ojos"
+"SeÃ±or de sus ojos"
 "Unificador de las dos tierras"
-"Señor de las estrellas circumpolares"
+"SeÃ±or de las estrellas circumpolares"
 "El de los dos ojos"
         </description>
-        <disclaimer>En Horus no vais a encontrar ningún tipo de contenido: ni películas, ni series ni eventos deportivos.</disclaimer>
+        <disclaimer>En Horus no vais a encontrar ningÃºn tipo de contenido: ni pelÃ­culas, ni series ni eventos deportivos.</disclaimer>
         <platform>all</platform>
         <assets>
               <icon>icon.png</icon>
@@ -1654,7 +1738,7 @@ Developers:[/COLOR] Rik Team</description>
               <screenshot>resources/media/Captura4.png</screenshot>
         </assets>
         <news>
-            - Añadido soporte para enlaces magnet-torrent
+            - AÃ±adido soporte para enlaces magnet-torrent
         </news>
         <forum>https://t.me/KodiManiac
         https://t.me/acestream_spanish</forum>
@@ -1764,9 +1848,9 @@ Developers:[/COLOR] Rik Team</description>
         <res aspect="16:9" default="true" folder="1080i" height="1080" width="1920" />
     </extension>
     <extension point="xbmc.addon.metadata">
-	    <summary lang="es_ES">Minimalista. Personalizable. Múltiples Widgets. Modificado Como a mi me Gusta!</summary>
+	    <summary lang="es_ES">Minimalista. Personalizable. MÃºltiples Widgets. Modificado Como a mi me Gusta!</summary>
         <summary lang="en_GB">Minimalistic. Customizable. Multiple Widgets. Modified To How I Like It!</summary>
-		<description lang="es_ES">Project Aura es mi primer intento en algo relacionado con el desarrollo de Kodi. De todas las máscaras que probé, Aura era todo lo que quería. Cuando me enteré de que Matrix no era compatible, ¡decidí hacerlo yo mismo! He hecho algunos ajustes aquí y allá, pero la mayoría de la piel es exactamente como la diseñó jurialmunkey. Se merece todo el crédito del mundo. Aura es un skin altamente personalizable con múltiples widgets y un menú de inicio horizontal. Aura combina el minimalismo y los bordes redondeados de Arctic Zephyr con la personalización elegante de Horizon. Aura se ha diseñado para los usuarios de mouse y los usuarios del modo táctil.</description>
+		<description lang="es_ES">Project Aura es mi primer intento en algo relacionado con el desarrollo de Kodi. De todas las mÃ¡scaras que probÃ©, Aura era todo lo que querÃ­a. Cuando me enterÃ© de que Matrix no era compatible, Â¡decidÃ­ hacerlo yo mismo! He hecho algunos ajustes aquÃ­ y allÃ¡, pero la mayorÃ­a de la piel es exactamente como la diseÃ±Ã³ jurialmunkey. Se merece todo el crÃ©dito del mundo. Aura es un skin altamente personalizable con mÃºltiples widgets y un menÃº de inicio horizontal. Aura combina el minimalismo y los bordes redondeados de Arctic Zephyr con la personalizaciÃ³n elegante de Horizon. Aura se ha diseÃ±ado para los usuarios de mouse y los usuarios del modo tÃ¡ctil.</description>
         <description lang="en_GB">Project Aura is my first attempt at anything to do with Kodi skinning. Out of all the skins I've tried, Aura was everything I wanted. When I learned there was no Matrix support, I decided to make it myself! I have made a few tweaks here and there, but the majority of the skin is exactly as jurialmunkey designed it. He deserves all the credit in the world.</description>
         <platform>all</platform>
         <license>Creative Commons Attribution Non-Commercial Share-Alike 4.0</license>

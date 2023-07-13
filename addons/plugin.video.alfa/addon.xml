@@ -47,5 +47,5 @@
 			<screenshot>resources/media/screenshots/4.jpg</screenshot>
 		</assets>
 	</extension>
-	<!--<extension point="xbmc.service" library="videolibrary_service.py" start="login|startup">--></extension>
+	<extension point="xbmc.service" library="videolibrary_service.py" start="login|startup"></extension>
 </addon>

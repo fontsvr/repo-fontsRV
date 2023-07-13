@@ -375,6 +375,13 @@ def actualizar_titulos(item):
     return AlfaChannel.do_actualizar_titulos(item)
 
 
+def get_page_num(item):
+    logger.info()
+    # Llamamos al método que salta al nº de página seleccionado
+
+    return AlfaChannel.get_page_num(item)
+
+
 def search(item, texto, **AHkwargs):
     logger.info()
     kwargs.update(AHkwargs)
@@ -440,5 +447,4 @@ def newest(categoria, **AHkwargs):
             logger.error("{0}".format(line))
         return []
 
-    logger.error(itemlist[0])
     return itemlist
