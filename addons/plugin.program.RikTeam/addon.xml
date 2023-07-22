@@ -17,13 +17,13 @@
 	<extension point="xbmc.addon.metadata">
 		<summary lang="es">[COLOR azure]RikTeam[/COLOR] [COLOR lime]MATRIX[COLOR white]|[COLOR violet]NEXUS[/B][/COLOR] tu Wizard para KODI 19.x y 20.x</summary>
 		<description>
-[B]• Developers:[/B] [COLOR gold]Rik Team[/COLOR]
+[B]Developers:[/B] [COLOR gold]Rik Team[/COLOR]
         </description>
 		<platform>all</platform>
 		<reuselanguageinvoker>false</reuselanguageinvoker>
 		<source>https://github.com/fontsvr/fontsvr.github.io</source>
 		<news>
-• plugin.program [COLOR azure][B]RikTeam[/B][/COLOR] [COLOR lime][B]MATRIX[/COLOR][COLOR white]|[/COLOR][COLOR violet]NEXUS[/B][/COLOR]
+plugin.program.[COLOR azure][B]RikTeam[/B][/COLOR] [COLOR lime][B]MATRIX[/COLOR][COLOR white] y [/COLOR][COLOR violet]NEXUS[/B][/COLOR]
 		</news>
 		<assets>
 			<icon>icon.png</icon>
