@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="feba2c02-8641-4c19-92c4-c31f4e436759" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plugin.program.RikTeam/addon.xml" beforeDir="false" afterPath="$PROJECT_DIR$/plugin.program.RikTeam/addon.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plugin.video.alfa/addon.xml" beforeDir="false" afterPath="$PROJECT_DIR$/plugin.video.alfa/addon.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plugin.video.alfa/channels/LIKUOO.json" beforeDir="false" afterPath="$PROJECT_DIR$/plugin.video.alfa/channels/LIKUOO.json" afterDir="false" />
