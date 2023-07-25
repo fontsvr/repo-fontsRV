@@ -27,7 +27,7 @@ APKFILE = 'https://raw.githubusercontent.com/fontsvr/repo-fontsVR/main/wizardfil
 YOUTUBETITLE = 'DETALLE de Rik Team'
 YOUTUBEFILE = 'https://raw.githubusercontent.com/fontsvr/repo-fontsVR/main/wizardfiles/youtube.txt'
 # Text File for addon installer.  Leave as 'http://' to ignore
-ADDONFILE = 'http://'
+ADDONFILE = 'https://raw.githubusercontent.com/fontsvr/fontsvr.github.io/master/wizard/xml/skins.json'
 # Text File for advanced settings.  Leave as 'http://' to ignore
 ADVANCEDFILE = 'https://raw.githubusercontent.com/fontsvr/fontsvr.github.io/master/wizard/xml/Advanced.json'
 #########################################################
@@ -107,7 +107,8 @@ REPOID = 'repository.fontsvr'
 # Url to Addons.xml file in your repo folder(this is so we can get the latest version)
 REPOADDONXML = 'https://raw.githubusercontent.com/fontsvr/repo-fontsVR/main/addons/zips/addons.xml'
 # Url to folder zip is located in
-REPOZIPURL = 'https://github.com/fontsvr/repo-fontsVR/tree/main/addons/zips/repository.fontsvr'
+# REPOZIPURL = 'https://github.com/fontsvr/repo-fontsVR/tree/main/addons/zips/repository.fontsvr/repository.fontsvr-1.0.zip?raw=true'
+REPOZIPURL = 'https://github.com/fontsvr/repo-fontsVR/raw/main/addons/zips/repository.fontsvr/repository.fontsvr-1.0.zip'
 #########################################################
 
 #########################################################
