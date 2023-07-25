@@ -1972,7 +1972,7 @@ provider-name="jurialmunkey">
     </extension>
 </addon>
 
-<addon id="skin.ctouch"  version="3.4.1" name="Cristal Touch" provider-name="STVA">
+<addon id="skin.ctouch"  version="9.4.1" name="Cristal Touch" provider-name="RikTeam">
 	<requires>
 		<import addon="resource.language.es_es" version="0.0.0"/>
 	</requires>
