@@ -1,10 +1,10 @@
 
-name="[B][COLOR white]•• [COLOR yellow]Parche: [COLOR crimson]VR20 Aeon [COLOR tan]28/06/2023[/COLOR][/B]"
+name="[B][COLOR white]•• [COLOR green]Ajustes: [COLOR crimson]VR20 Aeon [COLOR tan]08/08/2023[/COLOR][/B]"
 url="https://github.com/fontsvr/repo-fontsVR/raw/rel/VR20Aeon-ajustes.zip"
 icon="https://fontsvr.github.io/wizard/imagenes/VR20Aeon_bg.png"
 fanart="https://fontsvr.github.io/wizard/imagenes/VR20Aeon_fanart.png"
 adult="no"
-description="Parche VR20 Aeon"
+description="Ajustes VR20 Aeon"
 
 name="[B][COLOR white]•  [COLOR orange]MOTOR: [COLOR white]Elementum Android[/COLOR][/B]"
 url="https://github.com/fontsvr/repo-fontsVR/releases/download/0.18x/elementum_arm.zip"
