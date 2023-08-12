@@ -1,4 +1,20 @@
 
+name="20.1_VR20Aeon"
+version="1.0"
+url="https://github.com/fontsvr/repo-fontsVR/raw/rel/20.1_VR20Aeon.zip"
+minor="http://"
+gui="http://"
+kodi="19"
+theme="https://raw.githubusercontent.com/fontsvr/repo-fontsVR/master/wizardfiles/VR/Theme_VR20Aeon.txt"
+icon="https://fontsvr.github.io/wizard/jpg/VR20Aeon_bg.jpg"
+fanart="https://fontsvr.github.io/wizard/jpg/VR20Aeon_fanart_bg.jpg"
+preview="http://"
+adult="No"
+info="http://"
+description="[COLOR azure][B]VR20[/COLOR]Aeon [COLOR limegreen]MATRIX[COLOR white]|[COLOR violet]NEXUS[/B][/COLOR] para [COLOR teal][B]KODI 19.x i 20.x[/B][/COLOR] 
+                  [COLOR dodgerblue][B]Developers:[/B][/COLOR] [B]Rik Team[/B]                         [COLOR orange][B]Colaboradores-Test:[/B][/COLOR] [COLOR cyan][B]Rik Team.[/B][/COLOR]"
+
+
 name="Build RikTeam17523"
 version="1.0"
 url="https://github.com/fontsvr/repo-fontsVR/raw/rel/Build.RikTeam17523.zip"
