@@ -1,7 +1,7 @@
 13
 |||
 
-[COLOR greenyellow][B]¡¡¡BIENVENIDOS A LA BUILD RikTeam MATRIX|NEXUS!!![B][/COLOR]
+[COLOR greenyellow][B]¡¡¡BIENVENIDOS A LA BUILD RikTeam Wizard NEXUS!!![B][/COLOR]
 
 [COLOR aquamarine][B]INSTALACIÓN:[B][/COLOR]
 
@@ -28,7 +28,7 @@ Después de la instalacion del parche, una vez cargado KODI se tiene que ir a la
 
 [COLOR dodgerblue]https://t.me/rikteam[/COLOR]
 
-[COLOR white][B]GRACIAS POR UTILIZAR [COLOR dodgerblue]RikTeam [COLOR lime]MATRIX[COLOR white]|[COLOR violet]NEXUS[/B][/COLOR]
+[COLOR white][B]GRACIAS POR UTILIZAR [COLOR dodgerblue]RikTeam Wizard [COLOR violet]NEXUS[/B][/COLOR]
 
   
 
