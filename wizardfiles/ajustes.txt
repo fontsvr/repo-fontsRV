@@ -12,7 +12,7 @@ adult="No"
 info="http://"
 description="ajustes VR20Aeon sin carpeta de fondos 10/09/2023"
 
-name="ajustes"
+name="ajustes "
 version="1.0"
 url="https://github.com/fontsvr/repo-fontsVR/raw/rel/VR20Aeon-ajustes.zip"
 minor="http://"
