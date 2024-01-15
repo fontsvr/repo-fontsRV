@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='utf-8'?>
+<addons><addon id="plugin.RikTeam_fonts" version="1.0" name="[B][COLOR white]RikTeam_[COLOR aqua]fonts[/COLOR][/B]" provider-name="Rik Team">
+<requires> 
+    <import addon="script.module.requests" />
+    <import addon="script.module.resolveurl" />
+    <import addon="script.module.six" />
+  </requires>
+	<extension point="xbmc.python.pluginsource" library="default.py">
+		<provides>video</provides>
+	</extension>	
+	<extension point="xbmc.addon.metadata">
+                <platform>all</platform>
+		<summary lang="en">RikTeam_fonts</summary>
+		<summary lang="es">RikTeam_fonts</summary>
+		<description lang="en">[B][COLOR white]Añadir fuentes a KODI con las fuentes más recientes.  [COLOR yellow] ** [COLOR violet] RikTeam [COLOR yellow] ** [/COLOR][/B]</description>
+		<website />
+		<license>GPL 2.0</license>
+		<platform>all</platform>
+<assets>
+        <icon>icon.png</icon>
+  <screenshot>resources/screenshots/screenshot1.jpg</screenshot>
+  <screenshot>resources/screenshots/screenshot2.jpg</screenshot>
+  <screenshot>resources/screenshots/screenshot3.jpg</screenshot>
+  <screenshot>resources/screenshots/screenshot4.jpg</screenshot>
+  <screenshot>resources/screenshots/screenshot5.jpg</screenshot>
+        <fanart>fanart.jpg</fanart>
+    </assets>        
+		<language>es</language>
+	</extension>
+</addon><addon id="plugin.program.rikteamwiz" name="[COLOR azure][B]RikTeam[/B][/COLOR] [COLOR white][B]Wizard[/B][/COLOR] [COLOR violet][B]NEXUS[/B][/COLOR]" version="1.0.0" provider-name="Rik Team">
+    <requires>
+		<import addon="script.speedtester" optional="true" version="1.1.2" />
+        <import addon="script.module.requests" optional="true" />
+        <import addon="script.module.six" optional="true" />
+        <import addon="script.kodi.android.update" optional="true" />     
+    </requires>
+    
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>executable</provides>
+    </extension>
+    <extension point="xbmc.addon.repository" name="fontsVR">		
+		<info>https://raw.githubusercontent.com/fontsvr/repo-fontsVR/main/addons/zips/addons.xml</info>
+        <checksum>https://raw.githubusercontent.com/fontsvr/repo-fontsVR/main/addons/zips/addons.xml.md5</checksum>
+        <datadir zip="true">https://raw.githubusercontent.com/fontsvr/repo-fontsVR/main/addons/zips/</datadir>
+    </extension>
+    <extension point="xbmc.service" library="startup.py" start="startup" />
+    
+    <extension point="xbmc.addon.metadata">
+        <summary lang="es">[COLOR azure]RikTeam[/COLOR] [COLOR white]Wizard [COLOR violet]NEXUS][/COLOR] tu Wizard para Kodi 20.x Nexus</summary>
+        <description lang="es">[COLOR azure]RikTeam[/COLOR] [COLOR white]Wizard [COLOR violet]NEXUS][/COLOR][COLOR lightpink] Complementos incluidos: Scripts,Elementum,Luar,Kelebek y fuentes para Kodi[/COLOR]
+		[B]• Developers:[/B] [COLOR gold]Rik Team[/COLOR]
+		</description>
+        <platform>all</platform>
+        <reuselanguageinvoker>false</reuselanguageinvoker>
+        <source>https://github.com/fontsvr/fontsvr.github.io</source>
+		<news>
+• plugin.program [COLOR azure][B]RikTeam[/B][/COLOR] [COLOR white][B]Wizard[/B][/COLOR] [COLOR violet]NEXUS[/B][/COLOR]
+		</news>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.png</fanart>
+        </assets>
+    </extension>
+</addon><addon id="repository.fontsvr" name="[B]Repo[/B] [COLOR azure][B]FONTSVR[/B]" version="2.0" provider-name="Rik Team">
+    <extension point="xbmc.addon.repository" name="[B[COLOR white]Repo FONTSVR[/B][/COLOR]">
+        <dir>
+		<info compressed="false">https://raw.githubusercontent.com/fontsvr/repo-fontsVR/main/omega/zips/addons.xml</info>
+        <checksum>https://raw.githubusercontent.com/fontsvr/repo-fontsVR/main/omega/zips/addons.xml.md5</checksum>
+        <datadir zip="true">https://raw.githubusercontent.com/fontsvr/repo-fontsVR/main/omega/zips/</datadir>
+		</dir>
+    </extension>
+	
+    <extension point="xbmc.addon.metadata">
+        <summary>Repo [COLOR azure]FONTSVR[/COLOR]</summary>
+        <description>Repositorio de addons [COLOR azure]FONTSVR[/COLOR]
+[COLOR gold]Developers:[/COLOR] Rik Team</description>
+        <disclaimer>Repositorio de addons para 20.x NEXUS y 21.x OMEGA.</disclaimer>
+        <platform>all</platform>
+        <assets>
+            <icon>icon.png</icon>
+			<fanart>fanart.jpg</fanart>
+        </assets>
+		<source>https://github.com/fontsvr/repo-fontsVR/</source>
+    </extension>
+</addon><addon id="repository.rebase" name="Repo Rebase" version="1.0" provider-name="Rik Ream">
+    <requires>
+        <import addon="xbmc.addon" version="12.0.0" />
+    </requires>
+	<extension point="xbmc.addon.repository" name="Repo Rebase">
+        <dir>                         
+            <info compressed="false">https://raw.githubusercontent.com/fontsvr/nexus/master/repo/zips/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/fontsvr/nexus/master/repo/zips/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/fontsvr/nexus/master/repo/zips/</datadir>
+        </dir>
+    </extension>
+	
+    <extension point="xbmc.addon.metadata">
+        <summary>REPO REBASE</summary>
+        <description>first repo</description>
+        <disclaimer />
+        <platform>all</platform>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
+    </extension>
+	</addon><addon id="repository.rfontsv" name="[B]Repo[/B] [COLOR azure][B]RFONTSV[/B] [COLOR limegreen][B]Matrix[/B][/COLOR]|[COLOR violet][B]Nexus[/B][/COLOR]" version="1.0" provider-name="Rik Team">
+    <extension point="xbmc.addon.repository" name="RFONTSV Repository">
+        <dir>
+			<info compressed="false">https://raw.githubusercontent.com/rfontsv/rfontsv.github.io/main/zips/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/rfontsv/rfontsv.github.io/main/zips/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/rfontsv/rfontsv.github.io/main/zips/</datadir>
+		</dir>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary>Repo [COLOR azure]RFONTSV[/COLOR] [COLOR limegreen]Matrix[/COLOR][COLOR azure]|[/COLOR][COLOR violet]Nexus[/COLOR]</summary>
+        <description>Repositorio de addons [COLOR azure]RFONTSV[/COLOR]
+[COLOR gold]Developers:[/COLOR] Rik Team</description>
+        <disclaimer>Este repositorio contiene addons para Kodi 19.x MATRIX y 20.x NEXUS.</disclaimer>
+        <platform>all</platform>
+        <assets>
+            <icon>icon.png</icon>
+			<fanart>fanart.jpg</fanart>
+        </assets>
+		<source>https://github.com/rfontsv/rfontsv.github.io/</source>
+    </extension>
+</addon><addon id="script.module.tmdbhelper" name="TMDbHelper Common" provider-name="jurialmunkey" version="0.0.7">
+  <extension point="xbmc.python.module" library="resources/modules" />
+  <extension point="xbmc.addon.metadata">
+    <description lang="en">Common code required by TMDbHelper and other related jurialmunkey add-ons</description>
+    <reuselanguageinvoker>false</reuselanguageinvoker>
+    <license />
+    <language />
+    <website />
+    <assets>
+      <icon>icon.png</icon>
+      <fanart>fanart.jpg</fanart>
+    </assets>
+  </extension>
+</addon></addons>
