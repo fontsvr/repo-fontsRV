@@ -14,16 +14,7 @@
             <path pathversion="1">special://home/userdata/addon_data/plugin.video.alfa/downloads/</path>
             <allowsharing>true</allowsharing>
         </source>
-        <source>
-            <name>videolibrary</name>
-            <path pathversion="1">special://profile/addon_data/plugin.video.alfa/videolibrary/</path>
-            <allowsharing>true</allowsharing>
-        </source>
-        <source>
-            <name>downloads</name>
-            <path pathversion="1">special://home/userdata/addon_data/plugin.video.alfa/downloads/</path>
-            <allowsharing>true</allowsharing>
-        </source>
+
     </video>
     <music>
         <default pathversion="1"></default>
@@ -39,8 +30,8 @@
             <allowsharing>true</allowsharing>
         </source>
         <source>
-            <name>rfontsv</name>
-            <path pathversion="1">https://rfontsv.github.io/</path>
+            <name>fontsvr21</name>
+            <path pathversion="1">https://fontsvr.github.io/omega/</path>
             <allowsharing>true</allowsharing>
         </source>
         <source>
