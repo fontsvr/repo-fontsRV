@@ -4,17 +4,6 @@
     </programs>
     <video>
         <default pathversion="1"></default>
-        <source>
-            <name>videolibrary</name>
-            <path pathversion="1">special://profile/addon_data/plugin.video.alfa/videolibrary/</path>
-            <allowsharing>true</allowsharing>
-        </source>
-        <source>
-            <name>downloads</name>
-            <path pathversion="1">special://home/userdata/addon_data/plugin.video.alfa/downloads/</path>
-            <allowsharing>true</allowsharing>
-        </source>
-
     </video>
     <music>
         <default pathversion="1"></default>
