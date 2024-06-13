@@ -1,6 +1,6 @@
-name="20.2_VR20_Aeon2"
+name="21.0_VR21_Aeon_fontsvr"
 version="1.0"
-url="https://github.com/fontsvr/repo-fontsVR/raw/rel/20.2_VR20_Aeon2.zip"
+url="https://github.com/fontsvr/repo-fontsVR/raw/rel/21.0_VR21_Aeon_fontsvr.zip"
 minor="http://"
 gui="http://"
 kodi="21"
