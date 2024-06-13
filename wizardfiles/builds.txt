@@ -1,3 +1,17 @@
+name="20.2_VR20_Aeon2"
+version="1.0"
+url="https://github.com/fontsvr/repo-fontsVR/raw/rel/20.2_VR20_Aeon2.zip"
+minor="http://"
+gui="http://"
+kodi="21"
+theme="https://raw.githubusercontent.com/fontsvr/repo-fontsVR/master/wizardfiles/VR/Themes-VR20_Aeon2.txt"
+icon="https://fontsvr.github.io/wizard/jpg/VR20Aeon_frontal.jpg"
+fanart="http://"
+preview="http://"
+adult="No"
+info="http://"
+description="[COLOR azure][B]VR21 fontsVR[/COLOR] para [COLOR teal][B]KODI 21.x[/B][/COLOR] 
+                  [COLOR gold][B]Developers:[/B][/COLOR] [B]Rik Team[/B]"
 
 name="20.2_VR20_Aeon"
 version="1.0"
