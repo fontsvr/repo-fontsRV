@@ -29,6 +29,11 @@
             <allowsharing>true</allowsharing>
         </source>
         <source>
+            <name>Kodinerds</name>
+            <path pathversion="1">https://repo.kodinerds.net</path>
+            <allowsharing>true</allowsharing>
+        </source>
+        <source>
             <name>KODIvertiDO</name>
             <path pathversion="1">https://fuente.kodivertidoteam.es/</path>
             <allowsharing>true</allowsharing>
