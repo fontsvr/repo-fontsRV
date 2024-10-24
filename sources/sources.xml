@@ -49,8 +49,8 @@
             <allowsharing>true</allowsharing>
         </source>
 		<source>
-            <name>Elementum</name>
-            <path pathversion="1">https://elementum.surge.sh/</path>
+            <name>Elementum.surge.sh</name>
+            <path pathversion="1">https://github.com/elgatito/plugin.video.elementum/releases/</path>
             <allowsharing>true</allowsharing>
         </source>
         <source>
