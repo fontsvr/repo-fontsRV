@@ -48,11 +48,6 @@
             <path pathversion="1">https://fontsvr.github.io/omega/</path>
             <allowsharing>true</allowsharing>
         </source>
-		<source>
-            <name>Elementum.org</name>
-            <path pathversion="1">https://elementumorg.github.io/getting-started/platforms-page/</path>
-            <allowsharing>true</allowsharing>
-        </source>
         <source>
             <name>Hiraya</name>
             <path pathversion="1">https://hirayasoftware.github.io/</path>
