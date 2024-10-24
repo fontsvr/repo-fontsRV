@@ -19,6 +19,11 @@
             <allowsharing>true</allowsharing>
         </source>
         <source>
+            <name>Alfa</name>
+            <path pathversion="1">https://alfa-addon.com/alfa/</path>
+            <allowsharing>true</allowsharing>
+        </source>
+        <source>
             <name>Balandro</name>
             <path pathversion="1">https://repobal.github.io/base/</path>
             <allowsharing>true</allowsharing>
@@ -43,7 +48,11 @@
             <path pathversion="1">https://fontsvr.github.io/omega/</path>
             <allowsharing>true</allowsharing>
         </source>
-		
+		<source>
+            <name>Elementum</name>
+            <path pathversion="1">https://elementum.surge.sh/</path>
+            <allowsharing>true</allowsharing>
+        </source>
         <source>
             <name>Hiraya</name>
             <path pathversion="1">https://hirayasoftware.github.io/</path>
@@ -67,6 +76,11 @@
         <source>
             <name>Kodispaintv</name>
             <path pathversion="1">http://konectas.es/repo/</path>
+            <allowsharing>true</allowsharing>
+        </source>
+        <source>
+            <name>Kodispaintv_</name>
+            <path pathversion="1">https://teamsix-fuente.github.io/</path>
             <allowsharing>true</allowsharing>
         </source>
         <source>
